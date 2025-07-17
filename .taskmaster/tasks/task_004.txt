@@ -1,0 +1,11 @@
+# Task ID: 4
+# Title: Implement Tag Assignment for Bounding Boxes
+# Status: done
+# Dependencies: 3
+# Priority: high
+# Description: After a bounding box is drawn, provide a mechanism for the user to assign a predefined tag (Button, Input, Radio, Dropdown) to it.
+# Details:
+A dropdown menu or a modal could appear after drawing a box. The list of drawn boxes and their tags should be displayed on the side for review.
+
+# Test Strategy:
+Draw a box, assign a tag from the list, and verify it's associated correctly. Test editing or deleting a box/tag. Ensure the state reflects all changes.

@@ -1,0 +1,11 @@
+# Task ID: 8
+# Title: Develop Evaluation Script: Data Parsing and Box Matching
+# Status: pending
+# Dependencies: 5, 7
+# Priority: high
+# Description: Create the initial structure of the command-line evaluation script. It should parse a directory of ground truth JSON files and a directory of prediction JSON files and match predicted boxes to ground truth boxes.
+# Details:
+Matching will be based on Intersection over Union (IoU) with a certain threshold (e.g., 0.5). A predicted box is a match if its IoU with a ground truth box is above the threshold and the labels are the same.
+
+# Test Strategy:
+Create sample ground truth and prediction JSON files. Run the script and manually verify that it correctly identifies true positives, false positives, and false negatives.

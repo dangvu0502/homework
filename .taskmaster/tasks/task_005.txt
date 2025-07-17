@@ -1,0 +1,11 @@
+# Task ID: 5
+# Title: Implement 'Save' Functionality for Ground Truth
+# Status: done
+# Dependencies: 4
+# Priority: medium
+# Description: Create a 'Save' button that exports the list of bounding boxes and their assigned tags into a structured JSON file, which the user can download.
+# Details:
+The JSON format should be well-defined, containing the image name, and a list of objects, each with coordinates (e.g., x, y, width, height) and a label.
+
+# Test Strategy:
+Label an image with several boxes, click 'Save', and inspect the downloaded JSON file to ensure it matches the expected format and contains the correct data.

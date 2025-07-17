@@ -1,0 +1,11 @@
+# Task ID: 7
+# Title: Integrate 'Predict' Button in UI
+# Status: pending
+# Dependencies: 2, 6
+# Priority: medium
+# Description: Add a 'Predict' button to the UI. On click, it will call the backend service with the uploaded image and display the LLM-predicted boxes and tags on the canvas.
+# Details:
+Predicted boxes should be displayed in a different color to distinguish them from user-drawn ground truth boxes. The results should be savable in the same JSON format.
+
+# Test Strategy:
+Upload an image, click 'Predict', and verify that the predicted boxes are fetched from the backend and rendered correctly on the canvas. Check the network tab to ensure the API call is successful.

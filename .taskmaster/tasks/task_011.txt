@@ -1,0 +1,70 @@
+# Task ID: 11
+# Title: Add Front-End Test Suite
+# Status: pending
+# Dependencies: 1, 2, 3, 4, 5
+# Priority: high
+# Description: Create unit and integration tests for all existing front-end components built so far: FileUpload, AnnotationCanvas, TagSelector, AnnotationsList, and ExportControls. Use Vitest and React Testing Library.
+# Details:
+1. Configure Vitest + React Testing Library in the Vite project.
+2. Write unit tests for utility functions.
+3. Write component tests covering key behaviours:
+   • FileUpload: file select, preview, max size validation.
+   • AnnotationCanvas: draws image, allows rectangle creation, renders existing boxes.
+   • TagSelector: switches selected tag on click.
+   • AnnotationsList: lists, deletes, and edits annotations.
+   • ExportControls: generates JSON, downloads blob, copies clipboard.
+4. Integrate tests into CI script (npm test) and ensure pass.
+5. Update README with testing instructions.
+
+# Test Strategy:
+
+
+# Subtasks:
+## 1. Install and configure Vitest & React Testing Library [pending]
+### Dependencies: None
+### Description: Add dev dependencies vitest, @testing-library/react, @testing-library/jest-dom, jsdom. Configure vitest in vite.config and create setupTests.ts with jest-dom matchers.
+### Details:
+
+
+## 2. Add jest-dom matchers and npm test script [pending]
+### Dependencies: None
+### Description: Update vite.config to include test environment jsdom and add "test" script in package.json using vitest. Ensure setupTests is loaded.
+### Details:
+
+
+## 3. Write unit tests for utility functions [pending]
+### Dependencies: None
+### Description: Create tests for functions in frontend/src/lib/utils.ts (e.g., cn). Validate correct class merging and conditional outputs.
+### Details:
+
+
+## 4. Component tests for FileUpload [pending]
+### Dependencies: None
+### Description: Ensure selecting a file updates preview, calls onFileSelect, validates max size, and clear preview resets state.
+### Details:
+
+
+## 5. Component tests for AnnotationCanvas [pending]
+### Dependencies: None
+### Description: Test drawing logic: renders image, draws rectangle on mouse events, shows existing boxes and highlights.
+### Details:
+
+
+## 6. Component tests for TagSelector & AnnotationsList [pending]
+### Dependencies: None
+### Description: Verify tag selection updates state; list displays annotations, delete button works, edit updates values and highlight triggers.
+### Details:
+
+
+## 7. Component tests for ExportControls [pending]
+### Dependencies: None
+### Description: Test JSON export generation, download link creation, clipboard copy, and tag summary counts.
+### Details:
+
+
+## 8. Integrate tests into CI and update README [pending]
+### Dependencies: None
+### Description: Add GitHub Actions workflow to run `npm test` on push/PR and update README with instructions for running tests locally and CI badge.
+### Details:
+
+

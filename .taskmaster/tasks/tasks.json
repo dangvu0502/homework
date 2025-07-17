@@ -9,7 +9,7 @@
         "testStrategy": "Verify that the development server runs and a basic 'Hello World' page is displayed in the browser. The repository should be created on a version control system.",
         "priority": "high",
         "dependencies": [],
-        "status": "pending",
+        "status": "done",
         "subtasks": []
       },
       {
@@ -22,7 +22,7 @@
         "dependencies": [
           1
         ],
-        "status": "pending",
+        "status": "done",
         "subtasks": []
       },
       {
@@ -35,7 +35,7 @@
         "dependencies": [
           2
         ],
-        "status": "pending",
+        "status": "done",
         "subtasks": []
       },
       {
@@ -48,7 +48,7 @@
         "dependencies": [
           3
         ],
-        "status": "pending",
+        "status": "done",
         "subtasks": []
       },
       {
@@ -61,7 +61,7 @@
         "dependencies": [
           4
         ],
-        "status": "pending",
+        "status": "done",
         "subtasks": []
       },
       {
@@ -132,11 +132,101 @@
         ],
         "status": "pending",
         "subtasks": []
+      },
+      {
+        "id": 11,
+        "title": "Add Front-End Test Suite",
+        "description": "Create unit and integration tests for all existing front-end components built so far: FileUpload, AnnotationCanvas, TagSelector, AnnotationsList, and ExportControls. Use Vitest and React Testing Library.",
+        "details": "1. Configure Vitest + React Testing Library in the Vite project.\n2. Write unit tests for utility functions.\n3. Write component tests covering key behaviours:\n   • FileUpload: file select, preview, max size validation.\n   • AnnotationCanvas: draws image, allows rectangle creation, renders existing boxes.\n   • TagSelector: switches selected tag on click.\n   • AnnotationsList: lists, deletes, and edits annotations.\n   • ExportControls: generates JSON, downloads blob, copies clipboard.\n4. Integrate tests into CI script (npm test) and ensure pass.\n5. Update README with testing instructions.",
+        "testStrategy": "",
+        "status": "in-progress",
+        "dependencies": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Install and configure Vitest & React Testing Library",
+            "description": "Add dev dependencies vitest, @testing-library/react, @testing-library/jest-dom, jsdom. Configure vitest in vite.config and create setupTests.ts with jest-dom matchers.",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 11
+          },
+          {
+            "id": 2,
+            "title": "Add jest-dom matchers and npm test script",
+            "description": "Update vite.config to include test environment jsdom and add \"test\" script in package.json using vitest. Ensure setupTests is loaded.",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 11
+          },
+          {
+            "id": 3,
+            "title": "Write unit tests for utility functions",
+            "description": "Create tests for functions in frontend/src/lib/utils.ts (e.g., cn). Validate correct class merging and conditional outputs.",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 11
+          },
+          {
+            "id": 4,
+            "title": "Component tests for FileUpload",
+            "description": "Ensure selecting a file updates preview, calls onFileSelect, validates max size, and clear preview resets state.",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 11
+          },
+          {
+            "id": 5,
+            "title": "Component tests for AnnotationCanvas",
+            "description": "Test drawing logic: renders image, draws rectangle on mouse events, shows existing boxes and highlights.",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 11
+          },
+          {
+            "id": 6,
+            "title": "Component tests for TagSelector & AnnotationsList",
+            "description": "Verify tag selection updates state; list displays annotations, delete button works, edit updates values and highlight triggers.",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 11
+          },
+          {
+            "id": 7,
+            "title": "Component tests for ExportControls",
+            "description": "Test JSON export generation, download link creation, clipboard copy, and tag summary counts.",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 11
+          },
+          {
+            "id": 8,
+            "title": "Integrate tests into CI and update README",
+            "description": "Add GitHub Actions workflow to run `npm test` on push/PR and update README with instructions for running tests locally and CI badge.",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 11
+          }
+        ]
       }
     ],
     "metadata": {
       "created": "2025-07-17T02:10:01.354Z",
-      "updated": "2025-07-17T02:10:01.354Z",
+      "updated": "2025-07-17T14:37:16.734Z",
       "description": "Tasks for master context"
     }
   }

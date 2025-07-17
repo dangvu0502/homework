@@ -1,0 +1,11 @@
+# Task ID: 3
+# Title: Implement Bounding Box Drawing Functionality
+# Status: done
+# Dependencies: 2
+# Priority: high
+# Description: Enable users to draw rectangular bounding boxes over the displayed image using mouse interactions (click-and-drag).
+# Details:
+Capture mouse down, mouse move, and mouse up events on the canvas to draw a rectangle. Store the coordinates of each drawn box in the application's state.
+
+# Test Strategy:
+Manually draw several boxes on an uploaded image. Verify that the boxes are drawn accurately and their coordinates are stored correctly.

@@ -1,0 +1,11 @@
+# Task ID: 9
+# Title: Implement Performance Metrics Calculation in Script
+# Status: pending
+# Dependencies: 8
+# Priority: high
+# Description: Extend the evaluation script to calculate precision, recall, and F1-score for each of the four specified tags (Button, Input, Radio, Dropdown) based on the matching results.
+# Details:
+Precision = TP / (TP + FP). Recall = TP / (TP + FN). F1-score = 2 * (Precision * Recall) / (Precision + Recall). Handle division-by-zero cases.
+
+# Test Strategy:
+Using sample files with known counts, manually calculate the expected metrics and compare them against the script's output to ensure correctness.

@@ -1,0 +1,11 @@
+# Task ID: 10
+# Title: Finalize CLI Tool and Project Documentation
+# Status: pending
+# Dependencies: 5, 7, 9
+# Priority: medium
+# Description: Refine the evaluation script into a user-friendly command-line tool that accepts folder paths as arguments. Create a comprehensive README.md file for the entire project.
+# Details:
+The README should explain the project's purpose, how to set up the environment, how to run the web app, and how to use the evaluation tool with example commands.
+
+# Test Strategy:
+Run the CLI tool from the command line with test folders. Check that the output is well-formatted. Review the README for clarity, completeness, and accuracy.

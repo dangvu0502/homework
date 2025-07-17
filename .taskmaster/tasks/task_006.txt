@@ -1,0 +1,11 @@
+# Task ID: 6
+# Title: Create Backend Service to Call LLM API
+# Status: pending
+# Dependencies: 1
+# Priority: medium
+# Description: Develop a simple backend API endpoint that accepts an image, forwards it to a multimodal LLM for UI element detection, and returns the predicted bounding boxes and tags.
+# Details:
+This service acts as a proxy to securely handle the LLM API key. It will need to parse the LLM's response into the same JSON format used for ground truth. The LLM should be prompted to only identify 'Button', 'Input', 'Radio', and 'Dropdown'.
+
+# Test Strategy:
+Test the endpoint directly using a tool like Postman or cURL. Send an image and verify that it returns a JSON response with predicted annotations in the correct format.
