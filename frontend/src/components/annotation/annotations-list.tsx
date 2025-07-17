@@ -163,11 +163,6 @@ export const AnnotationsList = ({
                         <SelectItem value="radio">Radio</SelectItem>
                         <SelectItem value="dropdown">Dropdown</SelectItem>
                         <SelectItem value="text">Text</SelectItem>
-                        <SelectItem value="image">Image</SelectItem>
-                        <SelectItem value="link">Link</SelectItem>
-                        <SelectItem value="checkbox">Checkbox</SelectItem>
-                        <SelectItem value="slider">Slider</SelectItem>
-                        <SelectItem value="toggle">Toggle</SelectItem>
                       </SelectContent>
                     </Select>
                   ) : (
