@@ -1,0 +1,143 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Setup Project and Web Application Boilerplate",
+        "description": "Initialize the project repository. Set up a basic frontend web application structure using a modern framework (e.g., React, Vue) and a backend stub for future API integration.",
+        "details": "Includes installing dependencies, configuring build tools (like Vite or Webpack), and creating the initial file structure for components, services, and styles.",
+        "testStrategy": "Verify that the development server runs and a basic 'Hello World' page is displayed in the browser. The repository should be created on a version control system.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Implement Image Upload and Display Component",
+        "description": "Create a UI component that allows users to select a local image file. The selected image should be rendered onto a canvas element in the application.",
+        "details": "Handle different image file types (JPG, PNG). Ensure the image is displayed correctly within the canvas area, potentially with scaling.",
+        "testStrategy": "Manually test by uploading various images. Verify the image appears correctly on the canvas. Check for error handling with invalid file types.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Implement Bounding Box Drawing Functionality",
+        "description": "Enable users to draw rectangular bounding boxes over the displayed image using mouse interactions (click-and-drag).",
+        "details": "Capture mouse down, mouse move, and mouse up events on the canvas to draw a rectangle. Store the coordinates of each drawn box in the application's state.",
+        "testStrategy": "Manually draw several boxes on an uploaded image. Verify that the boxes are drawn accurately and their coordinates are stored correctly.",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Implement Tag Assignment for Bounding Boxes",
+        "description": "After a bounding box is drawn, provide a mechanism for the user to assign a predefined tag (Button, Input, Radio, Dropdown) to it.",
+        "details": "A dropdown menu or a modal could appear after drawing a box. The list of drawn boxes and their tags should be displayed on the side for review.",
+        "testStrategy": "Draw a box, assign a tag from the list, and verify it's associated correctly. Test editing or deleting a box/tag. Ensure the state reflects all changes.",
+        "priority": "high",
+        "dependencies": [
+          3
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Implement 'Save' Functionality for Ground Truth",
+        "description": "Create a 'Save' button that exports the list of bounding boxes and their assigned tags into a structured JSON file, which the user can download.",
+        "details": "The JSON format should be well-defined, containing the image name, and a list of objects, each with coordinates (e.g., x, y, width, height) and a label.",
+        "testStrategy": "Label an image with several boxes, click 'Save', and inspect the downloaded JSON file to ensure it matches the expected format and contains the correct data.",
+        "priority": "medium",
+        "dependencies": [
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Create Backend Service to Call LLM API",
+        "description": "Develop a simple backend API endpoint that accepts an image, forwards it to a multimodal LLM for UI element detection, and returns the predicted bounding boxes and tags.",
+        "details": "This service acts as a proxy to securely handle the LLM API key. It will need to parse the LLM's response into the same JSON format used for ground truth. The LLM should be prompted to only identify 'Button', 'Input', 'Radio', and 'Dropdown'.",
+        "testStrategy": "Test the endpoint directly using a tool like Postman or cURL. Send an image and verify that it returns a JSON response with predicted annotations in the correct format.",
+        "priority": "medium",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "Integrate 'Predict' Button in UI",
+        "description": "Add a 'Predict' button to the UI. On click, it will call the backend service with the uploaded image and display the LLM-predicted boxes and tags on the canvas.",
+        "details": "Predicted boxes should be displayed in a different color to distinguish them from user-drawn ground truth boxes. The results should be savable in the same JSON format.",
+        "testStrategy": "Upload an image, click 'Predict', and verify that the predicted boxes are fetched from the backend and rendered correctly on the canvas. Check the network tab to ensure the API call is successful.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          6
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "Develop Evaluation Script: Data Parsing and Box Matching",
+        "description": "Create the initial structure of the command-line evaluation script. It should parse a directory of ground truth JSON files and a directory of prediction JSON files and match predicted boxes to ground truth boxes.",
+        "details": "Matching will be based on Intersection over Union (IoU) with a certain threshold (e.g., 0.5). A predicted box is a match if its IoU with a ground truth box is above the threshold and the labels are the same.",
+        "testStrategy": "Create sample ground truth and prediction JSON files. Run the script and manually verify that it correctly identifies true positives, false positives, and false negatives.",
+        "priority": "high",
+        "dependencies": [
+          5,
+          7
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Implement Performance Metrics Calculation in Script",
+        "description": "Extend the evaluation script to calculate precision, recall, and F1-score for each of the four specified tags (Button, Input, Radio, Dropdown) based on the matching results.",
+        "details": "Precision = TP / (TP + FP). Recall = TP / (TP + FN). F1-score = 2 * (Precision * Recall) / (Precision + Recall). Handle division-by-zero cases.",
+        "testStrategy": "Using sample files with known counts, manually calculate the expected metrics and compare them against the script's output to ensure correctness.",
+        "priority": "high",
+        "dependencies": [
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 10,
+        "title": "Finalize CLI Tool and Project Documentation",
+        "description": "Refine the evaluation script into a user-friendly command-line tool that accepts folder paths as arguments. Create a comprehensive README.md file for the entire project.",
+        "details": "The README should explain the project's purpose, how to set up the environment, how to run the web app, and how to use the evaluation tool with example commands.",
+        "testStrategy": "Run the CLI tool from the command line with test folders. Check that the output is well-formatted. Review the README for clarity, completeness, and accuracy.",
+        "priority": "medium",
+        "dependencies": [
+          5,
+          7,
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-07-17T02:10:01.354Z",
+      "updated": "2025-07-17T02:10:01.354Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

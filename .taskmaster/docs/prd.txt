@@ -1,0 +1,45 @@
+Homework
+
+I. Objective
+Create a tool that helps users label UI components on design screenshots, and evaluate the performance of an LLM model that automatically generates these tags.
+
+II. Task breakdown
+1. Ground Truth Labeling Tool
+Build a simple web-based application with a user interface that allows users to:
+- Upload a design image or UI screenshot
+- Draw rectangular bounding boxes on the image using the mouse
+- Assign a tag to each box (e.g., button, input, radio, dropdown)
+- Save the labeled result in a structured format like JSON
+🎯 Goal: Build a dataset of ground truth labels to evaluate and train tagging models.
+
+2. “Predict” Button – Call LLM for Auto-Tagging
+Extend your UI with a “Predict” button.
+When clicked:
+- Call an LLM to automatically detect and tag UI elements in the image
+- Save the LLM-predicted results in the same format as the ground truth
+
+Open question for automation design:
+If you had to process hundreds of images this way, how would you design a system to automate the prediction step?
+
+Your LLM should only focus on 4 tags: Button, Input, Radio, and Dropdown.
+
+3. Evaluation Tool for Tagging Accuracy
+Write a command-line tool or script to evaluate the performance of the LLM model.
+Input:
+- A folder of 100 ground truth annotation files (JSON)
+- A folder of 100 LLM prediction files (JSON)
+Output:
+For each tag (button, input, radio, dropdown), calculate:
+- Total number of ground truth boxes
+- Number of correctly predicted boxes
+- Precision
+- Recall
+- F1-score
+🎯 Goal: Automate performance reporting of the LLM predictions against human-labeled data.
+
+III. Deliverables
+- A working web-based UI that completes step 1 and 2
+- A command-line evaluation tool for step 3
+- Clean, well-documented source code with a README.md explaining how to run the project
+
+Time for this homework is 1 week. If you have any questions, please email us to clarify. 
