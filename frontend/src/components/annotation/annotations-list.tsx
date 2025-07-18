@@ -1,12 +1,18 @@
-import type { BoundingBox, AnnotationTag } from '@/types/annotation';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Trash2, Edit3, Eye, EyeOff } from 'lucide-react';
-import { useState } from 'react';
-import { toast } from 'sonner';
-import { tagColors } from '@/components/annotation/constants';
+import type { BoundingBox, AnnotationTag } from "@/types/annotation";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Trash2, Edit3 } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
+import { tagColors } from "@/components/annotation/constants";
 
 interface AnnotationsListProps {
   boundingBoxes: BoundingBox[];
@@ -23,27 +29,14 @@ export const AnnotationsList = ({
   onBoundingBoxUpdate,
   highlightedId,
   onHighlight,
-  className
+  className,
 }: AnnotationsListProps) => {
   const [editingId, setEditingId] = useState<string | null>(null);
-  const [hiddenAnnotations, setHiddenAnnotations] = useState<Set<string>>(new Set());
 
   const handleTagChange = (id: string, newTag: AnnotationTag) => {
     onBoundingBoxUpdate(id, { tag: newTag });
     setEditingId(null);
     toast.success(`Annotation updated to ${newTag}`);
-  };
-
-  const toggleVisibility = (id: string) => {
-    const newHidden = new Set(hiddenAnnotations);
-    if (newHidden.has(id)) {
-      newHidden.delete(id);
-      toast.success('Annotation shown');
-    } else {
-      newHidden.add(id);
-      toast.success('Annotation hidden');
-    }
-    setHiddenAnnotations(newHidden);
   };
 
   const handleDelete = (id: string) => {
@@ -74,54 +67,44 @@ export const AnnotationsList = ({
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="font-semibold">Annotations</h3>
-          <Badge variant="secondary">
-            {boundingBoxes.length} total
-          </Badge>
+          <Badge variant="secondary">{boundingBoxes.length} total</Badge>
         </div>
 
         <div className="space-y-2 max-h-80 overflow-y-auto">
           {boundingBoxes.map((box, index) => {
             const isEditing = editingId === box.id;
             const isHighlighted = highlightedId === box.id;
-            const isHidden = hiddenAnnotations.has(box.id);
 
             return (
               <div
                 key={box.id}
                 className={`p-3 rounded-lg border transition-all cursor-pointer ${
-                  isHighlighted 
-                    ? 'border-primary bg-primary/5 shadow-sm' 
-                    : 'border-border bg-card hover:bg-accent/50'
-                } ${isHidden ? 'opacity-50' : ''}`}
+                  isHighlighted
+                    ? "border-primary bg-primary/5 shadow-sm"
+                    : "border-border bg-card hover:bg-accent/50"
+                }`}
                 onMouseEnter={() => onHighlight(box.id)}
                 onMouseLeave={() => onHighlight(undefined)}
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <div 
-                      className="w-3 h-3 rounded-full flex-shrink-0" 
+                    <div
+                      className="w-3 h-3 rounded-full flex-shrink-0"
                       style={{ backgroundColor: tagColors[box.tag] }}
                     />
                     <span className="text-sm font-medium">#{index + 1}</span>
                   </div>
-                  
+
                   <div className="flex items-center gap-1">
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={(e) => {
                         e.stopPropagation();
-                        toggleVisibility(box.id);
                       }}
                       className="h-6 w-6 p-0"
-                    >
-                      {isHidden ? (
-                        <EyeOff className="h-3 w-3 text-muted-foreground" />
-                      ) : (
-                        <Eye className="h-3 w-3 text-muted-foreground" />
-                      )}
-                    </Button>
-                    
+                    ></Button>
+
                     <Button
                       variant="ghost"
                       size="sm"
@@ -133,7 +116,7 @@ export const AnnotationsList = ({
                     >
                       <Edit3 className="h-3 w-3 text-muted-foreground" />
                     </Button>
-                    
+
                     <Button
                       variant="ghost"
                       size="sm"
@@ -150,9 +133,11 @@ export const AnnotationsList = ({
 
                 <div className="space-y-2">
                   {isEditing ? (
-                    <Select 
-                      value={box.tag} 
-                      onValueChange={(value) => handleTagChange(box.id, value as AnnotationTag)}
+                    <Select
+                      value={box.tag}
+                      onValueChange={(value) =>
+                        handleTagChange(box.id, value as AnnotationTag)
+                      }
                     >
                       <SelectTrigger className="h-8">
                         <SelectValue />
@@ -170,11 +155,11 @@ export const AnnotationsList = ({
                       {box.tag}
                     </Badge>
                   )}
-                  
+
                   <div className="text-xs text-muted-foreground">
                     Size: {Math.round(box.width)} × {Math.round(box.height)}
                   </div>
-                  
+
                   <div className="text-xs text-muted-foreground">
                     Position: ({Math.round(box.x)}, {Math.round(box.y)})
                   </div>
