@@ -19,4 +19,12 @@ export default defineConfig(() => ({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './setupTests.ts',
+    coverage: {
+      reporter: ['text', 'html']
+    }
+  },
 }))
