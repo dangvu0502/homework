@@ -1,20 +1,23 @@
-import type { BoundingBox, AnnotationTag } from '@/types/annotation';
-import { useState } from 'react';
-import { FileUpload } from '@/components/ui/file-upload';
-import { TagSelector } from '@/components/annotation/tag-selector';
 import { AnnotationCanvas } from '@/components/annotation/annotation-canvas';
 import { AnnotationsList } from '@/components/annotation/annotations-list';
 import { ExportControls } from '@/components/annotation/export-controls';
-import { Card } from '@/components/ui/card';
+import { ModelSelector } from '@/components/annotation/model-selector';
+import { PredictButton } from '@/components/annotation/predict-button';
+import { TagSelector } from '@/components/annotation/tag-selector';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Target, Sparkles, RotateCcw } from 'lucide-react';
+import { Card } from '@/components/ui/card';
+import { FileUpload } from '@/components/ui/file-upload';
+import type { AnnotationTag, BoundingBox } from '@/types/annotation';
+import { RotateCcw, Sparkles, Target } from 'lucide-react';
+import { useState } from 'react';
 import { toast } from 'sonner';
 
 const Index = () => {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imageUrl, setImageUrl] = useState<string>('');
   const [selectedTag, setSelectedTag] = useState<AnnotationTag>('button');
+  const [selectedModel, setSelectedModel] = useState<string>('');
   const [boundingBoxes, setBoundingBoxes] = useState<BoundingBox[]>([]);
   const [projectName, setProjectName] = useState<string>('UI Annotation Project');
   const [highlightedAnnotationId, setHighlightedAnnotationId] = useState<string | undefined>(undefined);
@@ -44,6 +47,11 @@ const Index = () => {
     setBoundingBoxes(prev => 
       prev.map(box => box.id === id ? { ...box, ...updates } : box)
     );
+  };
+
+  const handlePredictionsReceived = (predictions: BoundingBox[]) => {
+    // Add predictions to existing annotations
+    setBoundingBoxes(prev => [...prev, ...predictions]);
   };
 
   const resetProject = () => {
@@ -132,8 +140,8 @@ const Index = () => {
                   <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
                     <Sparkles className="h-4 w-4 text-primary" />
                   </div>
-                  <h4 className="font-medium">JSON Export</h4>
-                  <p className="text-muted-foreground">Export structured data for ML training pipelines</p>
+                  <h4 className="font-medium">AI-Powered Detection</h4>
+                  <p className="text-muted-foreground">Automatically detect UI elements using machine learning</p>
                 </div>
               </div>
             </Card>
@@ -146,6 +154,17 @@ const Index = () => {
               <TagSelector 
                 selectedTag={selectedTag}
                 onTagSelect={setSelectedTag}
+              />
+              
+              <ModelSelector
+                selectedModel={selectedModel}
+                onModelSelect={setSelectedModel}
+              />
+              
+              <PredictButton
+                imageFile={imageFile}
+                selectedModel={selectedModel}
+                onPredictionsReceived={handlePredictionsReceived}
               />
               
               <AnnotationsList

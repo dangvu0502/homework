@@ -5,7 +5,7 @@ export interface BoundingBox {
   width: number;
   height: number;
   tag: AnnotationTag;
-  confidence?: number;
+  source?: 'user' | 'prediction';
 }
 
 export type AnnotationTag = 
@@ -13,7 +13,6 @@ export type AnnotationTag =
   | 'input'
   | 'radio'
   | 'dropdown'
-  | 'text';
 
 export interface AnnotationProject {
   id: string;

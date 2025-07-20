@@ -5,5 +5,4 @@ export const tagColors: Record<AnnotationTag, string> = {
   input: '#10b981',
   radio: '#f59e0b',
   dropdown: '#8b5cf6',
-  text: '#06b6d4',
 } as const; 
