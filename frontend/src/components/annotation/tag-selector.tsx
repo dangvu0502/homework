@@ -44,12 +44,6 @@ const tagConfig: Record<AnnotationTag, {
     icon: ChevronDown, 
     color: 'bg-annotation-dropdown',
     description: 'Select menus and dropdowns'
-  },
-  text: { 
-    label: 'Text', 
-    icon: Type, 
-    color: 'bg-annotation-text',
-    description: 'Static text and labels'
   }
 };
 
