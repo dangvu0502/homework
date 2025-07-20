@@ -25,31 +25,22 @@ export interface AnnotationProject {
 }
 
 export interface AnnotationExport {
-  project: {
-    name: string;
-    imageName: string;
-    imageUrl: string;
+  imageName: string;
+  imageDimensions: {
+    width: number;
+    height: number;
   };
   annotations: Array<{
     id: string;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
     tag: AnnotationTag;
-    boundingBox: {
-      x: number;
-      y: number;
-      width: number;
-      height: number;
-    };
-    relativeCoordinates: {
-      x: number;
-      y: number;
-      width: number;
-      height: number;
-    };
+    source: 'user' | 'prediction';
   }>;
   metadata: {
     totalAnnotations: number;
-    tagCounts: Record<AnnotationTag, number>;
-    createdAt: string;
     exportedAt: string;
   };
 }

@@ -54,7 +54,7 @@ async def predict_ui_elements(file: UploadFile = File(...), model_name: str = Fo
         image_data = await file.read()
         
         # Call LLM for prediction
-        annotations = await detect_ui_elements(
+        detection_result = await detect_ui_elements(
             image_data=image_data,
             image_type=file.content_type,
             model_name=model_name
@@ -63,7 +63,8 @@ async def predict_ui_elements(file: UploadFile = File(...), model_name: str = Fo
         processing_time = time.time() - start_time
 
         return PredictionResponse(
-            annotations=annotations,
+            annotations=detection_result.annotations,
+            image_dimensions=detection_result.dimensions,
             processing_time=processing_time
         )
 

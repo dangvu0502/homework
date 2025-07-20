@@ -12,6 +12,7 @@ interface AnnotationCanvasProps {
   onBoundingBoxAdd: (box: Omit<BoundingBox, "id">) => void;
   onBoundingBoxDelete: (id: string) => void;
   highlightedId?: string | null;
+  onImageLoaded?: (dimensions: { width: number; height: number }) => void;
   className?: string;
 }
 
@@ -29,6 +30,7 @@ export const AnnotationCanvas = ({
   boundingBoxes,
   onBoundingBoxAdd,
   highlightedId,
+  onImageLoaded,
   className,
 }: AnnotationCanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -206,9 +208,13 @@ export const AnnotationCanvas = ({
         canvas.height = img.height;
         drawCanvas();
       }
+      // Report image dimensions
+      if (onImageLoaded) {
+        onImageLoaded({ width: img.width, height: img.height });
+      }
     };
     img.src = imageUrl;
-  }, [imageUrl]);
+  }, [imageUrl, onImageLoaded, drawCanvas]);
 
   // Redraw canvas when dependencies change
   useEffect(() => {

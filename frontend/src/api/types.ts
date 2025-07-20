@@ -9,6 +9,10 @@ export interface PredictionResponse {
     height: number;
     tag: AnnotationTag;
   }>;
+  image_dimensions: {
+    width: number;
+    height: number;
+  };
   processing_time: number;
 }
 
@@ -27,11 +31,7 @@ export interface HealthResponse {
 
 // API Error Type
 export class ApiError extends Error {
-  constructor(
-    message: string,
-    public status: number,
-    public statusText: string
-  ) {
+  constructor(message: string) {
     super(message);
     this.name = 'ApiError';
   }

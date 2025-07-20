@@ -19,14 +19,13 @@ const Index = () => {
   const [selectedTag, setSelectedTag] = useState<AnnotationTag>('button');
   const [selectedModel, setSelectedModel] = useState<string>('');
   const [boundingBoxes, setBoundingBoxes] = useState<BoundingBox[]>([]);
-  const [projectName, setProjectName] = useState<string>('UI Annotation Project');
   const [highlightedAnnotationId, setHighlightedAnnotationId] = useState<string | undefined>(undefined);
+  const [imageDimensions, setImageDimensions] = useState<{ width: number; height: number } | null>(null);
 
   const handleFileSelect = (file: File, url: string) => {
     setImageFile(file);
     setImageUrl(url);
     setBoundingBoxes([]); // Reset annotations when new image is loaded
-    setProjectName(`${file.name.split('.')[0]} Annotations`);
     toast.success('Image loaded successfully!');
   };
 
@@ -58,7 +57,7 @@ const Index = () => {
     setBoundingBoxes([]);
     setImageFile(null);
     setImageUrl('');
-    setProjectName('UI Annotation Project');
+    setImageDimensions(null);
     toast.success('Project reset');
   };
 
@@ -176,10 +175,9 @@ const Index = () => {
               />
               
               <ExportControls
-                projectName={projectName}
                 imageName={imageFile.name}
-                imageUrl={imageUrl}
                 boundingBoxes={boundingBoxes}
+                imageDimensions={imageDimensions || { width: 0, height: 0 }}
               />
             </div>
 
@@ -192,6 +190,7 @@ const Index = () => {
                 onBoundingBoxAdd={handleBoundingBoxAdd}
                 onBoundingBoxDelete={handleBoundingBoxDelete}
                 highlightedId={highlightedAnnotationId}
+                onImageLoaded={setImageDimensions}
               />
             </div>
           </div>

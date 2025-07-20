@@ -17,9 +17,8 @@ describe('ExportControls', () => {
 
     render(
       <ExportControls
-        projectName="Test Project"
         imageName="test.png"
-        imageUrl="http://example.com/test.png"
+        imageDimensions={{ width: 100, height: 100 }}
         boundingBoxes={boxes}
       />
     )

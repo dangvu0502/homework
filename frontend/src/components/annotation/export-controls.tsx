@@ -1,62 +1,40 @@
-import type { BoundingBox, AnnotationExport, AnnotationTag } from '@/types/annotation';
-import { Download, FileText, Save } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import type { AnnotationExport, BoundingBox } from '@/types/annotation';
+import { Download, FileText } from 'lucide-react';
 import { toast } from 'sonner';
 
 interface ExportControlsProps {
-  projectName: string;
   imageName: string;
-  imageUrl: string;
   boundingBoxes: BoundingBox[];
-  className?: string;
+  imageDimensions: { width: number; height: number };
 }
 
 export const ExportControls = ({
-  projectName,
   imageName,
-  imageUrl,
   boundingBoxes,
-  className
+  imageDimensions,
 }: ExportControlsProps) => {
   
   const generateExportData = (): AnnotationExport => {
-    // Calculate relative coordinates (0-1 range)
-    const image = new Image();
-    image.src = imageUrl;
-    
-    const tagCounts = boundingBoxes.reduce((acc, box) => {
-      acc[box.tag] = (acc[box.tag] || 0) + 1;
-      return acc;
-    }, {} as Record<AnnotationTag, number>);
-
     return {
-      project: {
-        name: projectName,
-        imageName,
-        imageUrl
+      imageName,
+      imageDimensions: {
+        width: imageDimensions.width,
+        height: imageDimensions.height
       },
       annotations: boundingBoxes.map(box => ({
         id: box.id,
+        x: Math.round(box.x),
+        y: Math.round(box.y),
+        width: Math.round(box.width),
+        height: Math.round(box.height),
         tag: box.tag,
-        boundingBox: {
-          x: Math.round(box.x),
-          y: Math.round(box.y),
-          width: Math.round(box.width),
-          height: Math.round(box.height)
-        },
-        relativeCoordinates: {
-          x: Number((box.x / image.width).toFixed(4)),
-          y: Number((box.y / image.height).toFixed(4)),
-          width: Number((box.width / image.width).toFixed(4)),
-          height: Number((box.height / image.height).toFixed(4))
-        }
+        source: box.source || 'user'
       })),
       metadata: {
         totalAnnotations: boundingBoxes.length,
-        tagCounts,
-        createdAt: new Date().toISOString(),
         exportedAt: new Date().toISOString()
       }
     };
@@ -72,7 +50,7 @@ export const ExportControls = ({
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `${projectName.replace(/\s+/g, '_')}_annotations.json`;
+      a.download = `${imageName.split('.')[0]}_annotations.json`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -107,7 +85,7 @@ export const ExportControls = ({
   };
 
   return (
-    <Card className={`p-4 ${className}`}>
+    <Card className="p-4">
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="font-semibold">Export & Save</h3>
