@@ -1,0 +1,58 @@
+{
+  "imageName": "test2.png",
+  "imageDimensions": {
+    "width": 1440,
+    "height": 900
+  },
+  "annotations": [
+    {
+      "id": "pred2-1",
+      "x": 52,
+      "y": 51,
+      "width": 98,
+      "height": 39,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "pred2-2",
+      "x": 202,
+      "y": 51,
+      "width": 98,
+      "height": 39,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "pred2-3",
+      "x": 500,
+      "y": 250,
+      "width": 80,
+      "height": 35,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "pred2-4",
+      "x": 51,
+      "y": 151,
+      "width": 199,
+      "height": 29,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "pred2-5",
+      "x": 600,
+      "y": 350,
+      "width": 150,
+      "height": 25,
+      "tag": "dropdown",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 5,
+    "exportedAt": "2025-01-20T11:05:00Z"
+  }
+}

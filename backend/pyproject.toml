@@ -1,7 +1,7 @@
 [project]
 name = "backend"
 version = "0.1.0"
-description = ""
+description = "UI Annotation Backend and CLI Tools"
 requires-python = ">=3.10,<4.0"
 dependencies = [
     "fastapi[standard]>=0.114.2",
@@ -10,11 +10,16 @@ dependencies = [
     "litellm>=1.35.8",
     "pyyaml>=6.0.1",
     "json-repair>=0.47.8",
+    "click>=8.1.7",
 ]
+
+[project.scripts]
+cli = "src.cli.main:cli"
 
 [tool.uv]
 dev-dependencies = [
     "ruff<1.0.0,>=0.2.2",
+    "pytest>=8.0.0",
 ]
 
 [build-system]
