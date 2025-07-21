@@ -2,8 +2,8 @@
 
 from typing import List, Set
 
-from src.cli.models import BoundingBox, MatchResult
-from src.cli.calculate_iou import calculate_iou
+from src.evaluate.models import BoundingBox, MatchResult
+from src.evaluate.calculate_iou import calculate_iou
 
 
 def match_predictions_to_ground_truth(

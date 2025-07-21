@@ -26,3 +26,6 @@ node_modules/
 
 # test stuff
 .pytest_cache/*
+
+# Dataset - should be downloaded/linked locally
+backend/dataset/*

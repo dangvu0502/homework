@@ -97,7 +97,16 @@ if __name__ == "__main__":
     import asyncio
     import mimetypes
     
-    image_path = Path(__file__).parent.parent / "img" / "1.png"
+    dir = Path(__file__).parent.parent / "dataset" / "test" / "images"
+    image_paths = list(dir.glob("*.png"))
+    
+    if not image_paths:
+        print(f"No PNG images found in {dir}")
+        exit(1)
+    
+    image_path = image_paths[0]
+    
+    print(f"Processing image: {image_path}")
     
     try:
         # Read image file
