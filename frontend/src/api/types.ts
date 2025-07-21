@@ -31,8 +31,13 @@ export interface HealthResponse {
 
 // API Error Type
 export class ApiError extends Error {
-  constructor(message: string) {
+  status?: number;
+  statusText?: string;
+
+  constructor(message: string, status?: number, statusText?: string) {
     super(message);
     this.name = 'ApiError';
+    this.status = status;
+    this.statusText = statusText;
   }
 }

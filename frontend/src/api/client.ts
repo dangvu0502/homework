@@ -80,7 +80,7 @@ class ApiClient {
 
   // Get available models
   async getAvailableModels(): Promise<ModelsResponse> {
-    return this.request('/api/models');
+    return this.request('/api/v1/models');
   }
 
   // Predict UI elements
@@ -92,7 +92,7 @@ class ApiClient {
     formData.append('file', imageFile);
     formData.append('model_name', modelName);
 
-    return this.request('/api/predict', {
+    return this.request('/api/v1/predict', {
       method: 'POST',
       body: formData,
       // Don't set Content-Type header - let browser set it with boundary for multipart
