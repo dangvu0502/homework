@@ -4,7 +4,7 @@ import json
 import pytest
 from pathlib import Path
 from click.testing import CliRunner
-from src.cli.main import cli
+from src.cli import cli
 
 
 @pytest.fixture

@@ -1,7 +1,7 @@
 """Test metrics calculation."""
 
 import pytest
-from src.cli.calculate_metrics import calculate_metrics
+from src.evaluate.calculate_metrics import calculate_metrics
 
 
 def test_metrics_perfect_predictions():

@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Dict, List, Tuple
 
-from src.cli.models import BoundingBox
+from src.evaluate.models import BoundingBox
 
 
 def parse_annotation_file(file_path: Path) -> Tuple[str, List[BoundingBox]]:

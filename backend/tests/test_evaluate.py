@@ -1,9 +1,9 @@
 """Test the evaluation script with sample data."""
 
 import pytest
-from src.cli.models import BoundingBox
-from src.cli.calculate_iou import calculate_iou
-from src.cli.match_predictions_to_ground_truth import match_predictions_to_ground_truth
+from src.evaluate.models import BoundingBox
+from src.evaluate.calculate_iou import calculate_iou
+from src.evaluate.match_predictions_to_ground_truth import match_predictions_to_ground_truth
 
 
 def test_iou_perfect_overlap():

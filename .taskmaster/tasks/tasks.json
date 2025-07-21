@@ -182,11 +182,28 @@
             "parentTaskId": 11
           }
         ]
+      },
+      {
+        "id": 12,
+        "title": "Implement Scalability and Performance Optimizations",
+        "description": "Add support for scaling the annotation tool UI and backend to handle larger images, more concurrent users, and higher annotation throughput. This includes optimizing image processing, frontend rendering, and backend API load capacity.",
+        "details": "This task involves a multi-faceted approach to performance. For the frontend, investigate using Web Workers to offload image processing from the main thread, preventing UI freezes when loading large images. Implement canvas virtualization or tiling to only render the visible portion of a large image, improving interaction performance. For the backend, the API endpoint from Task 6 must be hardened. Implement a request queue to manage concurrent calls to the LLM and consider introducing a caching layer (e.g., Redis) to store and retrieve results for previously processed images, reducing latency and cost. The data transfer between client and server should also be optimized by implementing client-side image compression before upload.",
+        "testStrategy": "Frontend performance will be verified by profiling the application in browser developer tools while uploading and annotating a very large image (e.g., >10MB, 8K resolution). The UI must remain responsive. Automated tests using a framework like Playwright can be added to measure frame rates during drawing actions. For the backend, use a load testing tool like k6 or JMeter to simulate at least 50 concurrent users making requests to the '/predict' endpoint. The test should measure the average response time, error rate, and requests per second. The P95 latency should remain under a predefined threshold (e.g., 2 seconds).",
+        "status": "pending",
+        "dependencies": [
+          2,
+          3,
+          6,
+          7,
+          11
+        ],
+        "priority": "medium",
+        "subtasks": []
       }
     ],
     "metadata": {
       "created": "2025-07-17T02:10:01.354Z",
-      "updated": "2025-07-20T15:15:34.453Z",
+      "updated": "2025-07-21T02:24:52.255Z",
       "description": "Tasks for master context"
     }
   }

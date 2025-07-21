@@ -4,8 +4,8 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Dict
 
-from src.cli.parser import load_annotations_from_directory
-from src.cli.match_predictions_to_ground_truth import match_predictions_to_ground_truth
+from src.evaluate.parser import load_annotations_from_directory
+from src.evaluate.match_predictions_to_ground_truth import match_predictions_to_ground_truth
 
 
 def evaluate_detection_performance(

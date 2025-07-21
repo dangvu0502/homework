@@ -2,7 +2,7 @@
 
 from typing import Dict
 
-from src.cli.calculate_metrics import calculate_metrics
+from src.evaluate.calculate_metrics import calculate_metrics
 
 
 def print_evaluation_results(tag_metrics: Dict[str, Dict[str, int]], show_errors: bool = False):
