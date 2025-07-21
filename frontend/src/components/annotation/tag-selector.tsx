@@ -2,6 +2,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import type { AnnotationTag } from '@/types/annotation';
+import { useAnnotationStore } from '@/stores/use-annotation-store';
 import {
   ChevronDown,
   Circle,
@@ -10,8 +11,6 @@ import {
 } from 'lucide-react';
 
 interface TagSelectorProps {
-  selectedTag: AnnotationTag;
-  onTagSelect: (tag: AnnotationTag) => void;
   className?: string;
 }
 
@@ -47,7 +46,9 @@ const tagConfig: Record<AnnotationTag, {
   }
 };
 
-export const TagSelector = ({ selectedTag, onTagSelect, className }: TagSelectorProps) => {
+export const TagSelector = ({ className }: TagSelectorProps) => {
+  const { selectedTag, setSelectedTag } = useAnnotationStore();
+  
   return (
     <Card className={`p-4 ${className}`}>
       <div className="space-y-4">
@@ -68,7 +69,7 @@ export const TagSelector = ({ selectedTag, onTagSelect, className }: TagSelector
                 key={tag}
                 variant={isSelected ? "default" : "outline"}
                 size="sm"
-                onClick={() => onTagSelect(tag as AnnotationTag)}
+                onClick={() => setSelectedTag(tag as AnnotationTag)}
                 className={`h-auto p-3 flex flex-col gap-2 ${
                   isSelected 
                     ? 'bg-primary text-primary-foreground shadow-md' 

@@ -4,27 +4,23 @@ import { useModels } from '@/api/hooks';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Loader2, Sparkles, AlertCircle } from 'lucide-react';
 import { useEffect } from 'react';
+import { useAnnotationStore } from '@/stores/use-annotation-store';
 
 interface ModelSelectorProps {
-  selectedModel: string;
-  onModelSelect: (modelId: string) => void;
   disabled?: boolean;
 }
 
-export const ModelSelector = ({ 
-  selectedModel, 
-  onModelSelect, 
-  disabled = false 
-}: ModelSelectorProps) => {
+export const ModelSelector = ({ disabled = false }: ModelSelectorProps) => {
+  const { selectedModel, setSelectedModel } = useAnnotationStore();
   const { data, isLoading, isError, error } = useModels();
   const models = data?.models || [];
 
   // Set default model when models are loaded
   useEffect(() => {
     if (!selectedModel && models.length > 0) {
-      onModelSelect(models[0].id);
+      setSelectedModel(models[0].id);
     }
-  }, [models, selectedModel, onModelSelect]);
+  }, [models, selectedModel, setSelectedModel]);
 
   if (isLoading) {
     return (
@@ -77,7 +73,7 @@ export const ModelSelector = ({
       <CardContent>
         <Select 
           value={selectedModel} 
-          onValueChange={onModelSelect}
+          onValueChange={setSelectedModel}
           disabled={disabled || models.length === 0}
         >
           <SelectTrigger>

@@ -5,14 +5,34 @@ import { useAnnotationStore } from '@/stores/use-annotation-store';
 import { useImageStore } from '@/stores/use-image-store';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-interface ImageNavigationBarProps {
-  onNavigate: (index: number) => void;
-}
-
-export const ImageNavigationBar = ({ onNavigate }: ImageNavigationBarProps) => {
-  const { imageFiles, currentImageIndex, getCurrentImageFile } = useImageStore();
-  const { annotationsPerImage } = useAnnotationStore();
+export const ImageNavigationBar = () => {
+  const { 
+    imageFiles, 
+    currentImageIndex, 
+    getCurrentImageFile,
+    navigateToImage 
+  } = useImageStore();
+  const { 
+    annotationsPerImage, 
+    saveAnnotationsForImage,
+    loadAnnotationsForImage 
+  } = useAnnotationStore();
+  
   const currentImageFile = getCurrentImageFile();
+
+  const handleNavigate = (index: number) => {
+    // Save current annotations
+    if (currentImageFile) {
+      saveAnnotationsForImage(currentImageFile.name);
+    }
+    
+    // Navigate to new image
+    navigateToImage(index);
+    
+    // Load existing annotations for this image
+    const newFile = imageFiles[index];
+    loadAnnotationsForImage(newFile.name);
+  };
 
   if (imageFiles.length <= 1) return null;
 
@@ -23,7 +43,7 @@ export const ImageNavigationBar = ({ onNavigate }: ImageNavigationBarProps) => {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => onNavigate(currentImageIndex - 1)}
+            onClick={() => handleNavigate(currentImageIndex - 1)}
             disabled={currentImageIndex === 0}
           >
             <ChevronLeft className="h-4 w-4" />
@@ -34,7 +54,7 @@ export const ImageNavigationBar = ({ onNavigate }: ImageNavigationBarProps) => {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => onNavigate(currentImageIndex + 1)}
+            onClick={() => handleNavigate(currentImageIndex + 1)}
             disabled={currentImageIndex === imageFiles.length - 1}
           >
             <ChevronRight className="h-4 w-4" />

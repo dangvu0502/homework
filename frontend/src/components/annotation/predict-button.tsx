@@ -3,21 +3,19 @@ import { Button } from '@/components/ui/button';
 import type { BoundingBox } from '@/types/annotation';
 import { Loader2, Sparkles } from 'lucide-react';
 import { toast } from 'sonner';
+import { useAnnotationStore } from '@/stores/use-annotation-store';
+import { useImageStore } from '@/stores/use-image-store';
 
 interface PredictButtonProps {
-  imageFile: File | null;
-  selectedModel: string;
-  onPredictionsReceived: (predictions: BoundingBox[]) => void;
   disabled?: boolean;
 }
 
-export const PredictButton = ({ 
-  imageFile, 
-  selectedModel,
-  onPredictionsReceived, 
-  disabled = false 
-}: PredictButtonProps) => {
+export const PredictButton = ({ disabled = false }: PredictButtonProps) => {
+  const { selectedModel, addPredictions } = useAnnotationStore();
+  const { getCurrentImageFile } = useImageStore();
   const { mutate: predict, isPending } = usePredictUIElements();
+  
+  const imageFile = getCurrentImageFile();
 
   const handlePredict = () => {
     if (!imageFile) {
@@ -47,7 +45,7 @@ export const PredictButton = ({
             source: 'prediction' as const,
           }));
 
-          onPredictionsReceived(predictions);
+          addPredictions(predictions);
           
           toast.success(
             `Found ${predictions.length} UI elements in ${data.processing_time.toFixed(2)}s`

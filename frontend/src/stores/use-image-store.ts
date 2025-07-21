@@ -35,8 +35,13 @@ export const useImageStore = create<ImageState>((set, get) => ({
   },
   
   navigateToImage: (index) => {
-    const { imageFiles } = get();
+    const { imageFiles, imageUrl: oldUrl } = get();
     if (index < 0 || index >= imageFiles.length) return;
+    
+    // Release the previous blob URL to prevent memory leaks
+    if (oldUrl) {
+      URL.revokeObjectURL(oldUrl);
+    }
     
     set({ currentImageIndex: index });
     const newFile = imageFiles[index];
@@ -49,6 +54,13 @@ export const useImageStore = create<ImageState>((set, get) => ({
   },
   
   reset: () => {
+    const { imageUrl } = get();
+    
+    // Release the blob URL to prevent memory leaks
+    if (imageUrl) {
+      URL.revokeObjectURL(imageUrl);
+    }
+    
     set({
       imageFiles: [],
       currentImageIndex: 0,
