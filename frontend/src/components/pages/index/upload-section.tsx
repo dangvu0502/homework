@@ -2,14 +2,34 @@ import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { MultiFileUpload } from '@/components/ui/multi-file-upload';
 import { useImageStore } from '@/stores/use-image-store';
+import { useAnnotationStore } from '@/stores/use-annotation-store';
 import { Target, Sparkles, FileImage } from 'lucide-react';
+import { toast } from 'sonner';
 
-interface UploadSectionProps {
-  onFilesSelect: (files: File[]) => void;
-}
+export const UploadSection = () => {
+  const { 
+    completedImages, 
+    setImageFiles, 
+    setImageUrl, 
+    setCurrentImageIndex 
+  } = useImageStore();
+  const { setAnnotationsPerImage, setBoundingBoxes } = useAnnotationStore();
 
-export const UploadSection = ({ onFilesSelect }: UploadSectionProps) => {
-  const { completedImages } = useImageStore();
+  const handleFilesSelect = (files: File[]) => {
+    if (files.length === 0) return;
+    
+    setImageFiles(files);
+    setCurrentImageIndex(0);
+    setAnnotationsPerImage({});
+    setBoundingBoxes([]);
+    
+    // Load first image
+    const firstFile = files[0];
+    const url = URL.createObjectURL(firstFile);
+    setImageUrl(url);
+    
+    toast.success(`${files.length} images loaded successfully!`);
+  };
 
   return (
     <div className="max-w-2xl mx-auto space-y-6">
@@ -28,7 +48,7 @@ export const UploadSection = ({ onFilesSelect }: UploadSectionProps) => {
 
       {/* Upload Section */}
       <MultiFileUpload
-        onFilesSelect={onFilesSelect}
+        onFilesSelect={handleFilesSelect}
         maxFiles={100}
         className="max-w-2xl mx-auto"
       />

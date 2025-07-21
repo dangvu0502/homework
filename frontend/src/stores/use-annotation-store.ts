@@ -59,7 +59,7 @@ export const useAnnotationStore = create<AnnotationState>((set, get) => ({
   updateBoundingBox: (id, updates) => {
     set((state) => ({
       boundingBoxes: state.boundingBoxes.map(box => 
-        box.id === id ? { ...box, ...updates } : box
+        box.id === id ? { ...box, ...updates, source: 'user' } : box
       )
     }));
   },

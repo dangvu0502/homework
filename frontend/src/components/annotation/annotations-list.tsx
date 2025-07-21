@@ -13,37 +13,35 @@ import { Trash2, Edit3 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { tagColors } from "@/components/annotation/constants";
+import { useAnnotationStore } from "@/stores/use-annotation-store";
 
 interface AnnotationsListProps {
-  boundingBoxes: BoundingBox[];
-  onBoundingBoxDelete: (id: string) => void;
-  onBoundingBoxUpdate: (id: string, updates: Partial<BoundingBox>) => void;
-  highlightedId?: string;
-  onHighlight: (id: string | undefined) => void;
   className?: string;
 }
 
-export const AnnotationsList = ({
-  boundingBoxes,
-  onBoundingBoxDelete,
-  onBoundingBoxUpdate,
-  highlightedId,
-  onHighlight,
-  className,
-}: AnnotationsListProps) => {
+export const AnnotationsList = ({ className }: AnnotationsListProps) => {
+  const { 
+    boundingBoxes, 
+    highlightedAnnotationId,
+    updateBoundingBox,
+    deleteBoundingBox,
+    setHighlightedAnnotationId 
+  } = useAnnotationStore();
+  
   const [editingId, setEditingId] = useState<string | null>(null);
 
   const handleTagChange = (id: string, newTag: AnnotationTag) => {
-    onBoundingBoxUpdate(id, { tag: newTag });
+    updateBoundingBox(id, { tag: newTag });
     setEditingId(null);
     toast.success(`Annotation updated to ${newTag}`);
   };
 
   const handleDelete = (id: string) => {
-    onBoundingBoxDelete(id);
-    if (highlightedId === id) {
-      onHighlight(undefined);
+    deleteBoundingBox(id);
+    if (highlightedAnnotationId === id) {
+      setHighlightedAnnotationId(undefined);
     }
+    toast.success('Annotation deleted');
   };
 
   if (boundingBoxes.length === 0) {
@@ -73,7 +71,7 @@ export const AnnotationsList = ({
         <div className="space-y-2 max-h-80 overflow-y-auto">
           {boundingBoxes.map((box, index) => {
             const isEditing = editingId === box.id;
-            const isHighlighted = highlightedId === box.id;
+            const isHighlighted = highlightedAnnotationId === box.id;
 
             return (
               <div
@@ -83,8 +81,8 @@ export const AnnotationsList = ({
                     ? "border-primary bg-primary/5 shadow-sm"
                     : "border-border bg-card hover:bg-accent/50"
                 }`}
-                onMouseEnter={() => onHighlight(box.id)}
-                onMouseLeave={() => onHighlight(undefined)}
+                onMouseEnter={() => setHighlightedAnnotationId(box.id)}
+                onMouseLeave={() => setHighlightedAnnotationId(undefined)}
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
@@ -93,18 +91,14 @@ export const AnnotationsList = ({
                       style={{ backgroundColor: tagColors[box.tag] }}
                     />
                     <span className="text-sm font-medium">#{index + 1}</span>
+                    {box.source === 'prediction' && (
+                      <Badge variant="outline" className="text-xs px-1 py-0 text-purple-600 border-purple-300">
+                        AI
+                      </Badge>
+                    )}
                   </div>
 
                   <div className="flex items-center gap-1">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                      }}
-                      className="h-6 w-6 p-0"
-                    ></Button>
-
                     <Button
                       variant="ghost"
                       size="sm"
@@ -147,7 +141,6 @@ export const AnnotationsList = ({
                         <SelectItem value="input">Input</SelectItem>
                         <SelectItem value="radio">Radio</SelectItem>
                         <SelectItem value="dropdown">Dropdown</SelectItem>
-                        <SelectItem value="text">Text</SelectItem>
                       </SelectContent>
                     </Select>
                   ) : (

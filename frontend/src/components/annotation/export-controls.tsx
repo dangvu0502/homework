@@ -1,70 +1,88 @@
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { useAnnotationStore } from '@/stores/use-annotation-store';
-import { useImageStore } from '@/stores/use-image-store';
-import type { AnnotationExport, BoundingBox } from '@/types/annotation';
-import { Download, FileText, Package } from 'lucide-react';
-import { toast } from 'sonner';
-import { BlobWriter, ZipWriter } from '@zip.js/zip.js';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { useAnnotationStore } from "@/stores/use-annotation-store";
+import { useImageStore } from "@/stores/use-image-store";
+import type { AnnotationExport } from "@/types/annotation";
+import { BlobWriter, ZipWriter } from "@zip.js/zip.js";
+import { Download, FileText, Package } from "lucide-react";
+import { toast } from "sonner";
 
-interface ExportControlsProps {
-  imageName: string;
-  boundingBoxes: BoundingBox[];
-  imageDimensions: { width: number; height: number };
-}
+export const ExportControls = () => {
+  const { boundingBoxes, imageDimensions, annotationsPerImage } =
+    useAnnotationStore();
+  const { imageFiles, getCurrentImageFile } = useImageStore();
 
-export const ExportControls = ({
-  imageName,
-  boundingBoxes,
-  imageDimensions,
-}: ExportControlsProps) => {
-  const { annotationsPerImage, saveAnnotationsForImage } = useAnnotationStore();
-  const { imageFiles } = useImageStore();
-  
+  const currentImageFile = getCurrentImageFile();
+  const imageName = currentImageFile?.name || "";
+
+  const annotationStats = {
+    user: boundingBoxes.filter((box) => box.source === "user").length,
+    prediction: boundingBoxes.filter((box) => box.source === "prediction")
+      .length,
+  };
+
+  // Calculate total annotations including current unsaved ones
+  const allImagesAnnotationCount = (() => {
+    const savedCount = Object.entries(annotationsPerImage)
+      .filter(([name]) => name !== imageName) // Exclude current image from saved count
+      .reduce((sum, [, annotations]) => sum + annotations.length, 0);
+
+    // Add current image annotations (use the larger of saved or current working set)
+    const currentImageCount = imageName
+      ? Math.max(
+          annotationsPerImage[imageName]?.length || 0,
+          boundingBoxes.length
+        )
+      : 0;
+
+    return savedCount + currentImageCount;
+  })();
+
   const generateExportData = (): AnnotationExport => {
     return {
       imageName,
       imageDimensions: {
-        width: imageDimensions.width,
-        height: imageDimensions.height
+        width: imageDimensions?.width || 0,
+        height: imageDimensions?.height || 0,
       },
-      annotations: boundingBoxes.map(box => ({
+      annotations: boundingBoxes.map((box) => ({
         id: box.id,
         x: Math.round(box.x),
         y: Math.round(box.y),
         width: Math.round(box.width),
         height: Math.round(box.height),
         tag: box.tag,
-        source: box.source || 'user'
+        source: box.source || "user",
       })),
       metadata: {
         totalAnnotations: boundingBoxes.length,
-        exportedAt: new Date().toISOString()
-      }
+        exportedAt: new Date().toISOString(),
+      },
     };
   };
 
   const exportAsJSON = () => {
     try {
       const data = generateExportData();
-      const blob = new Blob([JSON.stringify(data, null, 2)], { 
-        type: 'application/json' 
+
+      const blob = new Blob([JSON.stringify(data, null, 2)], {
+        type: "application/json",
       });
-      
+
       const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
+      const a = document.createElement("a");
       a.href = url;
-      a.download = `${imageName.split('.')[0]}_annotations.json`;
+      a.download = `${imageName.replace(/\.[^/.]+$/, "")}_annotations.json`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      
-      toast.success('Annotations exported successfully!');
+
+      toast.success("Annotations exported successfully!");
     } catch (error) {
-      toast.error('Failed to export annotations');
-      console.error('Export error:', error);
+      console.error("Export failed:", error);
+      toast.error("Failed to export annotations");
     }
   };
 
@@ -72,92 +90,84 @@ export const ExportControls = ({
     try {
       const data = generateExportData();
       await navigator.clipboard.writeText(JSON.stringify(data, null, 2));
-      toast.success('Annotations copied to clipboard!');
+      toast.success("Annotations copied to clipboard!");
     } catch (error) {
-      toast.error('Failed to copy to clipboard');
+      console.error("Copy failed:", error);
+      toast.error("Failed to copy annotations");
     }
   };
 
-  const getTagSummary = () => {
-    const tagCounts = boundingBoxes.reduce((acc, box) => {
-      acc[box.tag] = (acc[box.tag] || 0) + 1;
-      return acc;
-    }, {} as Record<string, number>);
-
-    return Object.entries(tagCounts)
-      .sort(([,a], [,b]) => b - a)
-      .slice(0, 3);
-  };
-
-  const exportAllAnnotations = async () => {
+  const exportAllAsZip = async () => {
     try {
-      if (imageFiles.length === 0) {
-        toast.error('No images to export');
-        return;
-      }
+      const zipFileWriter = new BlobWriter();
+      const zipWriter = new ZipWriter(zipFileWriter);
 
-      // First, save current image annotations if needed
+      let totalAnnotations = 0;
+
+      // Create a copy of annotationsPerImage that includes current annotations
+      const allAnnotations = { ...annotationsPerImage };
       if (imageName && boundingBoxes.length > 0) {
-        saveAnnotationsForImage(imageName);
+        allAnnotations[imageName] = boundingBoxes;
       }
 
-      // Create a zip file with all annotations
-      const blobWriter = new BlobWriter('application/zip');
-      const zipWriter = new ZipWriter(blobWriter);
-      
-      // Export all loaded images, even those without annotations
+      // Add all annotation files to zip
       for (const imageFile of imageFiles) {
-        const fileName = imageFile.name;
-        const boxes = annotationsPerImage[fileName] || [];
-        
-        // If this is the current image and has annotations not yet saved
-        const currentImageBoxes = (fileName === imageName) ? boundingBoxes : boxes;
-        
+        const annotations = allAnnotations[imageFile.name] || [];
+        if (annotations.length === 0) continue;
+
+        totalAnnotations += annotations.length;
+
         const exportData: AnnotationExport = {
-          imageName: fileName,
-          imageDimensions: { width: 1920, height: 1080 }, // Default dimensions
-          annotations: currentImageBoxes.map(box => ({
+          imageName: imageFile.name,
+          imageDimensions: {
+            width: 0, // These would need to be stored per image
+            height: 0,
+          },
+          annotations: annotations.map((box) => ({
             id: box.id,
             x: Math.round(box.x),
             y: Math.round(box.y),
             width: Math.round(box.width),
             height: Math.round(box.height),
             tag: box.tag,
-            source: box.source || 'user'
+            source: box.source || "user",
           })),
           metadata: {
-            totalAnnotations: boxes.length,
-            exportedAt: new Date().toISOString()
-          }
+            totalAnnotations: annotations.length,
+            exportedAt: new Date().toISOString(),
+          },
         };
 
-        const jsonContent = JSON.stringify(exportData, null, 2);
-        const jsonBlob = new Blob([jsonContent], { type: 'application/json' });
-        
-        // Add file to zip
-        await zipWriter.add(
-          `${fileName.split('.')[0]}_annotations.json`,
-          jsonBlob.stream()
-        );
+        const jsonString = JSON.stringify(exportData, null, 2);
+        const fileName = `${imageFile.name.replace(
+          /\.[^/.]+$/,
+          ""
+        )}_annotations.json`;
+
+        await zipWriter.add(fileName, new Blob([jsonString]).stream());
       }
-      
-      // Close the zip writer and get the blob
-      const zipBlob = await zipWriter.close();
-      
-      // Download the zip file
+
+      await zipWriter.close();
+
+      const zipBlob = await zipFileWriter.getData();
       const url = URL.createObjectURL(zipBlob);
-      const a = document.createElement('a');
+      const a = document.createElement("a");
       a.href = url;
-      a.download = `annotations_${new Date().toISOString().split('T')[0]}.zip`;
+      a.download = "all_annotations.zip";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      
-      toast.success(`Exported ${imageFiles.length} annotation files in zip!`);
+
+      const imageCount = Object.keys(allAnnotations).filter(
+        (name) => allAnnotations[name].length > 0
+      ).length;
+      toast.success(
+        `Exported ${totalAnnotations} annotations from ${imageCount} images!`
+      );
     } catch (error) {
-      toast.error('Failed to export all annotations');
-      console.error('Export error:', error);
+      console.error("Batch export failed:", error);
+      toast.error("Failed to export all annotations");
     }
   };
 
@@ -165,56 +175,53 @@ export const ExportControls = ({
     <Card className="p-4">
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h3 className="font-semibold">Export & Save</h3>
-          <Badge variant="secondary">
-            {boundingBoxes.length} annotations
-          </Badge>
+          <h3 className="font-semibold">Export</h3>
+          <div className="flex gap-2">
+            <Badge variant="secondary">{annotationStats.user} user</Badge>
+            <Badge
+              variant="secondary"
+              className="bg-purple-100 text-purple-700"
+            >
+              {annotationStats.prediction} AI
+            </Badge>
+          </div>
         </div>
 
-        {/* Summary */}
-        {boundingBoxes.length > 0 && (
-          <div className="p-3 bg-muted rounded-lg">
-            <h4 className="text-sm font-medium mb-2">Summary</h4>
-            <div className="flex flex-wrap gap-1">
-              {getTagSummary().map(([tag, count]) => (
-                <Badge key={tag} variant="outline" className="text-xs">
-                  {tag}: {count}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Export Options - Always visible */}
-        <div className="grid grid-cols-1 gap-2">
-          <Button 
+        <div className="space-y-2">
+          <Button
             onClick={exportAsJSON}
-            className="gap-2"
+            disabled={boundingBoxes.length === 0}
             size="sm"
+            variant="outline"
+            className="w-full justify-start gap-2"
           >
             <Download className="h-4 w-4" />
-            Download Current
+            Export current as JSON
           </Button>
-          
-          <Button 
-            variant="outline" 
+
+          <Button
             onClick={copyToClipboard}
-            className="gap-2"
+            disabled={boundingBoxes.length === 0}
             size="sm"
+            variant="outline"
+            className="w-full justify-start gap-2"
           >
             <FileText className="h-4 w-4" />
             Copy to Clipboard
           </Button>
-          
-          <Button 
-            variant="secondary" 
-            onClick={exportAllAnnotations}
-            className="gap-2"
-            size="sm"
-          >
-            <Package className="h-4 w-4" />
-            Download All ({imageFiles.length} images)
-          </Button>
+
+          {imageFiles.length > 1 && (
+            <Button
+              onClick={exportAllAsZip}
+              disabled={allImagesAnnotationCount === 0}
+              size="sm"
+              variant="outline"
+              className="w-full justify-start gap-2"
+            >
+              <Package className="h-4 w-4" />
+              Export All ({allImagesAnnotationCount} annotations)
+            </Button>
+          )}
         </div>
       </div>
     </Card>
