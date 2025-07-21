@@ -33,13 +33,13 @@
       "source": "prediction"
     },
     {
-      "id": "user-1",
+      "id": "pred-4",
       "x": 100,
       "y": 500,
       "width": 80,
       "height": 40,
       "tag": "input",
-      "source": "user"
+      "source": "prediction"
     }
   ],
   "metadata": {
