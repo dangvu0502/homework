@@ -9,6 +9,7 @@ import { toast } from 'sonner';
 export const UploadSection = () => {
   const { 
     completedImages, 
+    imageUrl: oldUrl,
     setImageFiles, 
     setImageUrl, 
     setCurrentImageIndex 
@@ -17,6 +18,11 @@ export const UploadSection = () => {
 
   const handleFilesSelect = (files: File[]) => {
     if (files.length === 0) return;
+    
+    // Release the previous blob URL to prevent memory leaks
+    if (oldUrl) {
+      URL.revokeObjectURL(oldUrl);
+    }
     
     setImageFiles(files);
     setCurrentImageIndex(0);

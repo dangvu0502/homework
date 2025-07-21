@@ -297,7 +297,7 @@ export const useAnnotationCanvas = ({
       }
     };
     img.src = imageUrl;
-  }, [imageUrl, onImageLoaded, drawCanvas]);
+  }, [imageUrl, onImageLoaded]);
 
   // Redraw canvas when dependencies change
   useEffect(() => {

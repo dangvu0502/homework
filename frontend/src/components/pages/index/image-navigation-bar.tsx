@@ -21,8 +21,6 @@ export const ImageNavigationBar = () => {
   const currentImageFile = getCurrentImageFile();
 
   const handleNavigate = (index: number) => {
-    if (index < 0 || index >= imageFiles.length) return;
-    
     // Save current annotations
     if (currentImageFile) {
       saveAnnotationsForImage(currentImageFile.name);
