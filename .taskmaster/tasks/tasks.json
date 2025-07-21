@@ -182,11 +182,99 @@
             "parentTaskId": 11
           }
         ]
+      },
+      {
+        "id": 12,
+        "title": "Implement Scalability and Performance Optimizations",
+        "description": "Add support for scaling the annotation tool UI and backend to handle larger images, more concurrent users, and higher annotation throughput. This includes optimizing image processing, frontend rendering, and backend API load capacity.",
+        "details": "This task involves a multi-faceted approach to performance. For the frontend, investigate using Web Workers to offload image processing from the main thread, preventing UI freezes when loading large images. Implement canvas virtualization or tiling to only render the visible portion of a large image, improving interaction performance. For the backend, the API endpoint from Task 6 must be hardened. Implement a request queue to manage concurrent calls to the LLM and consider introducing a caching layer (e.g., Redis) to store and retrieve results for previously processed images, reducing latency and cost. The data transfer between client and server should also be optimized by implementing client-side image compression before upload.",
+        "testStrategy": "Frontend performance will be verified by profiling the application in browser developer tools while uploading and annotating a very large image (e.g., >10MB, 8K resolution). The UI must remain responsive. Automated tests using a framework like Playwright can be added to measure frame rates during drawing actions. For the backend, use a load testing tool like k6 or JMeter to simulate at least 50 concurrent users making requests to the '/predict' endpoint. The test should measure the average response time, error rate, and requests per second. The P95 latency should remain under a predefined threshold (e.g., 2 seconds).",
+        "status": "pending",
+        "dependencies": [
+          2,
+          3,
+          6,
+          7,
+          11
+        ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 13,
+        "title": "Implement Multi-Image Upload and Annotation Workflow",
+        "description": "Enhance the frontend to support uploading multiple images simultaneously. Implement a gallery view for easy navigation and ensure the existing annotation tools work seamlessly across a batch of images.",
+        "details": "Update the image upload component from Task 2 to accept multiple files by adding the 'multiple' attribute to the file input element. Create a new UI component, such as a scrollable thumbnail gallery or list, to display all uploaded images. Implement state management to hold an array of image objects, where each object contains the image data and its corresponding annotations. Clicking a thumbnail in the gallery should set it as the active image in the main annotation canvas, loading its specific annotations. When switching images, the state of the previous image's annotations must be preserved. The 'Save' functionality from Task 5 needs to be adapted to export all annotations for all images in the batch, likely into a single structured JSON file that contains an array of objects, one for each annotated image.",
+        "testStrategy": "Manually test by selecting 5+ images in the file dialog and confirming they all appear in the gallery view. Annotate image 1, switch to image 3, and add an annotation there. Switch back to image 1 and verify its annotations are still present. Finally, use the 'Save' button and inspect the downloaded JSON to ensure it contains the correct, separate annotation data for both image 1 and image 3. Extend the automated tests from Task 11 to cover the multi-upload scenario, including simulating the selection of multiple files and verifying the application state updates correctly. Add component tests for the new image gallery to check rendering and selection logic.",
+        "status": "pending",
+        "dependencies": [
+          2,
+          5,
+          11,
+          12
+        ],
+        "priority": "medium",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Enable Multi-File Upload and Refactor State Management",
+            "description": "Modify the existing file upload component to accept multiple image files simultaneously. Refactor the application's state management to handle an array of image objects, where each object will store the image data, a unique ID, and an empty array for its future annotations.",
+            "dependencies": [],
+            "details": "Locate the file input element from Task 2 and add the `multiple` attribute. Update the file handling logic to process a `FileList` object instead of a single file. Iterate through the `FileList`, creating a new object for each image containing properties like `id` (e.g., using a simple counter or UUID), `imageData` (e.g., a data URL from FileReader), and `annotations` (initialized as an empty array). Store this array of image objects in the main application state (e.g., using React's useState, Redux, or a similar state management library). The first image in the list should be set as the default active image.",
+            "status": "pending",
+            "testStrategy": "Open the file dialog and verify that you can select multiple image files (e.g., 3-5 images). After selection, use browser developer tools to inspect the application's state and confirm it contains an array of objects, with each object corresponding to an uploaded image and having the correct structure."
+          },
+          {
+            "id": 2,
+            "title": "Create a Scrollable Thumbnail Gallery Component",
+            "description": "Develop a new UI component that displays a gallery of thumbnails for all uploaded images. This gallery should be visually distinct from the main annotation canvas and allow users to see the entire batch of images they are working on.",
+            "dependencies": [
+              "13.1"
+            ],
+            "details": "Create a new component (e.g., `ImageGallery.js`). This component will receive the array of image objects from the application state as a prop. It should map over this array and render a thumbnail for each image. Use CSS to style this into a horizontal, scrollable list, possibly located below or to the side of the main canvas. Each thumbnail can be a simple `<img>` tag with its `src` set to the `imageData` URL. For performance, consider rendering thumbnails at a fixed, smaller size (e.g., 100x100 pixels) to avoid using full-resolution images.",
+            "status": "pending",
+            "testStrategy": "After uploading multiple images, verify that the new gallery component appears and correctly displays a thumbnail for every uploaded image. Test the scrolling behavior if the number of images exceeds the visible area of the gallery."
+          },
+          {
+            "id": 3,
+            "title": "Implement Active Image Switching Logic",
+            "description": "Enable users to select an image from the thumbnail gallery, which will then be displayed as the 'active' image in the main annotation canvas. The currently active thumbnail should be visually highlighted.",
+            "dependencies": [
+              "13.1",
+              "13.2"
+            ],
+            "details": "Introduce a new piece of state, `activeImageId`, to store the ID of the currently selected image. Add an `onClick` handler to each thumbnail in the gallery component. When a thumbnail is clicked, this handler should update the `activeImageId` in the global state. The main annotation canvas component should be modified to read this `activeImageId`, find the corresponding image object in the state array, and render its `imageData`. Apply a distinct style (e.g., a colored border or different opacity) to the thumbnail in the gallery whose ID matches the `activeImageId`.",
+            "status": "pending",
+            "testStrategy": "Upload a set of images. Click on the third thumbnail in the gallery. Verify that the main canvas updates to show the third image and that the third thumbnail is now visually highlighted. Click on another thumbnail and confirm the canvas and highlight update accordingly."
+          },
+          {
+            "id": 4,
+            "title": "Integrate Per-Image Annotation State",
+            "description": "Connect the existing annotation tools to work on the currently active image. Ensure that annotations are saved to the correct image's object in the state when the user switches to a different image.",
+            "dependencies": [
+              "13.3"
+            ],
+            "details": "Modify the annotation logic (from Tasks 3 & 4) to read from and write to the `annotations` array of the active image object. When the `activeImageId` changes, the annotation canvas should clear any existing drawings and render the annotations from the newly selected image's `annotations` array. Any new annotations (drawing boxes, assigning tags) should be pushed into this specific array. The state of annotations for non-active images must be preserved untouched within their respective objects in the main state array.",
+            "status": "pending",
+            "testStrategy": "Upload three images. Select Image 1 and draw two bounding boxes. Select Image 3 and draw one bounding box. Switch back to Image 1 and verify that the original two boxes are still present. Switch to Image 2 (which has not been annotated) and confirm the canvas is empty. Finally, switch back to Image 3 and verify its single box is displayed correctly."
+          },
+          {
+            "id": 5,
+            "title": "Update 'Save' Functionality to Export All Annotations",
+            "description": "Adapt the 'Save' functionality (from Task 5) to export the annotations for all uploaded images into a single, structured JSON file.",
+            "dependencies": [
+              "13.4"
+            ],
+            "details": "Modify the `onClick` handler for the 'Save' button. Instead of just exporting the annotations for the active image, the new logic should process the entire array of image objects from the state. The output JSON file should have a root key (e.g., `projectAnnotations`) containing an array. Each element in this array will be an object representing one image, containing its name or ID and its corresponding `annotations` array. This creates a complete ground truth file for the entire batch.",
+            "status": "pending",
+            "testStrategy": "Annotate several images in a batch. Click the 'Save' button. Inspect the downloaded JSON file. Verify that it contains a top-level array with an entry for each image that was annotated. Check that the annotations within each entry are correct and match what was drawn on the canvas for that specific image."
+          }
+        ]
       }
     ],
     "metadata": {
       "created": "2025-07-17T02:10:01.354Z",
-      "updated": "2025-07-20T15:15:34.453Z",
+      "updated": "2025-07-21T04:43:47.779Z",
       "description": "Tasks for master context"
     }
   }

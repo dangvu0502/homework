@@ -23,7 +23,7 @@ describe('ExportControls', () => {
       />
     )
 
-    const downloadBtn = screen.getByRole('button', { name: /download json/i })
+    const downloadBtn = screen.getByRole('button', { name: /download current/i })
     await userEvent.click(downloadBtn)
 
     expect(createObjectURLSpy).toHaveBeenCalled()
