@@ -1,0 +1,22 @@
+{
+  "imageName": "education_www.udemy.com_1729629667.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753111016301-0",
+      "x": 260,
+      "y": 288,
+      "width": 206,
+      "height": 40,
+      "tag": "input",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 1,
+    "exportedAt": "2025-07-21T15:21:31.458Z"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "imageName": "e_commerce_www.newegg.com_1729629600.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753155248341-0",
+      "x": 632,
+      "y": 313,
+      "width": 120,
+      "height": 18,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155248341-1",
+      "x": 443,
+      "y": 413,
+      "width": 60,
+      "height": 18,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155248341-2",
+      "x": 464,
+      "y": 477,
+      "width": 18,
+      "height": 18,
+      "tag": "input",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 3,
+    "exportedAt": "2025-07-22T04:03:58.468Z"
+  }
+}

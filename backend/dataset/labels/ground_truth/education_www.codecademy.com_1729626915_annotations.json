@@ -1,0 +1,157 @@
+{
+  "imageName": "education_www.codecademy.com_1729626915.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753155578985-0",
+      "x": 487,
+      "y": 74,
+      "width": 70,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155578985-1",
+      "x": 582,
+      "y": 68,
+      "width": 80,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155578985-2",
+      "x": 696,
+      "y": 74,
+      "width": 85,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155578985-3",
+      "x": 800,
+      "y": 70,
+      "width": 60,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155578985-4",
+      "x": 1348,
+      "y": 75,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155578985-5",
+      "x": 1413,
+      "y": 73,
+      "width": 50,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155578985-6",
+      "x": 1495,
+      "y": 63,
+      "width": 100,
+      "height": 35,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155578985-15",
+      "x": 1078,
+      "y": 380,
+      "width": 390,
+      "height": 45,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155578985-16",
+      "x": 1082,
+      "y": 485,
+      "width": 390,
+      "height": 45,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155578985-17",
+      "x": 1082,
+      "y": 553,
+      "width": 390,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155578985-18",
+      "x": 1072,
+      "y": 708,
+      "width": 60,
+      "height": 60,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155578985-19",
+      "x": 1142,
+      "y": 704,
+      "width": 60,
+      "height": 60,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155578985-20",
+      "x": 1218,
+      "y": 711,
+      "width": 60,
+      "height": 60,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155578985-21",
+      "x": 1291,
+      "y": 708,
+      "width": 60,
+      "height": 60,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "02b55263-65d2-4f89-a268-74c11a70f2ce",
+      "x": 871,
+      "y": 60,
+      "width": 109,
+      "height": 31,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "7db7c758-5ccd-47c5-8e82-36e61e7cf270",
+      "x": 990,
+      "y": 60,
+      "width": 111,
+      "height": 39,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 16,
+    "exportedAt": "2025-07-22T04:03:58.472Z"
+  }
+}

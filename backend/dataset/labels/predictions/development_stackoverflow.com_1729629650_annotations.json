@@ -1,0 +1,148 @@
+{
+  "imageName": "development_stackoverflow.com_1729629650.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753109519860-0",
+      "x": 388,
+      "y": 26,
+      "width": 260,
+      "height": 36,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-1",
+      "x": 756,
+      "y": 26,
+      "width": 70,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-2",
+      "x": 834,
+      "y": 26,
+      "width": 70,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-3",
+      "x": 300,
+      "y": 26,
+      "width": 80,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-4",
+      "x": 292,
+      "y": 316,
+      "width": 90,
+      "height": 42,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-5",
+      "x": 398,
+      "y": 316,
+      "width": 140,
+      "height": 42,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-6",
+      "x": 740,
+      "y": 450,
+      "width": 170,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-7",
+      "x": 288,
+      "y": 668,
+      "width": 130,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-8",
+      "x": 430,
+      "y": 668,
+      "width": 90,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-9",
+      "x": 288,
+      "y": 920,
+      "width": 200,
+      "height": 48,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-10",
+      "x": 32,
+      "y": 860,
+      "width": 160,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-11",
+      "x": 200,
+      "y": 860,
+      "width": 160,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-12",
+      "x": 32,
+      "y": 910,
+      "width": 328,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-13",
+      "x": 230,
+      "y": 26,
+      "width": 60,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109519860-14",
+      "x": 170,
+      "y": 26,
+      "width": 50,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 15,
+    "exportedAt": "2025-07-21T15:21:31.435Z"
+  }
+}

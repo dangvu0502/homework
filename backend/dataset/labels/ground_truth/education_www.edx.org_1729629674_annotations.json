@@ -1,0 +1,112 @@
+{
+  "imageName": "education_www.edx.org_1729629674.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753155918693-0",
+      "x": 135,
+      "y": 20,
+      "width": 90,
+      "height": 40,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155918693-1",
+      "x": 237,
+      "y": 16,
+      "width": 370,
+      "height": 40,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155918693-2",
+      "x": 1512,
+      "y": 24,
+      "width": 130,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155918693-3",
+      "x": 1662,
+      "y": 24,
+      "width": 80,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155918693-4",
+      "x": 1750,
+      "y": 9,
+      "width": 150,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155918693-5",
+      "x": 1872,
+      "y": 92,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155918693-6",
+      "x": 301,
+      "y": 673,
+      "width": 370,
+      "height": 50,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155918693-7",
+      "x": 675,
+      "y": 673,
+      "width": 100,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "7d328256-daf2-4d22-8218-d3e7a98f57aa",
+      "x": 1864,
+      "y": 880,
+      "width": 41,
+      "height": 41,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "2537ecf5-3f7e-47e6-880f-85024e338d44",
+      "x": 1568,
+      "y": 882,
+      "width": 160,
+      "height": 35,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "6f09e173-0df6-4917-a77c-813014ed505c",
+      "x": 1373,
+      "y": 878,
+      "width": 183,
+      "height": 47,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 11,
+    "exportedAt": "2025-07-22T04:03:58.476Z"
+  }
+}

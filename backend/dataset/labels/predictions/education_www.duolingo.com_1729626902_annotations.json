@@ -1,0 +1,121 @@
+{
+  "imageName": "education_www.duolingo.com_1729626902.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753110843102-0",
+      "x": 969,
+      "y": 30,
+      "width": 129,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110843102-1",
+      "x": 547,
+      "y": 508,
+      "width": 270,
+      "height": 50,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110843102-2",
+      "x": 547,
+      "y": 570,
+      "width": 270,
+      "height": 50,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110843102-3",
+      "x": 226,
+      "y": 852,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110843102-4",
+      "x": 270,
+      "y": 844,
+      "width": 90,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110843102-5",
+      "x": 380,
+      "y": 844,
+      "width": 90,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110843102-6",
+      "x": 490,
+      "y": 844,
+      "width": 90,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110843102-7",
+      "x": 600,
+      "y": 844,
+      "width": 90,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110843102-8",
+      "x": 710,
+      "y": 844,
+      "width": 90,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110843102-9",
+      "x": 820,
+      "y": 844,
+      "width": 110,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110843102-10",
+      "x": 950,
+      "y": 844,
+      "width": 90,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110843102-11",
+      "x": 1054,
+      "y": 852,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 12,
+    "exportedAt": "2025-07-21T15:21:31.453Z"
+  }
+}

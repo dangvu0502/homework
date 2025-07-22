@@ -1,0 +1,85 @@
+{
+  "imageName": "ae719d5181188a447ca01ae586598c9d.jpg",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753149874682-0",
+      "x": 77,
+      "y": 435,
+      "width": 20,
+      "height": 20,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149874682-1",
+      "x": 77,
+      "y": 465,
+      "width": 20,
+      "height": 20,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149874682-2",
+      "x": 76,
+      "y": 499,
+      "width": 20,
+      "height": 20,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149874682-6",
+      "x": 315,
+      "y": 317,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "8f42b78a-5929-4557-924a-52af6443e955",
+      "x": 419,
+      "y": 421,
+      "width": 66,
+      "height": 112,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "6fbc951c-0389-4c36-be89-a0e50e13534e",
+      "x": 497,
+      "y": 418,
+      "width": 67,
+      "height": 112,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "944dead7-b34b-4c3e-9b84-1a733a40cfdb",
+      "x": 578,
+      "y": 420,
+      "width": 66,
+      "height": 110,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "f910fea1-ff55-4265-b1f5-c468098869a9",
+      "x": 648,
+      "y": 313,
+      "width": 56,
+      "height": 41,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 8,
+    "exportedAt": "2025-07-22T04:03:58.416Z"
+  }
+}

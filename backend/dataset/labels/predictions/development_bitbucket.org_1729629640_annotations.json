@@ -1,0 +1,193 @@
+{
+  "imageName": "development_bitbucket.org_1729629640.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753109332161-0",
+      "x": 298,
+      "y": 40,
+      "width": 120,
+      "height": 24,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-1",
+      "x": 438,
+      "y": 40,
+      "width": 130,
+      "height": 24,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-2",
+      "x": 590,
+      "y": 40,
+      "width": 105,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-3",
+      "x": 710,
+      "y": 40,
+      "width": 60,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-4",
+      "x": 1100,
+      "y": 40,
+      "width": 60,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-5",
+      "x": 1180,
+      "y": 34,
+      "width": 100,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-6",
+      "x": 192,
+      "y": 428,
+      "width": 108,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-7",
+      "x": 600,
+      "y": 148,
+      "width": 60,
+      "height": 24,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-8",
+      "x": 670,
+      "y": 148,
+      "width": 70,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-9",
+      "x": 780,
+      "y": 148,
+      "width": 160,
+      "height": 24,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-10",
+      "x": 660,
+      "y": 600,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-11",
+      "x": 660,
+      "y": 628,
+      "width": 80,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-12",
+      "x": 770,
+      "y": 572,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-13",
+      "x": 770,
+      "y": 600,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-14",
+      "x": 770,
+      "y": 628,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-15",
+      "x": 770,
+      "y": 656,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-16",
+      "x": 960,
+      "y": 148,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-17",
+      "x": 985,
+      "y": 148,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-18",
+      "x": 1010,
+      "y": 148,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109332161-19",
+      "x": 1035,
+      "y": 148,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 20,
+    "exportedAt": "2025-07-21T15:21:31.429Z"
+  }
+}

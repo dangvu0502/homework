@@ -1,0 +1,67 @@
+{
+  "imageName": "e_commerce_www.bestbuy.com_1729629620.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753110532282-0",
+      "x": 550,
+      "y": 13,
+      "width": 48,
+      "height": 16,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110532282-1",
+      "x": 606,
+      "y": 13,
+      "width": 55,
+      "height": 16,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110532282-2",
+      "x": 670,
+      "y": 13,
+      "width": 52,
+      "height": 16,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110532282-3",
+      "x": 420,
+      "y": 340,
+      "width": 120,
+      "height": 108,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110532282-4",
+      "x": 640,
+      "y": 340,
+      "width": 130,
+      "height": 108,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110532282-5",
+      "x": 520,
+      "y": 580,
+      "width": 120,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 6,
+    "exportedAt": "2025-07-21T15:21:31.446Z"
+  }
+}

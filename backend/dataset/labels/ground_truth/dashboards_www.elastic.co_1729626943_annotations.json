@@ -1,0 +1,112 @@
+{
+  "imageName": "dashboards_www.elastic.co_1729626943.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753151119380-0",
+      "x": 1278,
+      "y": 22,
+      "width": 140,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151119380-1",
+      "x": 1432,
+      "y": 14,
+      "width": 130,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151119380-3",
+      "x": 1096,
+      "y": 94,
+      "width": 100,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151119380-4",
+      "x": 1206,
+      "y": 92,
+      "width": 110,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151119380-5",
+      "x": 1338,
+      "y": 90,
+      "width": 70,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151119380-6",
+      "x": 1418,
+      "y": 92,
+      "width": 100,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151119380-7",
+      "x": 331,
+      "y": 663,
+      "width": 140,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151119380-8",
+      "x": 513,
+      "y": 663,
+      "width": 130,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151119380-9",
+      "x": 329,
+      "y": 733,
+      "width": 150,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151119380-10",
+      "x": 1235,
+      "y": 343,
+      "width": 100,
+      "height": 100,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "0e6b174b-b712-4674-85b7-fbd25214c712",
+      "x": 998,
+      "y": 94,
+      "width": 84,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 11,
+    "exportedAt": "2025-07-22T04:03:58.429Z"
+  }
+}

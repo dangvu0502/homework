@@ -1,0 +1,94 @@
+{
+  "imageName": "design_dribbble.com_1729626887.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753151484957-0",
+      "x": 39,
+      "y": 40,
+      "width": 110,
+      "height": 24,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151484957-1",
+      "x": 179,
+      "y": 40,
+      "width": 75,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151484957-2",
+      "x": 283,
+      "y": 42,
+      "width": 40,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151484957-3",
+      "x": 341,
+      "y": 42,
+      "width": 60,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151484957-4",
+      "x": 1413,
+      "y": 32,
+      "width": 200,
+      "height": 40,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151484957-5",
+      "x": 1705,
+      "y": 30,
+      "width": 60,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151484957-6",
+      "x": 1785,
+      "y": 34,
+      "width": 90,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151484957-7",
+      "x": 779,
+      "y": 184,
+      "width": 380,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151484957-8",
+      "x": 888,
+      "y": 501,
+      "width": 180,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 9,
+    "exportedAt": "2025-07-22T04:03:58.433Z"
+  }
+}

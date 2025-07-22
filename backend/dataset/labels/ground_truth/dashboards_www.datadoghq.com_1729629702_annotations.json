@@ -1,0 +1,130 @@
+{
+  "imageName": "dashboards_www.datadoghq.com_1729629702.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753151061392-0",
+      "x": 463,
+      "y": 6,
+      "width": 1130,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151061392-1",
+      "x": 313,
+      "y": 87,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151061392-2",
+      "x": 420,
+      "y": 85,
+      "width": 90,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151061392-3",
+      "x": 530,
+      "y": 85,
+      "width": 65,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151061392-4",
+      "x": 616,
+      "y": 87,
+      "width": 80,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151061392-5",
+      "x": 719,
+      "y": 83,
+      "width": 45,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151061392-6",
+      "x": 1152,
+      "y": 83,
+      "width": 55,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151061392-7",
+      "x": 1232,
+      "y": 87,
+      "width": 45,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151061392-8",
+      "x": 1288,
+      "y": 87,
+      "width": 55,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151061392-9",
+      "x": 1370,
+      "y": 87,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151061392-10",
+      "x": 1445,
+      "y": 73,
+      "width": 150,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151061392-11",
+      "x": 766,
+      "y": 392,
+      "width": 140,
+      "height": 45,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151061392-12",
+      "x": 997,
+      "y": 388,
+      "width": 180,
+      "height": 45,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 13,
+    "exportedAt": "2025-07-22T04:03:58.429Z"
+  }
+}

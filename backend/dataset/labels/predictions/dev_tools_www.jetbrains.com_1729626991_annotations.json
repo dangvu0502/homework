@@ -1,0 +1,94 @@
+{
+  "imageName": "dev_tools_www.jetbrains.com_1729626991.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753109238073-0",
+      "x": 749,
+      "y": 34,
+      "width": 16,
+      "height": 16,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109238073-1",
+      "x": 780,
+      "y": 34,
+      "width": 16,
+      "height": 16,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109238073-2",
+      "x": 811,
+      "y": 34,
+      "width": 16,
+      "height": 16,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109238073-3",
+      "x": 842,
+      "y": 34,
+      "width": 16,
+      "height": 16,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109238073-4",
+      "x": 399,
+      "y": 620,
+      "width": 80,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109238073-5",
+      "x": 491,
+      "y": 620,
+      "width": 108,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109238073-6",
+      "x": 609,
+      "y": 620,
+      "width": 48,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109238073-7",
+      "x": 737,
+      "y": 959,
+      "width": 70,
+      "height": 28,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109238073-8",
+      "x": 830,
+      "y": 963,
+      "width": 12,
+      "height": 12,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 9,
+    "exportedAt": "2025-07-21T15:21:31.426Z"
+  }
+}

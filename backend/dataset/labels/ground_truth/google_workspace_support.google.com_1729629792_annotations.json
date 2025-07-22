@@ -1,0 +1,175 @@
+{
+  "imageName": "google_workspace_support.google.com_1729629792.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753156682277-0",
+      "x": 28,
+      "y": 24,
+      "width": 24,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156682277-1",
+      "x": 74,
+      "y": 22,
+      "width": 110,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156682277-2",
+      "x": 1760,
+      "y": 22,
+      "width": 24,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156682277-3",
+      "x": 1803,
+      "y": 16,
+      "width": 104,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156682277-4",
+      "x": 1811,
+      "y": 88,
+      "width": 60,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "712d469e-3953-48f1-a910-76e73c564aa6",
+      "x": 696,
+      "y": 281,
+      "width": 527,
+      "height": 53,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "8e08266e-a08f-4412-9e36-556981e12d57",
+      "x": 608,
+      "y": 488,
+      "width": 164,
+      "height": 131,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "1223541a-69c6-4115-b3df-7369e9834560",
+      "x": 791,
+      "y": 492,
+      "width": 160,
+      "height": 127,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "b7c39ed0-dae2-4be4-bfcb-2939ea5bac0a",
+      "x": 969,
+      "y": 494,
+      "width": 160,
+      "height": 125,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "82455dc3-5c2a-4d45-9468-0c43caafbd0c",
+      "x": 1146,
+      "y": 492,
+      "width": 154,
+      "height": 129,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "c2c3a6ea-28c1-410d-8f31-9f33f4991dc7",
+      "x": 608,
+      "y": 642,
+      "width": 166,
+      "height": 123,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "05b6c3cb-6856-41cd-aa84-c7c8a61061c6",
+      "x": 789,
+      "y": 640,
+      "width": 158,
+      "height": 127,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "a812cf23-0876-4469-ac6b-113878303cc4",
+      "x": 967,
+      "y": 644,
+      "width": 160,
+      "height": 121,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "03e2fde1-131c-44f8-be72-647ebb327e09",
+      "x": 1148,
+      "y": 640,
+      "width": 152,
+      "height": 133,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "a1d32a89-1871-4c60-9cdd-fa8238888d13",
+      "x": 614,
+      "y": 788,
+      "width": 156,
+      "height": 133,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "42207f96-c9d1-4334-bc39-378e29bfc48d",
+      "x": 797,
+      "y": 788,
+      "width": 152,
+      "height": 131,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "8b147d24-31ce-44f1-8ac9-419ba93f32d8",
+      "x": 967,
+      "y": 786,
+      "width": 160,
+      "height": 139,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "355f6484-737e-4fde-b10f-def705c8de1c",
+      "x": 1148,
+      "y": 790,
+      "width": 158,
+      "height": 133,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 18,
+    "exportedAt": "2025-07-22T04:03:58.482Z"
+  }
+}

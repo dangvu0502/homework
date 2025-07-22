@@ -1,0 +1,121 @@
+{
+  "imageName": "education_www.edx.org_1729629674.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753110916158-0",
+      "x": 75,
+      "y": 20,
+      "width": 90,
+      "height": 40,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110916158-1",
+      "x": 180,
+      "y": 20,
+      "width": 380,
+      "height": 40,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110916158-2",
+      "x": 790,
+      "y": 20,
+      "width": 130,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110916158-3",
+      "x": 930,
+      "y": 20,
+      "width": 80,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110916158-4",
+      "x": 1020,
+      "y": 20,
+      "width": 150,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110916158-5",
+      "x": 1150,
+      "y": 90,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110916158-6",
+      "x": 180,
+      "y": 730,
+      "width": 360,
+      "height": 50,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110916158-7",
+      "x": 550,
+      "y": 730,
+      "width": 100,
+      "height": 50,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110916158-8",
+      "x": 640,
+      "y": 950,
+      "width": 120,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110916158-9",
+      "x": 770,
+      "y": 950,
+      "width": 180,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110916158-10",
+      "x": 960,
+      "y": 950,
+      "width": 150,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110916158-11",
+      "x": 1150,
+      "y": 950,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 12,
+    "exportedAt": "2025-07-21T15:21:31.456Z"
+  }
+}

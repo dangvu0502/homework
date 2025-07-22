@@ -1,0 +1,103 @@
+{
+  "imageName": "dev_tools_codesandbox.io_1729631837.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753152114320-0",
+      "x": 1441,
+      "y": 18,
+      "width": 101,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152114320-1",
+      "x": 1357,
+      "y": 15,
+      "width": 59,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152114320-2",
+      "x": 807,
+      "y": 13,
+      "width": 55,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152114320-3",
+      "x": 743,
+      "y": 9,
+      "width": 60,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152114320-4",
+      "x": 687,
+      "y": 13,
+      "width": 40,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152114320-5",
+      "x": 611,
+      "y": 19,
+      "width": 70,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152114320-6",
+      "x": 521,
+      "y": 15,
+      "width": 70,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152114320-7",
+      "x": 447,
+      "y": 19,
+      "width": 60,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152114320-8",
+      "x": 1428,
+      "y": 61,
+      "width": 85,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152114320-9",
+      "x": 380,
+      "y": 623,
+      "width": 120,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 10,
+    "exportedAt": "2025-07-22T04:03:58.441Z"
+  }
+}

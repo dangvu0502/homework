@@ -1,0 +1,94 @@
+{
+  "imageName": "dashboards_grafana.com_1729629708.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753150721678-0",
+      "x": 1366,
+      "y": 5,
+      "width": 100,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150721678-1",
+      "x": 1484,
+      "y": 0,
+      "width": 60,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150721678-3",
+      "x": 457,
+      "y": 371,
+      "width": 130,
+      "height": 48,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "47a385e1-dca4-4f8b-a6b8-95bc9afa83e0",
+      "x": 1492,
+      "y": 55,
+      "width": 57,
+      "height": 21,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "aceef471-7171-4287-ad02-b624cc3b1672",
+      "x": 703,
+      "y": 496,
+      "width": 131,
+      "height": 29,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "669dac7e-f0d8-4e8e-98d8-98d3af41b257",
+      "x": 1246,
+      "y": 626,
+      "width": 215,
+      "height": 47,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "05a413c6-f521-475a-973e-bda656096f6d",
+      "x": 980,
+      "y": 494,
+      "width": 33,
+      "height": 31,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "f11ba7bc-2844-4204-a10b-084a7908ae67",
+      "x": 1170,
+      "y": 490,
+      "width": 57,
+      "height": 41,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "93afa344-3eb5-4024-8696-271683b67243",
+      "x": 842,
+      "y": 496,
+      "width": 101,
+      "height": 31,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 9,
+    "exportedAt": "2025-07-22T04:03:58.425Z"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "imageName": "dev_tools_www.jetbrains.com_1729629925.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753152629092-0",
+      "x": 797,
+      "y": 569,
+      "width": 80,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152629092-1",
+      "x": 922,
+      "y": 571,
+      "width": 100,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152629092-2",
+      "x": 1077,
+      "y": 573,
+      "width": 48,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 3,
+    "exportedAt": "2025-07-22T04:03:58.447Z"
+  }
+}

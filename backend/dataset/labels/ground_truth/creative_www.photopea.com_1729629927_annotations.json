@@ -1,0 +1,67 @@
+{
+  "imageName": "creative_www.photopea.com_1729629927.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753149950243-0",
+      "x": 269,
+      "y": 28,
+      "width": 60,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149950243-1",
+      "x": 333,
+      "y": 26,
+      "width": 90,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149950243-2",
+      "x": 426,
+      "y": 26,
+      "width": 90,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149950243-3",
+      "x": 519,
+      "y": 26,
+      "width": 40,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149950243-4",
+      "x": 859,
+      "y": 285,
+      "width": 180,
+      "height": 45,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149950243-5",
+      "x": 1148,
+      "y": 776,
+      "width": 180,
+      "height": 45,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 6,
+    "exportedAt": "2025-07-22T04:03:58.417Z"
+  }
+}

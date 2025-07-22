@@ -1,0 +1,175 @@
+{
+  "imageName": "6cc39b7a7bbe78c2724afce6a1acfae1da5999d7.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753149518335-0",
+      "x": 34,
+      "y": 62,
+      "width": 120,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518335-1",
+      "x": 760,
+      "y": 19,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518335-2",
+      "x": 202,
+      "y": 135,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518335-3",
+      "x": 203,
+      "y": 182,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518335-4",
+      "x": 203,
+      "y": 225,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518335-5",
+      "x": 203,
+      "y": 278,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518335-6",
+      "x": 202,
+      "y": 326,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518335-7",
+      "x": 204,
+      "y": 378,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518335-8",
+      "x": 498,
+      "y": 97,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518335-9",
+      "x": 498,
+      "y": 124,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518336-10",
+      "x": 496,
+      "y": 153,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518336-11",
+      "x": 497,
+      "y": 179,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518336-12",
+      "x": 498,
+      "y": 208,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518336-13",
+      "x": 498,
+      "y": 235,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518336-14",
+      "x": 498,
+      "y": 263,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518336-15",
+      "x": 499,
+      "y": 291,
+      "width": 16,
+      "height": 16,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518336-16",
+      "x": 487,
+      "y": 322,
+      "width": 280,
+      "height": 30,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149518336-17",
+      "x": 485,
+      "y": 372,
+      "width": 280,
+      "height": 30,
+      "tag": "dropdown",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 18,
+    "exportedAt": "2025-07-22T04:03:58.392Z"
+  }
+}

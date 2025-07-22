@@ -1,0 +1,193 @@
+{
+  "imageName": "e_commerce_www.ebay.com_1729629594.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753110590217-0",
+      "x": 180,
+      "y": 56,
+      "width": 120,
+      "height": 40,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-1",
+      "x": 310,
+      "y": 56,
+      "width": 340,
+      "height": 40,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-2",
+      "x": 660,
+      "y": 56,
+      "width": 120,
+      "height": 40,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-3",
+      "x": 790,
+      "y": 56,
+      "width": 80,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-4",
+      "x": 880,
+      "y": 56,
+      "width": 70,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-5",
+      "x": 160,
+      "y": 400,
+      "width": 150,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-6",
+      "x": 800,
+      "y": 520,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-7",
+      "x": 850,
+      "y": 520,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-8",
+      "x": 900,
+      "y": 520,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-9",
+      "x": 695,
+      "y": 640,
+      "width": 100,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-10",
+      "x": 90,
+      "y": 970,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-11",
+      "x": 890,
+      "y": 970,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-12",
+      "x": 770,
+      "y": 10,
+      "width": 70,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-13",
+      "x": 850,
+      "y": 10,
+      "width": 60,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-14",
+      "x": 920,
+      "y": 10,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-15",
+      "x": 950,
+      "y": 10,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-16",
+      "x": 230,
+      "y": 820,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-17",
+      "x": 400,
+      "y": 820,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-18",
+      "x": 570,
+      "y": 820,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110590217-19",
+      "x": 740,
+      "y": 820,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 20,
+    "exportedAt": "2025-07-21T15:21:31.447Z"
+  }
+}

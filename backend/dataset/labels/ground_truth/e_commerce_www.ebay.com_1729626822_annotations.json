@@ -1,0 +1,139 @@
+{
+  "imageName": "e_commerce_www.ebay.com_1729626822.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753154799798-1",
+      "x": 364,
+      "y": 55,
+      "width": 75,
+      "height": 36,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154799798-2",
+      "x": 1326,
+      "y": 49,
+      "width": 105,
+      "height": 36,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154799798-3",
+      "x": 1519,
+      "y": 45,
+      "width": 68,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154799798-4",
+      "x": 325,
+      "y": 363,
+      "width": 159,
+      "height": 44,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154799798-5",
+      "x": 1552,
+      "y": 477,
+      "width": 36,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154799798-6",
+      "x": 1596,
+      "y": 481,
+      "width": 36,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154799798-7",
+      "x": 1643,
+      "y": 475,
+      "width": 36,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154799798-8",
+      "x": 1061,
+      "y": 593,
+      "width": 90,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154799798-17",
+      "x": 1635,
+      "y": 59,
+      "width": 55,
+      "height": 16,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "1ee7c5a0-2d9f-46a0-8a1c-09b5ba79c3f8",
+      "x": 463,
+      "y": 51,
+      "width": 818,
+      "height": 35,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "0524bb86-f2a9-4dc7-bf0a-ed194d432ff9",
+      "x": 1515,
+      "y": 6,
+      "width": 84,
+      "height": 23,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "bc6e4322-3b59-46ec-8531-be6037b10167",
+      "x": 1425,
+      "y": 6,
+      "width": 82,
+      "height": 29,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "a8ddd5f9-929a-4850-a445-b05f060342f0",
+      "x": 204,
+      "y": 8,
+      "width": 68,
+      "height": 21,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "df293692-bd70-4a18-b7c7-bd85aa66cac3",
+      "x": 294,
+      "y": 10,
+      "width": 45,
+      "height": 18,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 14,
+    "exportedAt": "2025-07-22T04:03:58.466Z"
+  }
+}

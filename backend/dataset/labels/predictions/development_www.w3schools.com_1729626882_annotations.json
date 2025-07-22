@@ -1,0 +1,112 @@
+{
+  "imageName": "development_www.w3schools.com_1729626882.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753110103906-0",
+      "x": 90,
+      "y": 36,
+      "width": 90,
+      "height": 22,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110103906-1",
+      "x": 200,
+      "y": 36,
+      "width": 80,
+      "height": 22,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110103906-2",
+      "x": 300,
+      "y": 36,
+      "width": 90,
+      "height": 22,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110103906-3",
+      "x": 410,
+      "y": 36,
+      "width": 70,
+      "height": 22,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110103906-4",
+      "x": 500,
+      "y": 28,
+      "width": 180,
+      "height": 38,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110103906-5",
+      "x": 680,
+      "y": 28,
+      "width": 38,
+      "height": 38,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110103906-6",
+      "x": 1660,
+      "y": 28,
+      "width": 80,
+      "height": 38,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110103906-7",
+      "x": 1750,
+      "y": 28,
+      "width": 60,
+      "height": 38,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110103906-8",
+      "x": 370,
+      "y": 380,
+      "width": 450,
+      "height": 50,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110103906-9",
+      "x": 820,
+      "y": 380,
+      "width": 50,
+      "height": 50,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110103906-10",
+      "x": 320,
+      "y": 950,
+      "width": 140,
+      "height": 50,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 11,
+    "exportedAt": "2025-07-21T15:21:31.435Z"
+  }
+}

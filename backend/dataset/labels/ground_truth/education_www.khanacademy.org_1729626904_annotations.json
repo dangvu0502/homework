@@ -1,0 +1,130 @@
+{
+  "imageName": "education_www.khanacademy.org_1729626904.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753155998678-0",
+      "x": 1756,
+      "y": 30,
+      "width": 90,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155998678-1",
+      "x": 1870,
+      "y": 28,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155998678-2",
+      "x": 362,
+      "y": 86,
+      "width": 120,
+      "height": 50,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155998678-3",
+      "x": 492,
+      "y": 82,
+      "width": 290,
+      "height": 50,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155998678-4",
+      "x": 1275,
+      "y": 94,
+      "width": 60,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155998678-5",
+      "x": 1386,
+      "y": 90,
+      "width": 50,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155998678-6",
+      "x": 1463,
+      "y": 80,
+      "width": 80,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155998678-7",
+      "x": 919,
+      "y": 459,
+      "width": 150,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155998678-8",
+      "x": 1139,
+      "y": 449,
+      "width": 150,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155998678-9",
+      "x": 1342,
+      "y": 453,
+      "width": 150,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155998678-10",
+      "x": 118,
+      "y": 796,
+      "width": 170,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155998678-13",
+      "x": 66,
+      "y": 715,
+      "width": 280,
+      "height": 60,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155998678-15",
+      "x": 93,
+      "y": 840,
+      "width": 220,
+      "height": 60,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 13,
+    "exportedAt": "2025-07-22T04:03:58.476Z"
+  }
+}

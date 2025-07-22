@@ -1,0 +1,193 @@
+{
+  "imageName": "design_www.sketch.com_1729626891.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753109017831-0",
+      "x": 220,
+      "y": 30,
+      "width": 80,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-1",
+      "x": 300,
+      "y": 30,
+      "width": 60,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-2",
+      "x": 370,
+      "y": 30,
+      "width": 70,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-3",
+      "x": 440,
+      "y": 30,
+      "width": 50,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-4",
+      "x": 1390,
+      "y": 20,
+      "width": 80,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-5",
+      "x": 1480,
+      "y": 20,
+      "width": 150,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-6",
+      "x": 550,
+      "y": 350,
+      "width": 200,
+      "height": 50,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-7",
+      "x": 1200,
+      "y": 630,
+      "width": 100,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-8",
+      "x": 100,
+      "y": 820,
+      "width": 150,
+      "height": 30,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-9",
+      "x": 100,
+      "y": 860,
+      "width": 150,
+      "height": 30,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-10",
+      "x": 100,
+      "y": 890,
+      "width": 150,
+      "height": 30,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-11",
+      "x": 100,
+      "y": 920,
+      "width": 150,
+      "height": 30,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-12",
+      "x": 100,
+      "y": 950,
+      "width": 150,
+      "height": 30,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-13",
+      "x": 300,
+      "y": 780,
+      "width": 150,
+      "height": 30,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-14",
+      "x": 790,
+      "y": 780,
+      "width": 80,
+      "height": 30,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-15",
+      "x": 880,
+      "y": 850,
+      "width": 70,
+      "height": 25,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-16",
+      "x": 960,
+      "y": 850,
+      "width": 70,
+      "height": 25,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-17",
+      "x": 880,
+      "y": 880,
+      "width": 70,
+      "height": 25,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-18",
+      "x": 960,
+      "y": 880,
+      "width": 70,
+      "height": 25,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109017831-19",
+      "x": 1040,
+      "y": 850,
+      "width": 70,
+      "height": 25,
+      "tag": "input",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 20,
+    "exportedAt": "2025-07-21T15:21:31.418Z"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "imageName": "Section 13.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753111251577-0",
+      "x": 115,
+      "y": 123,
+      "width": 60,
+      "height": 60,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111251577-1",
+      "x": 115,
+      "y": 190,
+      "width": 60,
+      "height": 60,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111251577-2",
+      "x": 115,
+      "y": 257,
+      "width": 60,
+      "height": 60,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111251577-3",
+      "x": 512,
+      "y": 310,
+      "width": 20,
+      "height": 20,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111251577-4",
+      "x": 540,
+      "y": 310,
+      "width": 20,
+      "height": 20,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111251577-5",
+      "x": 568,
+      "y": 310,
+      "width": 20,
+      "height": 20,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111251577-6",
+      "x": 512,
+      "y": 520,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111251577-7",
+      "x": 552,
+      "y": 520,
+      "width": 60,
+      "height": 40,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111251577-8",
+      "x": 612,
+      "y": 520,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111251577-9",
+      "x": 670,
+      "y": 512,
+      "width": 220,
+      "height": 56,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111251577-10",
+      "x": 300,
+      "y": 675,
+      "width": 150,
+      "height": 25,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111251577-11",
+      "x": 460,
+      "y": 675,
+      "width": 120,
+      "height": 25,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111251577-12",
+      "x": 590,
+      "y": 675,
+      "width": 160,
+      "height": 25,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 13,
+    "exportedAt": "2025-07-21T15:21:31.464Z"
+  }
+}

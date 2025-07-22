@@ -1,0 +1,193 @@
+{
+  "imageName": "dev_tools_jsfiddle.net_1729626989.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753109140047-0",
+      "x": 770,
+      "y": 25,
+      "width": 70,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-1",
+      "x": 1790,
+      "y": 25,
+      "width": 100,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-2",
+      "x": 180,
+      "y": 180,
+      "width": 40,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-3",
+      "x": 225,
+      "y": 180,
+      "width": 60,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-4",
+      "x": 190,
+      "y": 140,
+      "width": 35,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-5",
+      "x": 200,
+      "y": 260,
+      "width": 40,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-6",
+      "x": 30,
+      "y": 370,
+      "width": 260,
+      "height": 50,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-7",
+      "x": 30,
+      "y": 720,
+      "width": 100,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-8",
+      "x": 200,
+      "y": 840,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-9",
+      "x": 620,
+      "y": 750,
+      "width": 150,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-10",
+      "x": 780,
+      "y": 750,
+      "width": 150,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-11",
+      "x": 940,
+      "y": 750,
+      "width": 70,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-12",
+      "x": 1020,
+      "y": 750,
+      "width": 70,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-13",
+      "x": 840,
+      "y": 950,
+      "width": 100,
+      "height": 25,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-14",
+      "x": 1860,
+      "y": 840,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-15",
+      "x": 320,
+      "y": 90,
+      "width": 790,
+      "height": 400,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-16",
+      "x": 1120,
+      "y": 90,
+      "width": 790,
+      "height": 400,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-17",
+      "x": 320,
+      "y": 500,
+      "width": 790,
+      "height": 300,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-18",
+      "x": 840,
+      "y": 25,
+      "width": 30,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109140047-19",
+      "x": 1040,
+      "y": 25,
+      "width": 30,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 20,
+    "exportedAt": "2025-07-21T15:21:31.423Z"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "imageName": "download (2).png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753110389230-0",
+      "x": 104,
+      "y": 430,
+      "width": 90,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110389230-1",
+      "x": 204,
+      "y": 430,
+      "width": 90,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110389230-2",
+      "x": 304,
+      "y": 430,
+      "width": 90,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110389230-3",
+      "x": 404,
+      "y": 430,
+      "width": 90,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110389230-4",
+      "x": 770,
+      "y": 430,
+      "width": 160,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 5,
+    "exportedAt": "2025-07-21T15:21:31.443Z"
+  }
+}

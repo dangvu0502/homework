@@ -1,0 +1,22 @@
+{
+  "imageName": "e_commerce_www.wayfair.com_1729626826.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753110764620-0",
+      "x": 435,
+      "y": 530,
+      "width": 130,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 1,
+    "exportedAt": "2025-07-21T15:21:31.451Z"
+  }
+}

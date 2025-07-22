@@ -1,0 +1,103 @@
+{
+  "imageName": "documentation_reactjs.org_1729629679.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753110306716-0",
+      "x": 228,
+      "y": 24,
+      "width": 496,
+      "height": 40,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110306716-1",
+      "x": 768,
+      "y": 34,
+      "width": 50,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110306716-2",
+      "x": 830,
+      "y": 34,
+      "width": 78,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110306716-3",
+      "x": 920,
+      "y": 34,
+      "width": 90,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110306716-4",
+      "x": 1020,
+      "y": 34,
+      "width": 40,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110306716-5",
+      "x": 1080,
+      "y": 30,
+      "width": 28,
+      "height": 28,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110306716-6",
+      "x": 1120,
+      "y": 30,
+      "width": 28,
+      "height": 28,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110306716-7",
+      "x": 1160,
+      "y": 30,
+      "width": 28,
+      "height": 28,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110306716-8",
+      "x": 400,
+      "y": 468,
+      "width": 120,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110306716-9",
+      "x": 540,
+      "y": 468,
+      "width": 140,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 10,
+    "exportedAt": "2025-07-21T15:21:31.441Z"
+  }
+}

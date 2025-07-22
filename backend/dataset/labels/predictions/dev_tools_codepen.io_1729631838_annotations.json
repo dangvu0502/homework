@@ -1,0 +1,22 @@
+{
+  "imageName": "dev_tools_codepen.io_1729631838.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753109076034-0",
+      "x": 260,
+      "y": 280,
+      "width": 200,
+      "height": 60,
+      "tag": "input",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 1,
+    "exportedAt": "2025-07-21T15:21:31.419Z"
+  }
+}

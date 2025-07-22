@@ -1,0 +1,67 @@
+{
+  "imageName": "creative_www.photopea.com_1729629927.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753108503542-0",
+      "x": 258,
+      "y": 30,
+      "width": 55,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108503542-1",
+      "x": 333,
+      "y": 30,
+      "width": 90,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108503542-2",
+      "x": 443,
+      "y": 30,
+      "width": 90,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108503542-3",
+      "x": 553,
+      "y": 30,
+      "width": 35,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108503542-4",
+      "x": 700,
+      "y": 320,
+      "width": 200,
+      "height": 48,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108503542-5",
+      "x": 1100,
+      "y": 840,
+      "width": 200,
+      "height": 48,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 6,
+    "exportedAt": "2025-07-21T15:21:31.397Z"
+  }
+}

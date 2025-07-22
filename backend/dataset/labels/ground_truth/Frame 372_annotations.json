@@ -1,0 +1,76 @@
+{
+  "imageName": "Frame 372.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753156239276-0",
+      "x": 148,
+      "y": 373,
+      "width": 115,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156239276-1",
+      "x": 874,
+      "y": 130,
+      "width": 100,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156239276-2",
+      "x": 1057,
+      "y": 132,
+      "width": 100,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156239276-3",
+      "x": 1185,
+      "y": 265,
+      "width": 100,
+      "height": 35,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156239276-4",
+      "x": 1175,
+      "y": 386,
+      "width": 100,
+      "height": 35,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156239276-5",
+      "x": 1177,
+      "y": 514,
+      "width": 100,
+      "height": 35,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "442b0a8f-26fb-4ae9-90db-072ebcf3b472",
+      "x": 1166,
+      "y": 634,
+      "width": 133,
+      "height": 38,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 7,
+    "exportedAt": "2025-07-22T04:03:58.479Z"
+  }
+}

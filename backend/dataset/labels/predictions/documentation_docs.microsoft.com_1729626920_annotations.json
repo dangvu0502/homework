@@ -1,0 +1,112 @@
+{
+  "imageName": "documentation_docs.microsoft.com_1729626920.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753110179723-0",
+      "x": 146,
+      "y": 20,
+      "width": 90,
+      "height": 24,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110179723-1",
+      "x": 260,
+      "y": 20,
+      "width": 178,
+      "height": 24,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110179723-2",
+      "x": 454,
+      "y": 20,
+      "width": 180,
+      "height": 24,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110179723-3",
+      "x": 650,
+      "y": 20,
+      "width": 68,
+      "height": 24,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110179723-4",
+      "x": 908,
+      "y": 20,
+      "width": 24,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110179723-5",
+      "x": 948,
+      "y": 20,
+      "width": 56,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110179723-6",
+      "x": 40,
+      "y": 280,
+      "width": 320,
+      "height": 48,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110179723-7",
+      "x": 372,
+      "y": 280,
+      "width": 96,
+      "height": 48,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110179723-8",
+      "x": 40,
+      "y": 960,
+      "width": 120,
+      "height": 32,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110179723-9",
+      "x": 360,
+      "y": 960,
+      "width": 160,
+      "height": 32,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110179723-10",
+      "x": 680,
+      "y": 960,
+      "width": 120,
+      "height": 32,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 11,
+    "exportedAt": "2025-07-21T15:21:31.437Z"
+  }
+}

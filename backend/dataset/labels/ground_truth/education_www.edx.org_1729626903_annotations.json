@@ -1,0 +1,121 @@
+{
+  "imageName": "education_www.edx.org_1729626903.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753155847979-0",
+      "x": 130,
+      "y": 21,
+      "width": 90,
+      "height": 40,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155847979-1",
+      "x": 237,
+      "y": 19,
+      "width": 378,
+      "height": 40,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155847979-2",
+      "x": 1515,
+      "y": 25,
+      "width": 120,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155847979-3",
+      "x": 1660,
+      "y": 25,
+      "width": 60,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155847979-4",
+      "x": 1748,
+      "y": 21,
+      "width": 140,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155847979-5",
+      "x": 1876,
+      "y": 95,
+      "width": 16,
+      "height": 16,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155847979-6",
+      "x": 303,
+      "y": 676,
+      "width": 363,
+      "height": 50,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155847979-7",
+      "x": 677,
+      "y": 675,
+      "width": 90,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "7a801200-fa9a-4778-9e59-adbaa9eca03d",
+      "x": 1371,
+      "y": 890,
+      "width": 183,
+      "height": 49,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "b3b573c0-0442-4f2b-87ca-f3444e0d5f48",
+      "x": 1572,
+      "y": 876,
+      "width": 144,
+      "height": 47,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "47f34ebc-5ee4-4bf7-941b-bd543642cda3",
+      "x": 1862,
+      "y": 882,
+      "width": 41,
+      "height": 33,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "7a2ad9fe-0739-493f-9f70-04120e167883",
+      "x": 1226,
+      "y": 890,
+      "width": 119,
+      "height": 25,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 12,
+    "exportedAt": "2025-07-22T04:03:58.474Z"
+  }
+}

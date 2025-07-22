@@ -1,0 +1,517 @@
+{
+  "imageName": "22a2da33-2f4a-499f-afcc-d1eb59037332.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753149605330-0",
+      "x": 393,
+      "y": 128,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-1",
+      "x": 393,
+      "y": 161,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-2",
+      "x": 392,
+      "y": 198,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-3",
+      "x": 593,
+      "y": 127,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-4",
+      "x": 592,
+      "y": 162,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-5",
+      "x": 593,
+      "y": 199,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-6",
+      "x": 390,
+      "y": 265,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-7",
+      "x": 393,
+      "y": 297,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-8",
+      "x": 391,
+      "y": 333,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-9",
+      "x": 594,
+      "y": 263,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-10",
+      "x": 594,
+      "y": 296,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-11",
+      "x": 592,
+      "y": 333,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-12",
+      "x": 391,
+      "y": 398,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-13",
+      "x": 391,
+      "y": 430,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-14",
+      "x": 389,
+      "y": 465,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-15",
+      "x": 592,
+      "y": 395,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-16",
+      "x": 595,
+      "y": 428,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-17",
+      "x": 590,
+      "y": 461,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-18",
+      "x": 220,
+      "y": 254,
+      "width": 150,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149605330-19",
+      "x": 530,
+      "y": 12,
+      "width": 150,
+      "height": 30,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "2693bbc7-e563-4f6a-af56-6f65c5437c40",
+      "x": 64,
+      "y": 562,
+      "width": 67,
+      "height": 28,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "e78183fa-c300-45e5-b917-697201edb163",
+      "x": 1,
+      "y": 19,
+      "width": 48,
+      "height": 37,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "7cdfdb25-9089-4eb5-b12b-c0a285ebe0c8",
+      "x": 8,
+      "y": 77,
+      "width": 40,
+      "height": 28,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "4328a216-ea37-4b51-98bb-936a879ab0b0",
+      "x": 9,
+      "y": 121,
+      "width": 43,
+      "height": 37,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "4db0335e-7b4c-40fb-95c8-bf3f2719ef66",
+      "x": 9,
+      "y": 185,
+      "width": 37,
+      "height": 27,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "3ddcad53-92a2-4b88-8ffe-3747161f4463",
+      "x": 3,
+      "y": 232,
+      "width": 47,
+      "height": 42,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "abfb8cb3-cff1-410f-8c66-445f4be0b2db",
+      "x": 10,
+      "y": 292,
+      "width": 35,
+      "height": 29,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "19fc8fe0-8e58-4723-842c-474eb45be4d9",
+      "x": 5,
+      "y": 342,
+      "width": 40,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "ee64a6b3-277d-4bad-95ca-76396396f535",
+      "x": 8,
+      "y": 394,
+      "width": 36,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "eb4c8555-ee22-4f4b-9588-c3fc88109f1a",
+      "x": 13,
+      "y": 445,
+      "width": 27,
+      "height": 41,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "766ac817-3ff4-4334-b5e6-6058ee146ca0",
+      "x": 80,
+      "y": 72,
+      "width": 47,
+      "height": 16,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "71cc8165-a34c-497a-89b5-8765aece60d2",
+      "x": 75,
+      "y": 108,
+      "width": 53,
+      "height": 17,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "4b97642e-aaef-428d-afbf-362e7195889d",
+      "x": 79,
+      "y": 136,
+      "width": 50,
+      "height": 18,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "a890bf81-210f-4292-80f7-8114cadcf651",
+      "x": 77,
+      "y": 166,
+      "width": 43,
+      "height": 22,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "aefc8bb4-19a1-4091-b395-86ce017da18b",
+      "x": 78,
+      "y": 200,
+      "width": 78,
+      "height": 23,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "c8702e9a-ea02-422d-bb65-68fde9199df3",
+      "x": 83,
+      "y": 236,
+      "width": 51,
+      "height": 23,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "7e09a30b-e868-4c22-b3dd-4917d710f764",
+      "x": 77,
+      "y": 275,
+      "width": 81,
+      "height": 16,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "96bd4c12-fd04-4206-96f2-acd009947309",
+      "x": 76,
+      "y": 306,
+      "width": 114,
+      "height": 18,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "4848044c-9de8-459f-88b0-e9a6b40c5193",
+      "x": 76,
+      "y": 336,
+      "width": 121,
+      "height": 17,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "d717151c-095f-4b29-8f74-775398a6e458",
+      "x": 73,
+      "y": 371,
+      "width": 113,
+      "height": 18,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "f26c2f11-ba55-4167-8183-a69af340e08c",
+      "x": 78,
+      "y": 404,
+      "width": 85,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "f15eb817-e0c0-4793-b87b-c7a0f76044b0",
+      "x": 73,
+      "y": 440,
+      "width": 59,
+      "height": 16,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "bd5751b6-ec1d-49f7-92cd-3f9a96e08169",
+      "x": 79,
+      "y": 469,
+      "width": 93,
+      "height": 17,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "92479d22-59f4-4f35-936c-8accbae2a7a0",
+      "x": 74,
+      "y": 505,
+      "width": 68,
+      "height": 18,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "8fbc1e8c-2688-4196-9347-68fc66b37f75",
+      "x": 233,
+      "y": 100,
+      "width": 79,
+      "height": 17,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "f27e2a34-805a-4903-bde4-6b9479fe9369",
+      "x": 233,
+      "y": 129,
+      "width": 70,
+      "height": 22,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "489c1f69-e3a2-4cb6-8bf3-ad629ba416e1",
+      "x": 227,
+      "y": 168,
+      "width": 75,
+      "height": 18,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "ab63066e-a715-409a-a993-bc01e7773819",
+      "x": 231,
+      "y": 295,
+      "width": 106,
+      "height": 14,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "d2f04c01-e388-4554-a1ea-4e990c12f20b",
+      "x": 228,
+      "y": 325,
+      "width": 96,
+      "height": 17,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "b086b548-7d07-45b6-a78e-572a6b7b2441",
+      "x": 227,
+      "y": 356,
+      "width": 116,
+      "height": 17,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "6ac7435c-39c2-43d9-b956-11c9e8e6fd44",
+      "x": 226,
+      "y": 391,
+      "width": 113,
+      "height": 16,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "532f0313-2c0b-4299-98fe-267b4ff95092",
+      "x": 230,
+      "y": 423,
+      "width": 70,
+      "height": 17,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "dc826f92-93af-4947-b725-f47c056b271d",
+      "x": 234,
+      "y": 515,
+      "width": 114,
+      "height": 17,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "198c2f0a-d285-451d-919f-b3a9afabb30d",
+      "x": 235,
+      "y": 543,
+      "width": 71,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "4ec0d96d-d508-4107-b1d4-59359d1b60a1",
+      "x": 234,
+      "y": 578,
+      "width": 101,
+      "height": 19,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "592dfcb2-b011-42e8-a3f2-1f1a44cc1997",
+      "x": 688,
+      "y": 15,
+      "width": 16,
+      "height": 26,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 56,
+    "exportedAt": "2025-07-22T04:03:58.412Z"
+  }
+}

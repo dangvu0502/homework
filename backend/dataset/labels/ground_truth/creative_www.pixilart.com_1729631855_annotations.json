@@ -1,0 +1,202 @@
+{
+  "imageName": "creative_www.pixilart.com_1729631855.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753150233838-0",
+      "x": 230,
+      "y": 11,
+      "width": 275,
+      "height": 36,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-1",
+      "x": 25,
+      "y": 18,
+      "width": 30,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-2",
+      "x": 513,
+      "y": 13,
+      "width": 36,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-3",
+      "x": 1484,
+      "y": 13,
+      "width": 160,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-4",
+      "x": 1721,
+      "y": 15,
+      "width": 160,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-5",
+      "x": 751,
+      "y": 376,
+      "width": 180,
+      "height": 48,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-6",
+      "x": 1011,
+      "y": 372,
+      "width": 180,
+      "height": 48,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-7",
+      "x": 840,
+      "y": 450,
+      "width": 260,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-8",
+      "x": 567,
+      "y": 613,
+      "width": 90,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-9",
+      "x": 665,
+      "y": 615,
+      "width": 80,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-10",
+      "x": 757,
+      "y": 611,
+      "width": 120,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-11",
+      "x": 883,
+      "y": 615,
+      "width": 100,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-12",
+      "x": 995,
+      "y": 615,
+      "width": 90,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-13",
+      "x": 1091,
+      "y": 613,
+      "width": 120,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-14",
+      "x": 1221,
+      "y": 615,
+      "width": 100,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-15",
+      "x": 1790,
+      "y": 767,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-17",
+      "x": 1628,
+      "y": 853,
+      "width": 130,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-18",
+      "x": 743,
+      "y": 11,
+      "width": 70,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753150233838-19",
+      "x": 1092,
+      "y": 11,
+      "width": 90,
+      "height": 36,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "174df6ff-0671-49bb-8b2f-8caf4b3b12a6",
+      "x": 830,
+      "y": 10,
+      "width": 105,
+      "height": 33,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "76630cfc-eb15-401d-97b9-e5489f0681d2",
+      "x": 949,
+      "y": 18,
+      "width": 135,
+      "height": 33,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 21,
+    "exportedAt": "2025-07-22T04:03:58.420Z"
+  }
+}

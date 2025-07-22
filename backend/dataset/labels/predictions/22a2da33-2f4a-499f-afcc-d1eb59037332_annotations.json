@@ -1,0 +1,193 @@
+{
+  "imageName": "22a2da33-2f4a-499f-afcc-d1eb59037332.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753108423770-0",
+      "x": 24,
+      "y": 24,
+      "width": 36,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-1",
+      "x": 260,
+      "y": 440,
+      "width": 150,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-2",
+      "x": 260,
+      "y": 900,
+      "width": 150,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-3",
+      "x": 640,
+      "y": 32,
+      "width": 24,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-4",
+      "x": 680,
+      "y": 32,
+      "width": 24,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-5",
+      "x": 720,
+      "y": 32,
+      "width": 24,
+      "height": 24,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-6",
+      "x": 790,
+      "y": 100,
+      "width": 16,
+      "height": 16,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-7",
+      "x": 790,
+      "y": 860,
+      "width": 16,
+      "height": 16,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-8",
+      "x": 460,
+      "y": 150,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-9",
+      "x": 460,
+      "y": 190,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-10",
+      "x": 460,
+      "y": 230,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-11",
+      "x": 650,
+      "y": 150,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-12",
+      "x": 650,
+      "y": 190,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-13",
+      "x": 650,
+      "y": 230,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-14",
+      "x": 460,
+      "y": 350,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-15",
+      "x": 460,
+      "y": 390,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-16",
+      "x": 460,
+      "y": 430,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-17",
+      "x": 650,
+      "y": 350,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-18",
+      "x": 650,
+      "y": 390,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108423770-19",
+      "x": 650,
+      "y": 430,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 20,
+    "exportedAt": "2025-07-21T15:21:31.392Z"
+  }
+}

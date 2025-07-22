@@ -1,0 +1,76 @@
+{
+  "imageName": "development_bitbucket.org_1729629640.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753152799990-0",
+      "x": 604,
+      "y": 30,
+      "width": 130,
+      "height": 24,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152799990-1",
+      "x": 760,
+      "y": 26,
+      "width": 130,
+      "height": 24,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152799990-2",
+      "x": 910,
+      "y": 32,
+      "width": 100,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152799990-3",
+      "x": 1026,
+      "y": 36,
+      "width": 60,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152799990-4",
+      "x": 1361,
+      "y": 34,
+      "width": 60,
+      "height": 28,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152799990-5",
+      "x": 1449,
+      "y": 20,
+      "width": 100,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152799990-6",
+      "x": 361,
+      "y": 397,
+      "width": 120,
+      "height": 48,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 7,
+    "exportedAt": "2025-07-22T04:03:58.449Z"
+  }
+}

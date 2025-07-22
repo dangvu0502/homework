@@ -1,0 +1,148 @@
+{
+  "imageName": "dashboards_www.splunk.com_1729626953.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753151328696-0",
+      "x": 1086,
+      "y": 26,
+      "width": 125,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-1",
+      "x": 352,
+      "y": 98,
+      "width": 90,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-2",
+      "x": 478,
+      "y": 102,
+      "width": 90,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-3",
+      "x": 593,
+      "y": 98,
+      "width": 110,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-4",
+      "x": 749,
+      "y": 98,
+      "width": 90,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-5",
+      "x": 863,
+      "y": 100,
+      "width": 90,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-6",
+      "x": 1322,
+      "y": 102,
+      "width": 70,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-7",
+      "x": 1428,
+      "y": 100,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-8",
+      "x": 1485,
+      "y": 102,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-9",
+      "x": 1540,
+      "y": 102,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-10",
+      "x": 1594,
+      "y": 90,
+      "width": 120,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-11",
+      "x": 395,
+      "y": 575,
+      "width": 280,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-14",
+      "x": 657,
+      "y": 826,
+      "width": 140,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-15",
+      "x": 814,
+      "y": 832,
+      "width": 140,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151328696-16",
+      "x": 978,
+      "y": 801,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 15,
+    "exportedAt": "2025-07-22T04:03:58.431Z"
+  }
+}

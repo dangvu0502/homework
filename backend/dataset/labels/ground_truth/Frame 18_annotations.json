@@ -1,0 +1,49 @@
+{
+  "imageName": "Frame 18.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753156216223-0",
+      "x": 181,
+      "y": 833,
+      "width": 174,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156216223-1",
+      "x": 477,
+      "y": 835,
+      "width": 174,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156216223-2",
+      "x": 783,
+      "y": 830,
+      "width": 174,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156216223-3",
+      "x": 1072,
+      "y": 839,
+      "width": 174,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 4,
+    "exportedAt": "2025-07-22T04:03:58.478Z"
+  }
+}

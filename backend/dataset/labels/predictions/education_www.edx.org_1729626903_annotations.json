@@ -1,0 +1,139 @@
+{
+  "imageName": "education_www.edx.org_1729626903.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753110893687-0",
+      "x": 77,
+      "y": 17,
+      "width": 90,
+      "height": 40,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110893687-1",
+      "x": 180,
+      "y": 17,
+      "width": 390,
+      "height": 40,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110893687-2",
+      "x": 540,
+      "y": 17,
+      "width": 30,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110893687-3",
+      "x": 1400,
+      "y": 17,
+      "width": 140,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110893687-4",
+      "x": 1550,
+      "y": 17,
+      "width": 80,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110893687-5",
+      "x": 1640,
+      "y": 17,
+      "width": 140,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110893687-6",
+      "x": 1760,
+      "y": 85,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110893687-7",
+      "x": 185,
+      "y": 730,
+      "width": 360,
+      "height": 50,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110893687-8",
+      "x": 510,
+      "y": 730,
+      "width": 35,
+      "height": 50,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110893687-9",
+      "x": 560,
+      "y": 730,
+      "width": 100,
+      "height": 50,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110893687-10",
+      "x": 1280,
+      "y": 950,
+      "width": 120,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110893687-11",
+      "x": 1410,
+      "y": 950,
+      "width": 180,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110893687-12",
+      "x": 1600,
+      "y": 950,
+      "width": 140,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110893687-13",
+      "x": 1760,
+      "y": 950,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 14,
+    "exportedAt": "2025-07-21T15:21:31.455Z"
+  }
+}

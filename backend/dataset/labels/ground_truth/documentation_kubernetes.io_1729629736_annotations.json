@@ -1,0 +1,175 @@
+{
+  "imageName": "documentation_kubernetes.io_1729629736.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753154084848-1",
+      "x": 1464,
+      "y": 34,
+      "width": 90,
+      "height": 36,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154084848-2",
+      "x": 1564,
+      "y": 30,
+      "width": 90,
+      "height": 36,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154084848-3",
+      "x": 20,
+      "y": 284,
+      "width": 320,
+      "height": 36,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154084848-11",
+      "x": 448,
+      "y": 184,
+      "width": 340,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154084848-12",
+      "x": 1466,
+      "y": 252,
+      "width": 100,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154084848-13",
+      "x": 1464,
+      "y": 280,
+      "width": 120,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154084848-14",
+      "x": 1464,
+      "y": 308,
+      "width": 180,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154084848-15",
+      "x": 1464,
+      "y": 338,
+      "width": 140,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154084848-16",
+      "x": 545,
+      "y": 775,
+      "width": 160,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154084848-17",
+      "x": 843,
+      "y": 777,
+      "width": 160,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154084848-18",
+      "x": 1141,
+      "y": 772,
+      "width": 160,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "154772dd-01fa-4da5-8d02-5b3650dbef82",
+      "x": 26,
+      "y": 340,
+      "width": 158,
+      "height": 27,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "6d2b3df2-e221-4dc9-9c66-f315b18ce3b9",
+      "x": 24,
+      "y": 408,
+      "width": 142,
+      "height": 18,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "a8582b1b-1d71-4f03-a71f-85ee99f2f4dc",
+      "x": 24,
+      "y": 439,
+      "width": 101,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "cd8a0f7c-ac40-430a-b963-e8f616a628b0",
+      "x": 26,
+      "y": 470,
+      "width": 68,
+      "height": 16,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "1848174c-48f6-408f-8c86-14e007fa6799",
+      "x": 24,
+      "y": 500,
+      "width": 96,
+      "height": 21,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "da62c78f-9c8e-4bd5-b87f-70dd4cedb633",
+      "x": 28,
+      "y": 535,
+      "width": 107,
+      "height": 16,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "afc132be-2641-417c-80e4-4082669b3594",
+      "x": 19,
+      "y": 566,
+      "width": 119,
+      "height": 21,
+      "tag": "dropdown",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 18,
+    "exportedAt": "2025-07-22T04:03:58.460Z"
+  }
+}

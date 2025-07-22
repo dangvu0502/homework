@@ -1,0 +1,103 @@
+{
+  "imageName": "e_commerce_www.walmart.com_1729629598.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753155451817-1",
+      "x": 433,
+      "y": 22,
+      "width": 680,
+      "height": 40,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155451817-2",
+      "x": 1532,
+      "y": 22,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155451817-3",
+      "x": 1621,
+      "y": 24,
+      "width": 70,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155451817-4",
+      "x": 1739,
+      "y": 23,
+      "width": 70,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155451817-5",
+      "x": 1832,
+      "y": 22,
+      "width": 70,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155451817-6",
+      "x": 85,
+      "y": 97,
+      "width": 100,
+      "height": 25,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753155451817-7",
+      "x": 228,
+      "y": 99,
+      "width": 80,
+      "height": 25,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "83c57fd7-0871-4228-8738-da7a7cb49507",
+      "x": 863,
+      "y": 490,
+      "width": 261,
+      "height": 82,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "c5e0a729-0b3e-4da4-a048-e95cb31e1c13",
+      "x": 1092,
+      "y": 341,
+      "width": 64,
+      "height": 39,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "81c80228-fba5-4bc9-b3e5-4af66dbab016",
+      "x": 77,
+      "y": 23,
+      "width": 314,
+      "height": 41,
+      "tag": "input",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 10,
+    "exportedAt": "2025-07-22T04:03:58.470Z"
+  }
+}

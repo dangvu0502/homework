@@ -1,0 +1,85 @@
+{
+  "imageName": "google_workspace_support.google.com_1729629788.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753156607935-0",
+      "x": 20,
+      "y": 22,
+      "width": 24,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156607935-1",
+      "x": 14,
+      "y": 82,
+      "width": 108,
+      "height": 48,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156607935-2",
+      "x": 130,
+      "y": 76,
+      "width": 99,
+      "height": 48,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156607935-3",
+      "x": 241,
+      "y": 67,
+      "width": 208,
+      "height": 48,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156607935-4",
+      "x": 1758,
+      "y": 22,
+      "width": 24,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156607935-5",
+      "x": 1804,
+      "y": 16,
+      "width": 116,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156607935-7",
+      "x": 687,
+      "y": 290,
+      "width": 600,
+      "height": 48,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156607935-8",
+      "x": 499,
+      "y": 525,
+      "width": 900,
+      "height": 48,
+      "tag": "dropdown",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 8,
+    "exportedAt": "2025-07-22T04:03:58.481Z"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "imageName": "design_www.sketch.com_1729629661.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753151942318-0",
+      "x": 414,
+      "y": 30,
+      "width": 90,
+      "height": 24,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151942318-1",
+      "x": 542,
+      "y": 26,
+      "width": 75,
+      "height": 24,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151942318-2",
+      "x": 641,
+      "y": 24,
+      "width": 75,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151942318-3",
+      "x": 724,
+      "y": 32,
+      "width": 65,
+      "height": 24,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151942318-4",
+      "x": 1306,
+      "y": 30,
+      "width": 75,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151942318-5",
+      "x": 1417,
+      "y": 20,
+      "width": 150,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151942318-6",
+      "x": 1087,
+      "y": 333,
+      "width": 200,
+      "height": 48,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151942318-7",
+      "x": 1164,
+      "y": 591,
+      "width": 100,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 8,
+    "exportedAt": "2025-07-22T04:03:58.439Z"
+  }
+}

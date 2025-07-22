@@ -1,0 +1,193 @@
+{
+  "imageName": "documentation_kubernetes.io_1729626975.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753153914966-0",
+      "x": 43,
+      "y": 288,
+      "width": 298,
+      "height": 36,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-1",
+      "x": 1474,
+      "y": 40,
+      "width": 80,
+      "height": 16,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-2",
+      "x": 1570,
+      "y": 40,
+      "width": 66,
+      "height": 16,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-3",
+      "x": 745,
+      "y": 34,
+      "width": 94,
+      "height": 16,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-4",
+      "x": 890,
+      "y": 40,
+      "width": 108,
+      "height": 16,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-5",
+      "x": 1036,
+      "y": 38,
+      "width": 58,
+      "height": 16,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-6",
+      "x": 1133,
+      "y": 44,
+      "width": 60,
+      "height": 16,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-7",
+      "x": 1231,
+      "y": 38,
+      "width": 78,
+      "height": 16,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-8",
+      "x": 1349,
+      "y": 36,
+      "width": 90,
+      "height": 16,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-9",
+      "x": 1657,
+      "y": 27,
+      "width": 256,
+      "height": 36,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-10",
+      "x": 22,
+      "y": 350,
+      "width": 100,
+      "height": 16,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-11",
+      "x": 22,
+      "y": 409,
+      "width": 100,
+      "height": 16,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-12",
+      "x": 24,
+      "y": 444,
+      "width": 66,
+      "height": 16,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-13",
+      "x": 26,
+      "y": 473,
+      "width": 44,
+      "height": 16,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-14",
+      "x": 24,
+      "y": 507,
+      "width": 66,
+      "height": 16,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-15",
+      "x": 24,
+      "y": 539,
+      "width": 70,
+      "height": 16,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-16",
+      "x": 28,
+      "y": 567,
+      "width": 78,
+      "height": 16,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-17",
+      "x": 547,
+      "y": 773,
+      "width": 150,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-18",
+      "x": 833,
+      "y": 773,
+      "width": 150,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153914966-19",
+      "x": 1138,
+      "y": 779,
+      "width": 150,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 20,
+    "exportedAt": "2025-07-22T04:03:58.459Z"
+  }
+}

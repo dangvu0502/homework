@@ -1,0 +1,130 @@
+{
+  "imageName": "education_www.khanacademy.org_1729629674.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753156127932-0",
+      "x": 1763,
+      "y": 31,
+      "width": 90,
+      "height": 22,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156127932-1",
+      "x": 1863,
+      "y": 31,
+      "width": 22,
+      "height": 22,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156127932-2",
+      "x": 375,
+      "y": 84,
+      "width": 90,
+      "height": 40,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156127932-3",
+      "x": 520,
+      "y": 84,
+      "width": 110,
+      "height": 40,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156127932-4",
+      "x": 1292,
+      "y": 84,
+      "width": 70,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156127932-5",
+      "x": 1373,
+      "y": 88,
+      "width": 60,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156127932-6",
+      "x": 1463,
+      "y": 82,
+      "width": 80,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156127932-7",
+      "x": 901,
+      "y": 446,
+      "width": 150,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156127932-8",
+      "x": 1126,
+      "y": 444,
+      "width": 150,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156127932-9",
+      "x": 1340,
+      "y": 448,
+      "width": 150,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "3b574446-6bf1-45a6-b46e-c285bf6e8f0b",
+      "x": 46,
+      "y": 736,
+      "width": 320,
+      "height": 37,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "6d5b4081-bdcd-409e-947a-a870e4e2bb62",
+      "x": 42,
+      "y": 792,
+      "width": 322,
+      "height": 37,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "40052524-5c15-43fd-960e-b396a6afdbc5",
+      "x": 42,
+      "y": 843,
+      "width": 324,
+      "height": 43,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 13,
+    "exportedAt": "2025-07-22T04:03:58.477Z"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "imageName": "download (1).png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "970e471d-222f-44b6-8b3d-1766dd8f2b49",
+      "x": 135,
+      "y": 309,
+      "width": 89,
+      "height": 44,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "ac5a507b-6641-405b-83f7-44ab3277c08f",
+      "x": 604,
+      "y": 309,
+      "width": 119,
+      "height": 48,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "3613f55b-eb00-4668-b3db-7293353da226",
+      "x": 1085,
+      "y": 320,
+      "width": 138,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 3,
+    "exportedAt": "2025-07-22T04:03:58.462Z"
+  }
+}

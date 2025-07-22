@@ -1,0 +1,193 @@
+{
+  "imageName": "design_www.figma.com_1729626890.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753108963937-0",
+      "x": 109,
+      "y": 29,
+      "width": 70,
+      "height": 22,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-1",
+      "x": 205,
+      "y": 29,
+      "width": 75,
+      "height": 22,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-2",
+      "x": 300,
+      "y": 29,
+      "width": 90,
+      "height": 22,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-3",
+      "x": 405,
+      "y": 29,
+      "width": 80,
+      "height": 22,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-4",
+      "x": 500,
+      "y": 29,
+      "width": 55,
+      "height": 22,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-5",
+      "x": 660,
+      "y": 29,
+      "width": 95,
+      "height": 22,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-6",
+      "x": 770,
+      "y": 24,
+      "width": 70,
+      "height": 32,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-7",
+      "x": 855,
+      "y": 24,
+      "width": 145,
+      "height": 32,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-8",
+      "x": 98,
+      "y": 480,
+      "width": 180,
+      "height": 50,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-9",
+      "x": 98,
+      "y": 688,
+      "width": 80,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-10",
+      "x": 98,
+      "y": 713,
+      "width": 80,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-11",
+      "x": 88,
+      "y": 748,
+      "width": 50,
+      "height": 25,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-12",
+      "x": 138,
+      "y": 748,
+      "width": 60,
+      "height": 25,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-13",
+      "x": 205,
+      "y": 785,
+      "width": 25,
+      "height": 25,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-14",
+      "x": 860,
+      "y": 675,
+      "width": 70,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-15",
+      "x": 800,
+      "y": 675,
+      "width": 50,
+      "height": 30,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-16",
+      "x": 748,
+      "y": 715,
+      "width": 60,
+      "height": 25,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-17",
+      "x": 808,
+      "y": 715,
+      "width": 70,
+      "height": 25,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-18",
+      "x": 748,
+      "y": 750,
+      "width": 70,
+      "height": 25,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108963937-19",
+      "x": 748,
+      "y": 808,
+      "width": 60,
+      "height": 25,
+      "tag": "input",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 20,
+    "exportedAt": "2025-07-21T15:21:31.417Z"
+  }
+}

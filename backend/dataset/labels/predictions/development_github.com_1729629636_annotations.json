@@ -1,0 +1,130 @@
+{
+  "imageName": "development_github.com_1729629636.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753109408749-0",
+      "x": 80,
+      "y": 39,
+      "width": 60,
+      "height": 22,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109408749-1",
+      "x": 169,
+      "y": 39,
+      "width": 75,
+      "height": 22,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109408749-2",
+      "x": 268,
+      "y": 39,
+      "width": 80,
+      "height": 22,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109408749-3",
+      "x": 368,
+      "y": 39,
+      "width": 95,
+      "height": 22,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109408749-4",
+      "x": 487,
+      "y": 39,
+      "width": 85,
+      "height": 22,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109408749-5",
+      "x": 600,
+      "y": 39,
+      "width": 55,
+      "height": 22,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109408749-6",
+      "x": 709,
+      "y": 32,
+      "width": 170,
+      "height": 36,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109408749-7",
+      "x": 890,
+      "y": 32,
+      "width": 60,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109408749-8",
+      "x": 960,
+      "y": 32,
+      "width": 70,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109408749-9",
+      "x": 220,
+      "y": 560,
+      "width": 230,
+      "height": 48,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109408749-10",
+      "x": 460,
+      "y": 560,
+      "width": 160,
+      "height": 48,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109408749-11",
+      "x": 630,
+      "y": 560,
+      "width": 210,
+      "height": 48,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109408749-12",
+      "x": 220,
+      "y": 710,
+      "width": 300,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 13,
+    "exportedAt": "2025-07-21T15:21:31.431Z"
+  }
+}

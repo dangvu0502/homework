@@ -1,0 +1,148 @@
+{
+  "imageName": "e_commerce_www.walmart.com_1729629598.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753110757669-0",
+      "x": 280,
+      "y": 38,
+      "width": 500,
+      "height": 40,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-1",
+      "x": 780,
+      "y": 38,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-2",
+      "x": 60,
+      "y": 38,
+      "width": 200,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-3",
+      "x": 30,
+      "y": 110,
+      "width": 100,
+      "height": 30,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-4",
+      "x": 140,
+      "y": 110,
+      "width": 80,
+      "height": 30,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-5",
+      "x": 90,
+      "y": 288,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-6",
+      "x": 310,
+      "y": 350,
+      "width": 70,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-7",
+      "x": 730,
+      "y": 258,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-8",
+      "x": 90,
+      "y": 598,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-9",
+      "x": 730,
+      "y": 568,
+      "width": 80,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-10",
+      "x": 310,
+      "y": 678,
+      "width": 100,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-11",
+      "x": 520,
+      "y": 678,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-12",
+      "x": 730,
+      "y": 988,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-13",
+      "x": 570,
+      "y": 370,
+      "width": 30,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110757669-14",
+      "x": 400,
+      "y": 530,
+      "width": 200,
+      "height": 60,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 15,
+    "exportedAt": "2025-07-21T15:21:31.450Z"
+  }
+}

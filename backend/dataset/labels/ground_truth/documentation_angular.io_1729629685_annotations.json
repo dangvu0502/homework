@@ -1,0 +1,121 @@
+{
+  "imageName": "documentation_angular.io_1729629685.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753153596262-0",
+      "x": 28,
+      "y": 80,
+      "width": 64,
+      "height": 32,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153596262-1",
+      "x": 170,
+      "y": 56,
+      "width": 304,
+      "height": 32,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153596262-2",
+      "x": 26,
+      "y": 124,
+      "width": 64,
+      "height": 32,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153596262-4",
+      "x": 30,
+      "y": 205,
+      "width": 64,
+      "height": 32,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153596262-5",
+      "x": 24,
+      "y": 310,
+      "width": 64,
+      "height": 32,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153596262-6",
+      "x": 24,
+      "y": 395,
+      "width": 64,
+      "height": 32,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153596262-7",
+      "x": 28,
+      "y": 492,
+      "width": 64,
+      "height": 32,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153596262-8",
+      "x": 879,
+      "y": 797,
+      "width": 128,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153596262-13",
+      "x": 939,
+      "y": 868,
+      "width": 32,
+      "height": 32,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "6ebc3762-41ee-483f-b254-415b2fcaad86",
+      "x": 1624,
+      "y": 882,
+      "width": 111,
+      "height": 35,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "8640cdb9-2bde-42b5-82b4-475308264202",
+      "x": 1759,
+      "y": 880,
+      "width": 113,
+      "height": 33,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "3506a9e8-47ed-4572-a4eb-11220365ada9",
+      "x": 32,
+      "y": 866,
+      "width": 57,
+      "height": 45,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 12,
+    "exportedAt": "2025-07-22T04:03:58.457Z"
+  }
+}

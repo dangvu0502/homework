@@ -1,0 +1,139 @@
+{
+  "imageName": "dev_tools_www.jetbrains.com_1729631851.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753152662910-5",
+      "x": 1363,
+      "y": 24,
+      "width": 40,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152662910-6",
+      "x": 1435,
+      "y": 32,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152662910-7",
+      "x": 1473,
+      "y": 30,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152662910-8",
+      "x": 1511,
+      "y": 28,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152662910-9",
+      "x": 1549,
+      "y": 26,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152662910-10",
+      "x": 966,
+      "y": 427,
+      "width": 70,
+      "height": 15,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152662910-11",
+      "x": 794,
+      "y": 567,
+      "width": 80,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152662910-12",
+      "x": 910,
+      "y": 569,
+      "width": 110,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152662910-13",
+      "x": 1077,
+      "y": 561,
+      "width": 60,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "e9e42572-1a3b-4f20-a1d7-d8fab563062e",
+      "x": 1254,
+      "y": 20,
+      "width": 86,
+      "height": 37,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "bcccf2e5-cc08-42b9-b163-a7620edf448e",
+      "x": 1139,
+      "y": 12,
+      "width": 94,
+      "height": 47,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "3a3c93d5-02eb-469f-b92e-0186823c98a9",
+      "x": 1031,
+      "y": 18,
+      "width": 101,
+      "height": 45,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "b4bb25f2-573a-4fb7-9974-7416412abadd",
+      "x": 904,
+      "y": 14,
+      "width": 115,
+      "height": 55,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "5a57e6b0-1497-480d-816f-79ae3ef668c1",
+      "x": 715,
+      "y": 18,
+      "width": 187,
+      "height": 47,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 14,
+    "exportedAt": "2025-07-22T04:03:58.447Z"
+  }
+}

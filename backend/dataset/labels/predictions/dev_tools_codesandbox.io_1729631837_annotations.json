@@ -1,0 +1,49 @@
+{
+  "imageName": "dev_tools_codesandbox.io_1729631837.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753109117457-0",
+      "x": 1409,
+      "y": 25,
+      "width": 60,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109117457-1",
+      "x": 1490,
+      "y": 17,
+      "width": 90,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109117457-2",
+      "x": 728,
+      "y": 60,
+      "width": 88,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109117457-3",
+      "x": 200,
+      "y": 676,
+      "width": 120,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 4,
+    "exportedAt": "2025-07-21T15:21:31.422Z"
+  }
+}

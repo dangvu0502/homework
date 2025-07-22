@@ -1,0 +1,130 @@
+{
+  "imageName": "development_gitlab.com_1729629644.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753109470472-0",
+      "x": 400,
+      "y": 15,
+      "width": 280,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109470472-1",
+      "x": 90,
+      "y": 80,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109470472-2",
+      "x": 180,
+      "y": 80,
+      "width": 75,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109470472-3",
+      "x": 270,
+      "y": 80,
+      "width": 60,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109470472-4",
+      "x": 350,
+      "y": 80,
+      "width": 80,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109470472-5",
+      "x": 450,
+      "y": 80,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109470472-6",
+      "x": 540,
+      "y": 80,
+      "width": 80,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109470472-7",
+      "x": 835,
+      "y": 80,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109470472-8",
+      "x": 880,
+      "y": 70,
+      "width": 120,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109470472-9",
+      "x": 1020,
+      "y": 80,
+      "width": 50,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109470472-10",
+      "x": 190,
+      "y": 670,
+      "width": 180,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109470472-11",
+      "x": 190,
+      "y": 870,
+      "width": 100,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109470472-12",
+      "x": 310,
+      "y": 870,
+      "width": 110,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 13,
+    "exportedAt": "2025-07-21T15:21:31.433Z"
+  }
+}

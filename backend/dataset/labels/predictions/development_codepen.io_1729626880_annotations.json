@@ -1,0 +1,40 @@
+{
+  "imageName": "development_codepen.io_1729626880.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753109345848-0",
+      "x": 280,
+      "y": 290,
+      "width": 20,
+      "height": 20,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109345848-1",
+      "x": 400,
+      "y": 310,
+      "width": 38,
+      "height": 14,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109345848-2",
+      "x": 445,
+      "y": 310,
+      "width": 35,
+      "height": 14,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 3,
+    "exportedAt": "2025-07-21T15:21:31.430Z"
+  }
+}

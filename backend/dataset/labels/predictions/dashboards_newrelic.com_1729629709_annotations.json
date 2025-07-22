@@ -1,0 +1,103 @@
+{
+  "imageName": "dashboards_newrelic.com_1729629709.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753108737516-0",
+      "x": 699,
+      "y": 84,
+      "width": 140,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108737516-1",
+      "x": 855,
+      "y": 84,
+      "width": 108,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108737516-2",
+      "x": 320,
+      "y": 429,
+      "width": 240,
+      "height": 60,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108737516-3",
+      "x": 560,
+      "y": 429,
+      "width": 240,
+      "height": 60,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108737516-4",
+      "x": 800,
+      "y": 429,
+      "width": 179,
+      "height": 60,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108737516-5",
+      "x": 458,
+      "y": 550,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108737516-6",
+      "x": 518,
+      "y": 550,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108737516-7",
+      "x": 578,
+      "y": 550,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108737516-8",
+      "x": 638,
+      "y": 550,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108737516-9",
+      "x": 480,
+      "y": 850,
+      "width": 170,
+      "height": 50,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 10,
+    "exportedAt": "2025-07-21T15:21:31.407Z"
+  }
+}

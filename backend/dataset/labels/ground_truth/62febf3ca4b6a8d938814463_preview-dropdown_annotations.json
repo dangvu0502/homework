@@ -1,0 +1,112 @@
+{
+  "imageName": "62febf3ca4b6a8d938814463_preview-dropdown.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753149770541-10",
+      "x": 2131,
+      "y": 1103,
+      "width": 265,
+      "height": 75,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149770541-11",
+      "x": 1113,
+      "y": 770,
+      "width": 265,
+      "height": 75,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149770541-12",
+      "x": 1118,
+      "y": 446,
+      "width": 265,
+      "height": 75,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149770541-13",
+      "x": 2124,
+      "y": 441,
+      "width": 265,
+      "height": 75,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149770541-14",
+      "x": 1115,
+      "y": 1108,
+      "width": 265,
+      "height": 75,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753149770541-15",
+      "x": 2124,
+      "y": 784,
+      "width": 265,
+      "height": 75,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "53c9b53c-987a-44c7-9070-341370246629",
+      "x": 1519,
+      "y": 1552,
+      "width": 478,
+      "height": 92,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "b73b6b07-ef47-49b4-a702-2f1eab4c8470",
+      "x": 3699,
+      "y": 66,
+      "width": 504,
+      "height": 153,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "7119d390-658b-4c64-8c43-c7ac01d88be0",
+      "x": 3458,
+      "y": 101,
+      "width": 197,
+      "height": 105,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "93ff6da8-8897-49a9-82e3-3dc5d85d6df3",
+      "x": 708,
+      "y": 92,
+      "width": 276,
+      "height": 110,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "be2e7c1a-8138-46a7-bf1a-54373d718676",
+      "x": 1037,
+      "y": 92,
+      "width": 360,
+      "height": 118,
+      "tag": "dropdown",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 11,
+    "exportedAt": "2025-07-22T04:03:58.415Z"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "imageName": "documentation_reactjs.org_1729629679.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753154257801-1",
+      "x": 1394,
+      "y": 22,
+      "width": 56,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154257801-2",
+      "x": 1478,
+      "y": 24,
+      "width": 80,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154257801-3",
+      "x": 1572,
+      "y": 18,
+      "width": 96,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154257801-4",
+      "x": 1684,
+      "y": 22,
+      "width": 48,
+      "height": 24,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154257801-5",
+      "x": 1759,
+      "y": 22,
+      "width": 32,
+      "height": 32,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154257801-6",
+      "x": 1807,
+      "y": 20,
+      "width": 32,
+      "height": 32,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154257801-7",
+      "x": 1864,
+      "y": 16,
+      "width": 32,
+      "height": 32,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154257801-8",
+      "x": 808,
+      "y": 437,
+      "width": 128,
+      "height": 48,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753154257801-9",
+      "x": 960,
+      "y": 429,
+      "width": 160,
+      "height": 48,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "678f154e-a4e0-4361-a674-ecc1aa4e5e67",
+      "x": 471,
+      "y": 16,
+      "width": 898,
+      "height": 35,
+      "tag": "input",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 10,
+    "exportedAt": "2025-07-22T04:03:58.461Z"
+  }
+}

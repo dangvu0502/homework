@@ -1,0 +1,112 @@
+{
+  "imageName": "dev_tools_jupyter.org_1729631843.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753152526812-0",
+      "x": 1161,
+      "y": 31,
+      "width": 30,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152526812-1",
+      "x": 1212,
+      "y": 29,
+      "width": 45,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152526812-2",
+      "x": 1285,
+      "y": 29,
+      "width": 80,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152526812-3",
+      "x": 1397,
+      "y": 29,
+      "width": 95,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152526812-4",
+      "x": 1522,
+      "y": 29,
+      "width": 40,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152526812-5",
+      "x": 1590,
+      "y": 29,
+      "width": 45,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152526812-6",
+      "x": 1661,
+      "y": 27,
+      "width": 80,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152526812-7",
+      "x": 1769,
+      "y": 27,
+      "width": 60,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753152526812-8",
+      "x": 1850,
+      "y": 31,
+      "width": 40,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "b426f6ed-da4f-4652-9e46-dd9073b76e00",
+      "x": 975,
+      "y": 876,
+      "width": 197,
+      "height": 39,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "3122d20e-697c-4183-b869-6bb88672c3b3",
+      "x": 1181,
+      "y": 872,
+      "width": 185,
+      "height": 43,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 11,
+    "exportedAt": "2025-07-22T04:03:58.446Z"
+  }
+}

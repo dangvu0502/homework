@@ -1,0 +1,112 @@
+{
+  "imageName": "dev_tools_jupyter.org_1729629917.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753109211062-0",
+      "x": 607,
+      "y": 34,
+      "width": 30,
+      "height": 19,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109211062-1",
+      "x": 650,
+      "y": 34,
+      "width": 45,
+      "height": 19,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109211062-2",
+      "x": 710,
+      "y": 34,
+      "width": 80,
+      "height": 19,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109211062-3",
+      "x": 800,
+      "y": 34,
+      "width": 90,
+      "height": 19,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109211062-4",
+      "x": 900,
+      "y": 34,
+      "width": 40,
+      "height": 19,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109211062-5",
+      "x": 950,
+      "y": 34,
+      "width": 45,
+      "height": 19,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109211062-6",
+      "x": 1010,
+      "y": 34,
+      "width": 80,
+      "height": 19,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109211062-7",
+      "x": 1100,
+      "y": 34,
+      "width": 60,
+      "height": 19,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109211062-8",
+      "x": 1170,
+      "y": 34,
+      "width": 40,
+      "height": 19,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109211062-9",
+      "x": 507,
+      "y": 949,
+      "width": 178,
+      "height": 38,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753109211062-10",
+      "x": 693,
+      "y": 949,
+      "width": 156,
+      "height": 38,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 11,
+    "exportedAt": "2025-07-21T15:21:31.425Z"
+  }
+}

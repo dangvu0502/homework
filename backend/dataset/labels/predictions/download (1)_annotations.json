@@ -1,0 +1,49 @@
+{
+  "imageName": "download (1).png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753110351650-0",
+      "x": 615,
+      "y": 685,
+      "width": 8,
+      "height": 8,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110351650-1",
+      "x": 630,
+      "y": 685,
+      "width": 8,
+      "height": 8,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110351650-2",
+      "x": 645,
+      "y": 685,
+      "width": 8,
+      "height": 8,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110351650-3",
+      "x": 660,
+      "y": 685,
+      "width": 8,
+      "height": 8,
+      "tag": "radio",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 4,
+    "exportedAt": "2025-07-21T15:21:31.442Z"
+  }
+}

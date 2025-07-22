@@ -1,0 +1,184 @@
+{
+  "imageName": "e_commerce_www.amazon.com_1729626821.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753110465218-0",
+      "x": 70,
+      "y": 16,
+      "width": 110,
+      "height": 40,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-1",
+      "x": 188,
+      "y": 24,
+      "width": 56,
+      "height": 36,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-2",
+      "x": 244,
+      "y": 24,
+      "width": 450,
+      "height": 36,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-3",
+      "x": 694,
+      "y": 24,
+      "width": 48,
+      "height": 36,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-4",
+      "x": 760,
+      "y": 24,
+      "width": 50,
+      "height": 36,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-5",
+      "x": 820,
+      "y": 16,
+      "width": 130,
+      "height": 40,
+      "tag": "dropdown",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-6",
+      "x": 960,
+      "y": 16,
+      "width": 100,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-7",
+      "x": 1070,
+      "y": 16,
+      "width": 60,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-8",
+      "x": 0,
+      "y": 70,
+      "width": 50,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-9",
+      "x": 50,
+      "y": 70,
+      "width": 100,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-10",
+      "x": 180,
+      "y": 145,
+      "width": 80,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-11",
+      "x": 270,
+      "y": 145,
+      "width": 120,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-12",
+      "x": 120,
+      "y": 240,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-13",
+      "x": 870,
+      "y": 240,
+      "width": 40,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-14",
+      "x": 125,
+      "y": 785,
+      "width": 150,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-15",
+      "x": 320,
+      "y": 785,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-16",
+      "x": 520,
+      "y": 785,
+      "width": 90,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-17",
+      "x": 710,
+      "y": 785,
+      "width": 150,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753110465218-18",
+      "x": 0,
+      "y": 16,
+      "width": 70,
+      "height": 40,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 19,
+    "exportedAt": "2025-07-21T15:21:31.445Z"
+  }
+}

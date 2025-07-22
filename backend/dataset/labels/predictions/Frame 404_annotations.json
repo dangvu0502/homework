@@ -1,0 +1,139 @@
+{
+  "imageName": "Frame 404.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753111066728-0",
+      "x": 210,
+      "y": 720,
+      "width": 100,
+      "height": 100,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111066728-1",
+      "x": 185,
+      "y": 705,
+      "width": 30,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111066728-2",
+      "x": 295,
+      "y": 705,
+      "width": 30,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111066728-3",
+      "x": 175,
+      "y": 750,
+      "width": 30,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111066728-4",
+      "x": 305,
+      "y": 750,
+      "width": 30,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111066728-5",
+      "x": 185,
+      "y": 795,
+      "width": 30,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111066728-6",
+      "x": 295,
+      "y": 795,
+      "width": 30,
+      "height": 30,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111066728-7",
+      "x": 180,
+      "y": 825,
+      "width": 160,
+      "height": 15,
+      "tag": "input",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111066728-8",
+      "x": 400,
+      "y": 550,
+      "width": 60,
+      "height": 25,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111066728-9",
+      "x": 470,
+      "y": 550,
+      "width": 80,
+      "height": 25,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111066728-10",
+      "x": 560,
+      "y": 550,
+      "width": 60,
+      "height": 25,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111066728-11",
+      "x": 550,
+      "y": 670,
+      "width": 90,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111066728-12",
+      "x": 550,
+      "y": 695,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753111066728-13",
+      "x": 550,
+      "y": 720,
+      "width": 70,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 14,
+    "exportedAt": "2025-07-21T15:21:31.460Z"
+  }
+}

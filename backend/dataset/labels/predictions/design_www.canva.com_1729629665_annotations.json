@@ -1,0 +1,22 @@
+{
+  "imageName": "design_www.canva.com_1729629665.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753108937291-0",
+      "x": 432,
+      "y": 432,
+      "width": 20,
+      "height": 20,
+      "tag": "input",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 1,
+    "exportedAt": "2025-07-21T15:21:31.416Z"
+  }
+}

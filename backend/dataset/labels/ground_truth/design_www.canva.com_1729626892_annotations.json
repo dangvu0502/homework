@@ -1,0 +1,31 @@
+{
+  "imageName": "design_www.canva.com_1729626892.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753151644494-0",
+      "x": 827,
+      "y": 410,
+      "width": 20,
+      "height": 20,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151644494-1",
+      "x": 1046,
+      "y": 565,
+      "width": 130,
+      "height": 18,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 2,
+    "exportedAt": "2025-07-22T04:03:58.435Z"
+  }
+}

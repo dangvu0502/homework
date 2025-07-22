@@ -1,0 +1,103 @@
+{
+  "imageName": "ae719d5181188a447ca01ae586598c9d.jpg",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753108489615-0",
+      "x": 180,
+      "y": 570,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108489615-1",
+      "x": 180,
+      "y": 618,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108489615-2",
+      "x": 180,
+      "y": 666,
+      "width": 16,
+      "height": 16,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108489615-3",
+      "x": 300,
+      "y": 530,
+      "width": 90,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108489615-4",
+      "x": 540,
+      "y": 570,
+      "width": 100,
+      "height": 100,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108489615-5",
+      "x": 650,
+      "y": 570,
+      "width": 100,
+      "height": 100,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108489615-6",
+      "x": 760,
+      "y": 570,
+      "width": 100,
+      "height": 100,
+      "tag": "radio",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108489615-7",
+      "x": 810,
+      "y": 530,
+      "width": 90,
+      "height": 20,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108489615-8",
+      "x": 460,
+      "y": 440,
+      "width": 80,
+      "height": 80,
+      "tag": "button",
+      "source": "prediction"
+    },
+    {
+      "id": "prediction-1753108489615-9",
+      "x": 860,
+      "y": 440,
+      "width": 80,
+      "height": 80,
+      "tag": "button",
+      "source": "prediction"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 10,
+    "exportedAt": "2025-07-21T15:21:31.395Z"
+  }
+}

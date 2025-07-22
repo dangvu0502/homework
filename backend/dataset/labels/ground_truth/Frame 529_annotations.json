@@ -1,0 +1,31 @@
+{
+  "imageName": "Frame 529.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753156305395-0",
+      "x": 137,
+      "y": 621,
+      "width": 350,
+      "height": 60,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753156305395-1",
+      "x": 149,
+      "y": 698,
+      "width": 350,
+      "height": 60,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 2,
+    "exportedAt": "2025-07-22T04:03:58.480Z"
+  }
+}

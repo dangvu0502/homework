@@ -1,0 +1,130 @@
+{
+  "imageName": "development_gitlab.com_1729626876.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753153126658-0",
+      "x": 799,
+      "y": 23,
+      "width": 332,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153126658-1",
+      "x": 90,
+      "y": 89,
+      "width": 65,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153126658-2",
+      "x": 180,
+      "y": 85,
+      "width": 75,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153126658-3",
+      "x": 280,
+      "y": 91,
+      "width": 55,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153126658-4",
+      "x": 370,
+      "y": 91,
+      "width": 75,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153126658-5",
+      "x": 480,
+      "y": 89,
+      "width": 65,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153126658-6",
+      "x": 591,
+      "y": 81,
+      "width": 80,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153126658-7",
+      "x": 1612,
+      "y": 89,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153126658-8",
+      "x": 1672,
+      "y": 78,
+      "width": 120,
+      "height": 35,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153126658-9",
+      "x": 1834,
+      "y": 91,
+      "width": 55,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153126658-10",
+      "x": 409,
+      "y": 629,
+      "width": 200,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153126658-11",
+      "x": 385,
+      "y": 821,
+      "width": 100,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153126658-12",
+      "x": 532,
+      "y": 817,
+      "width": 120,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 13,
+    "exportedAt": "2025-07-22T04:03:58.452Z"
+  }
+}

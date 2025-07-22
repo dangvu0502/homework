@@ -1,0 +1,121 @@
+{
+  "imageName": "development_stackoverflow.com_1729629650.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753153314374-2",
+      "x": 1433,
+      "y": 17,
+      "width": 70,
+      "height": 34,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153314374-3",
+      "x": 1517,
+      "y": 12,
+      "width": 70,
+      "height": 34,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153314374-4",
+      "x": 545,
+      "y": 289,
+      "width": 90,
+      "height": 42,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153314374-5",
+      "x": 654,
+      "y": 301,
+      "width": 130,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153314374-6",
+      "x": 1409,
+      "y": 411,
+      "width": 180,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153314374-7",
+      "x": 543,
+      "y": 618,
+      "width": 130,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153314374-8",
+      "x": 692,
+      "y": 628,
+      "width": 80,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153314374-9",
+      "x": 533,
+      "y": 861,
+      "width": 200,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153314374-10",
+      "x": 48,
+      "y": 805,
+      "width": 160,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153314374-11",
+      "x": 243,
+      "y": 807,
+      "width": 160,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753153314374-12",
+      "x": 106,
+      "y": 859,
+      "width": 180,
+      "height": 40,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "de4276e7-6d18-421a-94c6-570d5103a87b",
+      "x": 739,
+      "y": 16,
+      "width": 671,
+      "height": 31,
+      "tag": "input",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 12,
+    "exportedAt": "2025-07-22T04:03:58.454Z"
+  }
+}

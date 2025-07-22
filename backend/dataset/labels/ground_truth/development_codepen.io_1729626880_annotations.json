@@ -1,0 +1,22 @@
+{
+  "imageName": "development_codepen.io_1729626880.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "66434c25-e723-4708-a545-e784a95a668f",
+      "x": 508,
+      "y": 265,
+      "width": 45,
+      "height": 43,
+      "tag": "input",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 1,
+    "exportedAt": "2025-07-22T04:03:58.449Z"
+  }
+}

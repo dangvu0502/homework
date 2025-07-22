@@ -1,0 +1,139 @@
+{
+  "imageName": "design_www.figma.com_1729629660.png",
+  "imageDimensions": {
+    "width": 0,
+    "height": 0
+  },
+  "annotations": [
+    {
+      "id": "prediction-1753151795237-0",
+      "x": 269,
+      "y": 37,
+      "width": 70,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151795237-1",
+      "x": 390,
+      "y": 35,
+      "width": 75,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151795237-2",
+      "x": 522,
+      "y": 35,
+      "width": 90,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151795237-3",
+      "x": 656,
+      "y": 35,
+      "width": 80,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151795237-4",
+      "x": 781,
+      "y": 35,
+      "width": 55,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151795237-5",
+      "x": 1292,
+      "y": 35,
+      "width": 90,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151795237-6",
+      "x": 1427,
+      "y": 30,
+      "width": 60,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151795237-7",
+      "x": 1540,
+      "y": 30,
+      "width": 140,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151795237-8",
+      "x": 219,
+      "y": 453,
+      "width": 200,
+      "height": 50,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151795237-9",
+      "x": 309,
+      "y": 725,
+      "width": 100,
+      "height": 30,
+      "tag": "input",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151795237-10",
+      "x": 192,
+      "y": 725,
+      "width": 40,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151795237-11",
+      "x": 243,
+      "y": 721,
+      "width": 50,
+      "height": 30,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151795237-12",
+      "x": 393,
+      "y": 769,
+      "width": 20,
+      "height": 20,
+      "tag": "button",
+      "source": "user"
+    },
+    {
+      "id": "prediction-1753151795237-19",
+      "x": 192,
+      "y": 646,
+      "width": 60,
+      "height": 20,
+      "tag": "dropdown",
+      "source": "user"
+    }
+  ],
+  "metadata": {
+    "totalAnnotations": 14,
+    "exportedAt": "2025-07-22T04:03:58.437Z"
+  }
+}
