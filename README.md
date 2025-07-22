@@ -92,6 +92,8 @@ make dev
 cd backend
 uv run cli
 ```
+A sample dataset was provided in `/backend/dataset`
+
 ---
 
 ## License

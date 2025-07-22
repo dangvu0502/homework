@@ -17,8 +17,9 @@ from src.batch.processor import auto_predict_images
 # Import settings to get default model
 from src.settings import config
 
-DEFAULT_PREDICTIONS_DIR = Path(__file__).parent.parent / "test_data" / "predictions"
-DEFAULT_GROUND_TRUTH_DIR = Path(__file__).parent.parent / "test_data" / "ground_truth"
+DEFAULT_PREDICTIONS_DIR = Path(__file__).parent.parent / "dataset" / "labels" /"predictions"
+DEFAULT_GROUND_TRUTH_DIR = Path(__file__).parent.parent / "dataset" / "labels" / "ground_truth"
+DEFAULT_IMAGE_DIR = Path(__file__).parent.parent / "dataset" / "images"
 
 class CustomGroup(click.Group):
     """Custom Group class that formats commands with multi-line help."""
@@ -57,7 +58,7 @@ def cli():
     pass
 
 
-@cli.command(short_help='Evaluate UI element detection accuracy by comparing predictions to ground truth.\nARGS: [ground_truth_dir] [predictions_dir]\nDefaults: test_data/ground_truth, test_data/predictions')
+@cli.command(short_help='Evaluate UI element detection accuracy by comparing predictions to ground truth.\nARGS: [ground_truth_dir] [predictions_dir]\nDefaults ground truth: ' + str(DEFAULT_GROUND_TRUTH_DIR) + '\nDefaults predictions: ' + str(DEFAULT_PREDICTIONS_DIR))
 @click.argument('ground_truth_dir', type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path), required=False)
 @click.argument('predictions_dir', type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path), required=False)
 @click.option('--iou-threshold', default=0.5, help='IoU threshold for matching boxes', show_default=True)
@@ -99,8 +100,8 @@ def evaluate(ground_truth_dir: Path, predictions_dir: Path, iou_threshold: float
         click.echo(f"\nResults saved to: {output}")
 
 
-@cli.command(name='batch-predict', short_help='Batch predict UI elements for all images in a directory.\nARGS: <image_dir> [output_dir]\nDefault output: backend/test_data/predictions/')
-@click.argument('image_dir', type=click.Path(exists=True))
+@cli.command(name='batch-predict', short_help='Batch predict UI elements for all images in a directory.\nARGS: <image_dir> [output_dir]\nDefault image directory: ' + str(DEFAULT_IMAGE_DIR) + '\nDefault output: ' + str(DEFAULT_PREDICTIONS_DIR))
+@click.argument('image_dir', type=click.Path(exists=True), required=False)
 @click.argument('output_dir', type=click.Path(), required=False)
 @click.option('--model', '-m', help='Model to use for prediction (default: first model in config)')
 @click.option('--concurrent', '-c', default=5, help='Number of concurrent requests')
@@ -118,9 +119,12 @@ def batch_predict(image_dir: str, output_dir: str, model: str, concurrent: int, 
         available_models = ", ".join(config.models.keys())
         raise click.ClickException(f"Model '{model}' not found. Available models: {available_models}")
     
-    image_path = Path(image_dir)
+    if image_dir:
+        image_path = Path(image_dir)
+    else:
+        image_path = DEFAULT_IMAGE_DIR
+        click.echo(f"Using default image directory: {image_path}")
     
-    # Use default output directory if not specified
     if output_dir:
         output_path = Path(output_dir)
     else:
