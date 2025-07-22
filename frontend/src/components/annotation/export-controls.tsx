@@ -207,7 +207,7 @@ export const ExportControls = () => {
             className="w-full justify-start gap-2"
           >
             <FileText className="h-4 w-4" />
-            Copy to Clipboard
+            Copy current to Clipboard
           </Button>
 
           {imageFiles.length > 1 && (

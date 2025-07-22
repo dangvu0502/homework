@@ -90,14 +90,14 @@ export const UploadSection = () => {
               <Badge className="w-4 h-4" />
             </div>
             <h4 className="font-medium">Element Tagging</h4>
-            <p className="text-muted-foreground">10+ UI element types: buttons, inputs, dropdowns, etc.</p>
+            <p className="text-muted-foreground">UI elements: buttons, inputs, dropdowns, radio</p>
           </div>
           <div className="space-y-2">
             <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
               <Sparkles className="h-4 w-4 text-primary" />
             </div>
             <h4 className="font-medium">AI-Powered Detection</h4>
-            <p className="text-muted-foreground">Automatically detect UI elements using machine learning</p>
+            <p className="text-muted-foreground">Automatically detect UI elements using LLM</p>
           </div>
         </div>
       </Card>
