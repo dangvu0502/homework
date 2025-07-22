@@ -1,8 +1,16 @@
 # UI Annotation Tool
 
-A full-stack project for creating, annotating, and evaluating UI element datasets for machine learning. Includes a modern React frontend, a FastAPI backend with multimodal LLM support, and a CLI for evaluation.
+A full-stack project for creating, annotating, and evaluating UI element datasets for machine learning. Includes a modern React frontend, a FastAPI backend with LLM support, and a CLI for evaluation.
 
-![Task 1 Demo](./docs/demo/task-1.gif)
+---
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- **Python 3.12+** - [Download Python](https://www.python.org/downloads/)
+- **Node.js 22+** - [Download Node.js](https://nodejs.org/)
+- **Make** - Usually pre-installed on macOS/Linux. For Windows, use [WSL](https://docs.microsoft.com/en-us/windows/wsl/install)
+- **uv** (Python package manager) - [Download uv](https://docs.astral.sh/uv/)
 
 ---
 
@@ -12,13 +20,6 @@ A full-stack project for creating, annotating, and evaluating UI element dataset
 - **Export annotations** as JSON for ML training
 - **Backend API** for LLM-based prediction
 - **CLI tool** for evaluating model predictions vs. ground truth
-- **Flexible model config** (Gemini, etc.)
-- **Test data and scripts** included
-
----
-
-## Architecture
-See [docs/task-2-first-design.md](docs/task-2-first-design.md) and [docs/task-2-scale-design.md](docs/task-2-scale-design.md) for diagrams and details.
 
 ---
 
@@ -26,7 +27,7 @@ See [docs/task-2-first-design.md](docs/task-2-first-design.md) and [docs/task-2-
 
 ### 1. Clone the repo
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/dangvu0502/homework.git
 cd homework
 ```
 
@@ -34,14 +35,27 @@ cd homework
 ```bash
 make install
 ```
-- Installs backend Python deps (with [uv](https://github.com/astral-sh/uv))
-- Installs frontend npm deps
+
+This command will:
+- Install backend Python dependencies using `uv`
+- Install frontend npm dependencies
+
+If you prefer to install manually:
+```bash
+# Backend dependencies
+cd backend
+uv sync
+
+# Frontend dependencies
+cd frontend
+npm install
+```
 
 ### 3. Configure backend models
 ```bash
 cd backend
 cp model_config.yaml.example model_config.yaml
-# Edit model_config.yaml to add your API keys
+# Edit model_config.yaml to add your API keys, I have tested with OpenAI and Gemini.
 ```
 
 ### 4. Run in development mode
@@ -63,16 +77,6 @@ make dev
   - Assign tags to boxes
   - Predict UI elements with LLM (via backend)
   - Export annotations as JSON
-  - Evaluate predictions
-
-### Scripts
-```bash
-npm run dev       # Start dev server (http://localhost:8080)
-npm run build     # Build for production
-npm run preview   # Preview production build
-npm run test      # Run tests (Vitest)
-npm run lint      # Lint code (ESLint)
-```
 
 ---
 
@@ -83,45 +87,11 @@ npm run lint      # Lint code (ESLint)
 - CLI tool for evaluation
 - Model config via `model_config.yaml`
 
-### API
-- Docs: http://localhost:8000/docs
-- Health: http://localhost:8000/health
-
 ### CLI Usage
 ```bash
 cd backend
-python -m src.cli.main evaluate <GROUND_TRUTH_DIR> <PREDICTIONS_DIR> [options]
+uv run cli
 ```
-- `--iou-threshold FLOAT`  IoU threshold (default: 0.5)
-- `--output FILE`          Save results as JSON
-- `--show-errors`          Show FP/FN columns
-
----
-
-## Project Structure
-- `frontend/` — React app
-- `backend/`  — FastAPI backend & CLI
-- `test_data/` — Example annotation files
-- `docs/` — Architecture/design docs
-- `Makefile` — Common dev commands
-
----
-
-## Development & Testing
-- **Backend:**
-  ```bash
-  cd backend
-  uv pip install .[dev]
-  pytest
-  ruff check src/
-  ```
-- **Frontend:**
-  ```bash
-  cd frontend
-  npm run test
-  npm run lint
-  ```
-
 ---
 
 ## License
