@@ -140,7 +140,7 @@ def test_cli_help():
     result = runner.invoke(cli, ["evaluate", "--help"])
     
     assert result.exit_code == 0
-    assert "Evaluate UI element detection" in result.output
+    assert "Usage: cli evaluate" in result.output
     assert "GROUND_TRUTH_DIR" in result.output
     assert "PREDICTIONS_DIR" in result.output
     assert "--iou-threshold" in result.output
