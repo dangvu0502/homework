@@ -88,11 +88,31 @@ make dev
 - Model config via `model_config.yaml`
 
 ### CLI Usage
+
 ```bash
 cd backend
-uv run cli
+uv run cli --help  # Show all available commands
 ```
-A sample dataset was provided in `/backend/dataset`
+
+A sample dataset is provided in `/backend/dataset` with ground truth and predictions for testing.
+
+**Evaluation Metrics**
+
+The evaluation calculates three key metrics for each UI element type:
+
+- **Precision**: Of all elements predicted, how many were correct? (TP / (TP + FP))
+- **Recall**: Of all actual elements, how many were found? (TP / (TP + FN))
+- **F1-Score**: Harmonic mean of precision and recall (2 * P * R / (P + R))
+
+**Matching Rules**
+
+1. **IoU (Intersection over Union)**: Bounding boxes must overlap with IoU ≥ threshold (default 0.5)
+2. **Tag Matching**: Predictions must have the same tag as ground truth (e.g., "button" only matches "button")
+
+A prediction is considered a:
+- **True Positive (TP)**: Correctly matches a ground truth box
+- **False Positive (FP)**: No matching ground truth box
+- **False Negative (FN)**: Ground truth box with no matching prediction
 
 ---
 

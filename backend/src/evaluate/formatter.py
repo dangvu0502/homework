@@ -69,9 +69,8 @@ def print_evaluation_results(tag_metrics: Dict[str, Dict[str, int]], show_errors
     print("\nMetric Definitions:")
     print("  GT = Ground Truth (total boxes)")
     print("  TP = True Positives (correctly predicted)")
-    if show_errors:
-        print("  FP = False Positives (incorrect predictions)")
-        print("  FN = False Negatives (missed ground truth)")
+    print("  FP = False Positives (incorrect predictions)")
+    print("  FN = False Negatives (missed ground truth)")
     print("  Precision = TP / (TP + FP) - What fraction of predictions were correct?")
     print("  Recall    = TP / (TP + FN) - What fraction of ground truth was detected?")
     print("  F1-Score  = 2 * (Precision * Recall) / (Precision + Recall) - Harmonic mean")
