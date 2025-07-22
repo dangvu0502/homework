@@ -116,5 +116,12 @@ A prediction is considered a:
 
 ---
 
+## Hundred Images Design
+
+![Hundred Images Design](./hundred-images-design.png)
+
+*[View and edit the original diagram on Excalidraw](https://excalidraw.com/#json=ZWAoeEYx49lGyNc50WU8y,SgvhZvSwEJIr6LCT3F_nUA)*
+
+---
 ## License
 MIT
