@@ -22,7 +22,7 @@ dev-frontend:
 # Run Celery worker
 worker:
 	@echo "Starting Celery worker..."
-	@cd backend && uv run celery -A src.celery.app:celery_app worker --loglevel=info --concurrency=4 -Q celery,images,monitoring,maintenance
+	@cd backend && uv run celery -A src.queue.app:celery_app worker --loglevel=info --concurrency=4 -Q celery,images,monitoring,maintenance
 
 # Run both frontend and backend in dev mode
 dev:
@@ -33,16 +33,3 @@ dev:
 install:
 	cd backend && uv sync
 	cd frontend && npm install
-
-# Start services (Redis, PostgreSQL, monitoring)
-services:
-	@echo "Starting Redis, PostgreSQL, and monitoring services..."
-	@cd backend && docker-compose up -d
-	@echo "Services started:"
-	@echo "  - PostgreSQL: localhost:5432"
-	@echo "  - Redis: localhost:6379"
-	@echo "  - pgAdmin (Database UI): http://localhost:5050"
-	@echo "  - Flower (Celery monitor): http://localhost:5555"
-	@echo "  - Redis Commander: http://localhost:8081"
-	@echo ""
-	@echo "pgAdmin login: admin@example.com / admin"

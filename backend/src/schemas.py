@@ -1,7 +1,8 @@
-from enum import Enum
 from datetime import datetime
-from typing import Optional
+from enum import Enum
+
 from pydantic import BaseModel, Field
+
 
 class TagType(str, Enum):
     BUTTON = "button"
@@ -50,10 +51,10 @@ class JobStatusResponse(BaseModel):
     """Response for job status check."""
     task_id: str
     status: str
-    progress: Optional[str] = None
-    message: Optional[str] = None
-    error: Optional[str] = None
+    progress: str | None = None
+    message: str | None = None
+    error: str | None = None
     created_at: datetime
-    started_at: Optional[datetime] = None
-    completed_at: Optional[datetime] = None
-    processing_time: Optional[float] = None
+    started_at: datetime | None = None
+    completed_at: datetime | None = None
+    processing_time: float | None = None

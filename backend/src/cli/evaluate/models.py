@@ -1,7 +1,6 @@
 """Data models for evaluation."""
 
 from dataclasses import dataclass
-from typing import List, Tuple
 
 
 @dataclass
@@ -19,6 +18,6 @@ class BoundingBox:
 @dataclass
 class MatchResult:
     """Results of matching predictions to ground truth."""
-    true_positives: List[Tuple[BoundingBox, BoundingBox]]  # (ground_truth, prediction)
-    false_positives: List[BoundingBox]  # predictions with no match
-    false_negatives: List[BoundingBox]  # ground truth with no match
+    true_positives: list[tuple[BoundingBox, BoundingBox]]  # (ground_truth, prediction)
+    false_positives: list[BoundingBox]  # predictions with no match
+    false_negatives: list[BoundingBox]  # ground truth with no match

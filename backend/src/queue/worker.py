@@ -15,8 +15,7 @@ To run flower for monitoring:
     celery -A src.celery.worker flower
 """
 
-from src.celery.app import celery_app
-from src.celery.tasks import process_image_task, check_queue_size_task, cleanup_old_jobs_task  # Import tasks to register them
+from src.queue.app import celery_app
 
 if __name__ == '__main__':
     celery_app.start()

@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 """Initialize the database with tables."""
 
-from src.db.database import engine, Base
+from src.database.database import Base, engine
+
 
 def init_db():
     """Create all database tables."""

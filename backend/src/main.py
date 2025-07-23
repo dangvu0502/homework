@@ -1,14 +1,21 @@
-import logging
 import asyncio
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+import logging
 from contextlib import asynccontextmanager
 
-from src.api import api_router
-from src.db.database import engine, Base
-from src.celery.models import Job  # Import to register the model
-from src.websocket_manager import manager
-from src.redis_pubsub import subscriber
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from src.database.core import Base, engine
+
+# Import routers
+from src.base_router import base_router 
+from src.queue.router import router as queue_router
+from src.ws.pubsub import subscriber
+from src.ws.router import router as ws_router
+from src.ws.websocket import manager
+from src.constants import API_VERSION, API_PREFIX
+
+logger = logging.getLogger(__name__)
 
 # Configure logging
 logging.basicConfig(
@@ -19,32 +26,29 @@ logging.basicConfig(
 # Create database tables
 Base.metadata.create_all(bind=engine)
 
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Manage application lifespan."""
     # Startup
-    logger = logging.getLogger(__name__)
     logger.info("=" * 50)
     logger.info("UI Element Detection API Starting Up")
     logger.info("=" * 50)
     logger.info(f"API Version: {app.version}")
-    logger.info(f"Database: Connected to PostgreSQL")
-    
+    logger.info("Database: Connected to PostgreSQL")
+
     # Initialize S3 storage
     try:
-        from src.storage import storage
-        logger.info(f"S3 Storage: Initialized successfully")
+        logger.info("S3 Storage: Initialized successfully")
     except Exception as e:
         logger.error(f"S3 Storage: Failed to initialize - {str(e)}")
-    
+
     # Start Redis subscriber for WebSocket updates
     redis_task = asyncio.create_task(subscriber.start(manager))
     logger.info("WebSocket: Started Redis subscriber")
     logger.info("=" * 50)
-    
+
     yield
-    
+
     # Shutdown
     subscriber.stop()
     redis_task.cancel()
@@ -57,7 +61,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="UI Element Detection API",
-    version="0.2.0",
+    version=API_VERSION,
     description="Scalable API for UI element detection with asynchronous processing",
     docs_url="/docs",
     redoc_url="/redoc",
@@ -72,7 +76,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(api_router, prefix="/api/v1")
+# Include routers
+app.include_router(base_router, prefix=API_PREFIX)
+app.include_router(queue_router, prefix=API_PREFIX)
+app.include_router(ws_router, prefix=API_PREFIX)
 
 
 @app.get("/")

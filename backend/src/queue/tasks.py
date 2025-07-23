@@ -2,60 +2,47 @@ import asyncio
 import json
 import time
 from datetime import datetime
-from typing import Dict, Any
-import boto3
-from botocore.client import Config as BotoConfig
+from typing import Any
+
 import requests
 
-from src.celery.app import celery_app
-from src.celery.models import Job, JobStatus
+from src.database.core import SessionLocal, get_db
 from src.llm import detect_ui_elements
-from src.db.database import get_db, SessionLocal
+from src.models import Job, JobStatus
+from src.queue.app import celery_app
 from src.settings import config
-from src.redis_pubsub import publisher
-
-
-def get_s3_client():
-    """Get S3 client configured for AWS S3."""
-    return boto3.client(
-        's3',
-        region_name=config.s3_region,
-        aws_access_key_id=config.s3_access_key,
-        aws_secret_access_key=config.s3_secret_key,
-        config=BotoConfig(
-            signature_version='s3v4',
-            retries={'max_attempts': 3}
-        )
-    )
+from src.storage.s3 import storage
+from src.ws.pubsub import publisher
+from src.constants import JOB_RETENTION_DAYS, QUEUE_SCALE_UP_THRESHOLD, QUEUE_SCALE_DOWN_THRESHOLD, MIN_WORKERS, MAX_WORKERS
 
 
 @celery_app.task(bind=True, name="process_image")
-def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> Dict[str, Any]:
+def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> dict[str, Any]:
     """
     Process a single image for UI element detection.
-    
+
     Args:
         job_id: Unique job identifier
         s3_key: S3 key where the image is stored
         model_name: Model to use for detection
-    
+
     Returns:
         Dictionary with detection results
     """
     start_time = time.time()
-    
+
     # Update job status to processing
     db = SessionLocal()
     try:
         job = db.query(Job).filter(Job.id == job_id).first()
         if not job:
             raise ValueError(f"Job {job_id} not found")
-        
+
         job.status = JobStatus.PROCESSING
         job.started_at = datetime.utcnow()
         job.worker_id = self.request.id
         db.commit()
-        
+
         # Send WebSocket update
         publisher.publish_job_update(job_id, {
             "status": "processing",
@@ -64,14 +51,13 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> Dict[
         })
     finally:
         db.close()
-    
+
     try:
         # Download image from S3
-        s3_client = get_s3_client()
-        response = s3_client.get_object(Bucket=config.s3_bucket_name, Key=s3_key)
+        response = storage.client.get_object(Bucket=config.s3_bucket_name, Key=s3_key)
         image_data = response['Body'].read()
         content_type = response.get('ContentType', 'image/png')
-        
+
         # Detect UI elements
         # Run async function in sync context
         loop = asyncio.new_event_loop()
@@ -86,7 +72,7 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> Dict[
             )
         finally:
             loop.close()
-        
+
         # Prepare results
         results = {
             "task_id": job_id,
@@ -101,7 +87,7 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> Dict[
             "processing_time": time.time() - start_time,
             "completed_at": datetime.utcnow().isoformat()
         }
-        
+
         # Store results in database
         db = SessionLocal()
         try:
@@ -111,7 +97,7 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> Dict[
             job.result_data = json.dumps(results)
             job.processing_time = results["processing_time"]
             db.commit()
-            
+
             # Send WebSocket update
             publisher.publish_job_update(job_id, {
                 "status": "completed",
@@ -119,7 +105,7 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> Dict[
                 "results": results,
                 "processing_time": results["processing_time"]
             })
-            
+
             # Send webhook callback if configured
             if job.callback_url:
                 try:
@@ -139,9 +125,9 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> Dict[
                     # Don't fail the job if webhook fails
         finally:
             db.close()
-        
+
         return results
-        
+
     except Exception as e:
         # Update job status to failed
         db = SessionLocal()
@@ -151,14 +137,14 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> Dict[
             job.error_message = str(e)
             job.completed_at = datetime.utcnow()
             db.commit()
-            
+
             # Send WebSocket update
             publisher.publish_job_update(job_id, {
                 "status": "failed",
                 "message": "Processing failed",
                 "error": str(e)
             })
-            
+
             # Send webhook callback for failure
             if job.callback_url:
                 try:
@@ -177,7 +163,7 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> Dict[
                     print(f"Failed to send webhook: {webhook_error}")
         finally:
             db.close()
-        
+
         raise
 
 
@@ -190,30 +176,30 @@ def check_queue_size_task():
     # Get current queue size
     inspect = celery_app.control.inspect()
     stats = inspect.stats()
-    
+
     if not stats:
         return {"queue_size": 0, "action": "none"}
-    
+
     # Calculate total pending tasks
     total_pending = 0
-    for worker_name, worker_stats in stats.items():
+    for _worker_name, worker_stats in stats.items():
         total_pending += worker_stats.get('total', {}).get('tasks.pending', 0)
-    
+
     # Check if we need to scale
     current_workers = len(stats)
     action = "none"
-    
-    if total_pending > config.queue_threshold_for_scaling and current_workers < 20:
+
+    if total_pending > QUEUE_SCALE_UP_THRESHOLD and current_workers < MAX_WORKERS:
         # Scale up
         action = "scale_up"
         # In production, this would trigger container orchestration to add workers
         # For now, we'll log the recommendation
         print(f"SCALE UP: Queue size {total_pending} exceeds threshold. Current workers: {current_workers}")
-    elif total_pending < 10 and current_workers > 2:
+    elif total_pending < QUEUE_SCALE_DOWN_THRESHOLD and current_workers > MIN_WORKERS:
         # Scale down
         action = "scale_down"
         print(f"SCALE DOWN: Queue size {total_pending} is low. Current workers: {current_workers}")
-    
+
     return {
         "queue_size": total_pending,
         "current_workers": current_workers,
@@ -229,19 +215,19 @@ def cleanup_old_jobs_task():
     Runs daily to keep the database clean.
     """
     from datetime import timedelta
-    
-    cutoff_date = datetime.utcnow() - timedelta(days=7)  # Keep jobs for 7 days
-    
+
+    cutoff_date = datetime.utcnow() - timedelta(days=JOB_RETENTION_DAYS)
+
     with next(get_db()) as db:
         # Find old completed/failed jobs
         old_jobs = db.query(Job).filter(
             Job.completed_at < cutoff_date,
             Job.status.in_([JobStatus.COMPLETED, JobStatus.FAILED])
         ).all()
-        
-        s3_client = get_s3_client()
+
+        s3_client = storage.client
         deleted_count = 0
-        
+
         for job in old_jobs:
             try:
                 # Delete S3 object
@@ -250,17 +236,17 @@ def cleanup_old_jobs_task():
                         Bucket=config.s3_bucket_name,
                         Key=job.s3_key
                     )
-                
+
                 # Delete job record
                 db.delete(job)
                 deleted_count += 1
-                
+
             except Exception as e:
                 print(f"Error cleaning up job {job.id}: {e}")
                 continue
-        
+
         db.commit()
-        
+
         return {
             "deleted_jobs": deleted_count,
             "cutoff_date": cutoff_date.isoformat(),

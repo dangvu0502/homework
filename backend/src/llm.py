@@ -7,17 +7,22 @@ from typing import Any
 import litellm
 from json_repair import repair_json
 
-from src.schemas import AnnotationSchema, ImageDimensions, DetectionResult
+from src.schemas import (
+    AnnotationSchema,
+    DetectionResult,
+    ImageDimensions,
+)
 from src.settings import config
+from src.constants import UI_ELEMENT_TYPES_LOWER
 
 logger = logging.getLogger(__name__)
 
 SYSTEM_PROMPT = (
     "You are a multimodal assistant that identifies user-interface elements in an image. "
     "Given an image of a web or mobile UI, detect up to 20 elements of the following types: "
-    "button, input, radio, dropdown. For every detected element, output a JSON object with the "
+    f"{', '.join(UI_ELEMENT_TYPES_LOWER)}. For every detected element, output a JSON object with the "
     "keys: x, y, width, height, tag. The (x, y) represent the top-left corner in pixels, "
-    "width and height are in pixels, tag is one of: button, input, radio, dropdown. "
+    f"width and height are in pixels, tag is one of: {', '.join(UI_ELEMENT_TYPES_LOWER)}. "
     "Also include the image dimensions. "
     "Return your response as a JSON object with 'annotations' array and 'image_dimensions' object. "
     "Example: {\"annotations\": [{\"x\": 100, \"y\": 200, \"width\": 100, \"height\": 50, \"tag\": \"button\"}], "
@@ -36,7 +41,7 @@ async def detect_ui_elements(
     model_name: str,
 ) -> DetectionResult:
     """Call a multimodal LLM via LiteLLM to detect UI elements."""
-    
+
     model_config: dict[str, Any] = config.models.get(model_name, {})
     model: str = model_config.get("model_code", model_name)
     api_key: str | None = model_config.get("api_key")
@@ -71,14 +76,14 @@ async def detect_ui_elements(
     content = response.choices[0].message.content
     if not content:
         raise ValueError("Model returned empty response")
-    
+
     repaired_json = repair_json(content.strip())
     data = json.loads(repaired_json)
-    
+
     annotations = data.get("annotations", [])
     if not isinstance(annotations, list):
         raise ValueError("Annotations must be a list")
-    
+
     dimensions = None
     image_dimensions = data.get("image_dimensions", {})
     if image_dimensions:
@@ -87,37 +92,37 @@ async def detect_ui_elements(
         if width and height and width > 0 and height > 0:
             dimensions = ImageDimensions(width=width, height=height)
             logger.info(f"LLM detected image dimensions: {width}x{height}")
-    
+
     annotations_list = [AnnotationSchema(**ann) for ann in annotations]
-    
+
     return DetectionResult(annotations=annotations_list, dimensions=dimensions)
 
 
 if __name__ == "__main__":
     import asyncio
     import mimetypes
-    
+
     dir = Path(__file__).parent.parent / "dataset" / "test" / "images"
     image_paths = list(dir.glob("*.png"))
-    
+
     if not image_paths:
         print(f"No PNG images found in {dir}")
         exit(1)
-    
+
     image_path = image_paths[0]
-    
+
     print(f"Processing image: {image_path}")
-    
+
     try:
         # Read image file
         with open(image_path, "rb") as f:
             image_data = f.read()
-        
+
         # Get mime type
         mime_type, _ = mimetypes.guess_type(str(image_path))
         if not mime_type:
             mime_type = "image/png"
-        
+
         result = asyncio.run(
             detect_ui_elements(
                 image_data=image_data,
@@ -125,17 +130,17 @@ if __name__ == "__main__":
                 model_name="gemini-2.5-pro"
             )
         )
-        
+
         print(f"Found {len(result.annotations)} UI elements:")
         if result.dimensions:
             print(f"Image dimensions: {result.dimensions.width}x{result.dimensions.height}")
-        
+
         for i, ann in enumerate(result.annotations, 1):
             print(f"{i}. {ann.tag} at ({ann.x}, {ann.y}) - {ann.width}x{ann.height}")
-        
+
         print("\nRaw data:")
         for ann in result.annotations:
             print(ann.model_dump())
-            
+
     except Exception as e:
         print(f"Error: {e}")

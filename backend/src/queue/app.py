@@ -1,4 +1,5 @@
 from celery import Celery
+
 from src.settings import config
 
 # Create Celery app instance
@@ -6,7 +7,7 @@ celery_app = Celery(
     "ui_annotation_worker",
     broker=config.redis_url,
     backend=config.redis_url,
-    include=["src.celery.tasks"]
+    include=["src.queue.tasks"]
 )
 
 # Configure Celery
@@ -31,9 +32,6 @@ celery_app.conf.update(
     worker_autoscale_min=2,   # Minimum 2 workers
 )
 
-# Import beat schedule
-from src.celery.config import beat_schedule
-celery_app.conf.beat_schedule = beat_schedule
 
 # Configure task routing (commented out for now to use default queue)
 # celery_app.conf.task_routes = {
