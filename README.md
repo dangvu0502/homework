@@ -121,11 +121,6 @@ uv run python -m src.cli evaluate \
   --predictions dataset/labels/predictions \
   --ground-truth dataset/labels/ground_truth \
   --images dataset/images
-
-# Batch predict on multiple images
-uv run python -m src.cli batch-predict \
-  --images dataset/images \
-  --output dataset/labels/predictions
 ```
 
 A sample dataset is provided in `/backend/dataset` with ground truth and predictions for testing.
