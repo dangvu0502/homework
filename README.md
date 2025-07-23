@@ -67,18 +67,19 @@ cp .env.example .env
 ```
 
 ### 4. Start backend services (Redis, PostgreSQL)
+At backend directory, run:
 ```bash
-cd backend
 docker-compose up -d
 ```
 
 ### 5. Start Celery worker (in a separate terminal)
+At root directory, run:
 ```bash
-cd backend
 make worker
 ```
 
 ### 6. Run in development mode
+At root directory, run:
 ```bash
 make dev
 ```
