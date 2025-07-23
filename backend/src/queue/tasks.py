@@ -1,35 +1,37 @@
-import asyncio
 import json
+import logging
 import time
 from datetime import datetime
 from typing import Any
 
 import requests
 
+logger = logging.getLogger(__name__)
+
 from src.database.core import SessionLocal, get_db
 from src.llm import detect_ui_elements
+from openai import RateLimitError
 from src.models import Job, JobStatus
 from src.queue.app import celery_app
 from src.settings import config
 from src.storage.s3 import storage
-from src.ws.pubsub import publisher
 from src.constants import JOB_RETENTION_DAYS, QUEUE_SCALE_UP_THRESHOLD, QUEUE_SCALE_DOWN_THRESHOLD, MIN_WORKERS, MAX_WORKERS
 
 
-@celery_app.task(bind=True, name="process_image")
-def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> dict[str, Any]:
+@celery_app.task(bind=True, name="process_image", max_retries=3, default_retry_delay=60)
+def process_image_task(self, job_id: str, s3_key: str) -> dict[str, Any]:
     """
     Process a single image for UI element detection.
 
     Args:
         job_id: Unique job identifier
         s3_key: S3 key where the image is stored
-        model_name: Model to use for detection
 
     Returns:
         Dictionary with detection results
     """
     start_time = time.time()
+    logger.info(f"Starting processing job {job_id}")
 
     # Update job status to processing
     db = SessionLocal()
@@ -43,12 +45,6 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> dict[
         job.worker_id = self.request.id
         db.commit()
 
-        # Send WebSocket update
-        publisher.publish_job_update(job_id, {
-            "status": "processing",
-            "message": "AI analyzing image...",
-            "started_at": job.started_at.isoformat()
-        })
     finally:
         db.close()
 
@@ -59,19 +55,10 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> dict[
         content_type = response.get('ContentType', 'image/png')
 
         # Detect UI elements
-        # Run async function in sync context
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        try:
-            detection_result = loop.run_until_complete(
-                detect_ui_elements(
-                    image_data=image_data,
-                    image_type=content_type,
-                    model_name=model_name
-                )
-            )
-        finally:
-            loop.close()
+        detection_result = detect_ui_elements(
+            image_data=image_data,
+            image_type=content_type
+        )
 
         # Prepare results
         results = {
@@ -83,7 +70,7 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> dict[
                 "ui_elements": [ann.tag for ann in detection_result.annotations],
                 "total_elements": len(detection_result.annotations)
             },
-            "model_used": model_name,
+            "model_used": config.openrouter_model,
             "processing_time": time.time() - start_time,
             "completed_at": datetime.utcnow().isoformat()
         }
@@ -98,14 +85,6 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> dict[
             job.processing_time = results["processing_time"]
             db.commit()
 
-            # Send WebSocket update
-            publisher.publish_job_update(job_id, {
-                "status": "completed",
-                "message": "Analysis complete",
-                "results": results,
-                "processing_time": results["processing_time"]
-            })
-
             # Send webhook callback if configured
             if job.callback_url:
                 try:
@@ -119,31 +98,32 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> dict[
                         json=webhook_data,
                         timeout=10
                     )
-                    print(f"Webhook sent to {job.callback_url}, status: {response.status_code}")
+                    logger.info(f"Webhook sent to {job.callback_url}, status: {response.status_code}")
                 except Exception as webhook_error:
-                    print(f"Failed to send webhook: {webhook_error}")
+                    logger.warning(f"Failed to send webhook: {webhook_error}")
                     # Don't fail the job if webhook fails
         finally:
             db.close()
 
+        logger.info(f"Successfully completed job {job_id} in {results['processing_time']:.2f}s")
         return results
 
+    except (RateLimitError, requests.exceptions.RequestException) as e:
+        logger.warning(f"Retryable error for job {job_id}: {str(e)}")
+        # Retry the task with exponential backoff
+        raise self.retry(exc=e, countdown=60 * (self.request.retries + 1))
+    
     except Exception as e:
+        logger.error(f"Error processing job {job_id}: {str(e)}", exc_info=True)
         # Update job status to failed
         db = SessionLocal()
         try:
             job = db.query(Job).filter(Job.id == job_id).first()
-            job.status = JobStatus.FAILED
-            job.error_message = str(e)
-            job.completed_at = datetime.utcnow()
-            db.commit()
-
-            # Send WebSocket update
-            publisher.publish_job_update(job_id, {
-                "status": "failed",
-                "message": "Processing failed",
-                "error": str(e)
-            })
+            if job:
+                job.status = JobStatus.FAILED
+                job.error_message = str(e)
+                job.completed_at = datetime.utcnow()
+                db.commit()
 
             # Send webhook callback for failure
             if job.callback_url:
@@ -158,9 +138,9 @@ def process_image_task(self, job_id: str, s3_key: str, model_name: str) -> dict[
                         json=webhook_data,
                         timeout=10
                     )
-                    print(f"Webhook sent to {job.callback_url}, status: {response.status_code}")
+                    logger.info(f"Webhook sent to {job.callback_url}, status: {response.status_code}")
                 except Exception as webhook_error:
-                    print(f"Failed to send webhook: {webhook_error}")
+                    logger.warning(f"Failed to send webhook: {webhook_error}")
         finally:
             db.close()
 

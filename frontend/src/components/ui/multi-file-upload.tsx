@@ -3,7 +3,6 @@ import type { JobResultResponse, JobStatus } from "@/api/types";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { useWebSocket } from "@/hooks/use-web-socket";
 import { AlertCircle, FileImage, Upload, X } from "lucide-react";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
@@ -17,9 +16,8 @@ interface FileUploadStatus {
 }
 
 interface MultiFileUploadProps {
-  onComplete?: (results: any[]) => void;
+  onComplete?: (results: any[], failedFiles?: FileUploadStatus[]) => void;
   onFilesSelect?: (files: File[]) => void;
-  modelName?: string;
   maxFiles?: number;
   className?: string;
   mode?: "process" | "select";
@@ -28,8 +26,7 @@ interface MultiFileUploadProps {
 export const MultiFileUpload: React.FC<MultiFileUploadProps> = ({
   onComplete,
   onFilesSelect,
-  modelName,
-  maxFiles = 50,
+  maxFiles = 100,
   className,
   mode = "process",
 }) => {
@@ -37,65 +34,180 @@ export const MultiFileUpload: React.FC<MultiFileUploadProps> = ({
   const [isProcessing, setIsProcessing] = useState(false);
   const [overallProgress, setOverallProgress] = useState(0);
   const pendingJobsRef = useRef<Set<string>>(new Set());
+  const processedJobsRef = useRef<Set<string>>(new Set());
+  const hasCalledCompleteRef = useRef(false);
+  const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  // Use refs to access current state in polling callback
+  const filesRef = useRef<FileUploadStatus[]>([]);
+  const isProcessingRef = useRef(false);
+  
+  // Update refs when state changes
+  useEffect(() => {
+    filesRef.current = files;
+    console.log("Files state updated:", files.map(f => ({ name: f.file.name, status: f.status, jobId: f.jobId })));
+  }, [files]);
+  
+  useEffect(() => {
+    isProcessingRef.current = isProcessing;
+  }, [isProcessing]);
+  
   const completedCount = files.filter((f) => f.status === "completed").length;
   const failedCount = files.filter((f) => f.status === "failed").length;
 
-  // WebSocket hook for real-time updates
-  const { subscribeToJobs, unsubscribeFromJobs } = useWebSocket({
-    onJobUpdate: useCallback(
-      (jobId: string, data: any) => {
-        console.log(`WebSocket update for job ${jobId}:`, data);
+   // Check if all jobs are complete and trigger callback
+   const checkAllJobsComplete = useCallback(() => {
+     const currentFiles = filesRef.current;
+     const jobFiles = currentFiles.filter(f => f.jobId); // Only files with jobs
+     
+     if (jobFiles.length === 0) return;
+     
+     const allDone = jobFiles.every(
+       (f) => f.status === "completed" || f.status === "failed"
+     );
 
-        // Update file status based on WebSocket data
-        setFiles((prevFiles) => {
-          const updatedFiles = prevFiles.map((file, index) => {
+     console.log(`Checking completion: ${jobFiles.filter(f => f.status === "completed" || f.status === "failed").length}/${jobFiles.length} done`);
+
+     if (allDone && !hasCalledCompleteRef.current) {
+       const successfulResults = currentFiles
+         .filter((f) => f.status === "completed" && f.result)
+         .map((f) => f.result as JobResultResponse);
+
+       const failedFiles = currentFiles.filter(
+         (f) => f.status === "failed"
+       );
+
+       console.log(`All jobs complete! Success: ${successfulResults.length}, Failed: ${failedFiles.length}`);
+
+       if (onComplete && (successfulResults.length > 0 || failedFiles.length > 0)) {
+         hasCalledCompleteRef.current = true;
+         setIsProcessing(false);
+         stopPolling();
+         console.log("Calling onComplete callback");
+         onComplete(successfulResults, failedFiles);
+       }
+     }
+   }, [onComplete]);
+   
+  // Update progress whenever files change
+  useEffect(() => {
+    const completed = files.filter(
+      (f) => f.status === "completed" || f.status === "failed"
+    ).length;
+    const total = files.filter(f => f.status !== "idle").length; // Only count files that have been uploaded
+    const progress = total > 0 ? (completed / total) * 100 : 0;
+    setOverallProgress(progress);
+    console.log(`Progress updated: ${completed}/${total} = ${progress}%`);
+    
+    // Check if all jobs are complete
+    if (isProcessing) {
+      checkAllJobsComplete();
+    }
+  }, [files, isProcessing, checkAllJobsComplete]);
+
+   // Function to check status of pending jobs
+   const checkPendingJobsStatus = async () => {
+    const pendingJobs = Array.from(pendingJobsRef.current);
+    if (pendingJobs.length === 0) {
+      console.log("No pending jobs to check");
+      return;
+    }
+
+    console.log(
+      "Checking status for pending jobs:",
+      pendingJobs
+    );
+
+    for (const jobId of pendingJobs) {
+      // Skip if already processed
+      if (processedJobsRef.current.has(jobId)) {
+        pendingJobsRef.current.delete(jobId);
+        continue;
+      }
+
+      try {
+        const status = await apiClient.checkJobStatus(jobId);
+        console.log(`Status for job ${jobId}:`, status);
+        
+        // Always update the UI with the current status first
+        setFiles((prev) =>
+          prev.map((file) => {
             if (file.jobId === jobId) {
-              const updatedFile = { ...file };
-
-              if (data.status === "processing") {
-                updatedFile.status = "processing";
-                updatedFile.progress = data.message;
-              } else if (data.status === "completed") {
-                updatedFile.status = "completed";
-                updatedFile.result = data.results;
-                pendingJobsRef.current.delete(jobId);
-              } else if (data.status === "failed") {
-                updatedFile.status = "failed";
-                updatedFile.error = data.error;
-                pendingJobsRef.current.delete(jobId);
+              if (status.status === "processing" && file.status !== "processing") {
+                return {
+                  ...file,
+                  status: "processing" as const,
+                  progress: status.progress || "Processing...",
+                };
               }
-
-              return updatedFile;
             }
             return file;
-          });
+          })
+        );
 
-          // Update progress
-          const completed = updatedFiles.filter(
-            (f) => f.status === "completed" || f.status === "failed"
-          ).length;
-          setOverallProgress((completed / updatedFiles.length) * 100);
+        if (status.status === "completed" || status.status === "failed") {
+          // Mark as processed immediately to prevent duplicate updates
+          processedJobsRef.current.add(jobId);
+          pendingJobsRef.current.delete(jobId);
 
-          // Check if all jobs are done
-          if (pendingJobsRef.current.size === 0 && mode === "process") {
-            setIsProcessing(false);
+          if (status.status === "completed") {
+            // Fetch full results
+            const results = await apiClient.getJobResults(jobId);
 
-            // Collect successful results
-            const successfulResults = updatedFiles
-              .filter((f) => f.status === "completed" && f.result)
-              .map((f) => f.result as JobResultResponse);
-
-            if (onComplete && successfulResults.length > 0) {
-              setTimeout(() => onComplete(successfulResults), 100);
-            }
+            // Update files state
+            setFiles((prev) => {
+              const newFiles = prev.map((file) => {
+                if (file.jobId === jobId && file.status !== "completed") {
+                  return {
+                    ...file,
+                    status: "completed" as const,
+                    result: results,
+                  };
+                }
+                return file;
+              });
+              return newFiles;
+            });
+          } else {
+            setFiles((prev) =>
+              prev.map((file) => {
+                if (file.jobId === jobId && file.status !== "failed") {
+                  return {
+                    ...file,
+                    status: "failed" as const,
+                    error: status.error || "Processing failed",
+                  };
+                }
+                return file;
+              })
+            );
           }
+        }
+      } catch (error) {
+        console.error(`Error checking job ${jobId}:`, error);
+        // Mark as failed if we can't check status after multiple attempts
+        if (error instanceof Error && error.message.includes('timeout')) {
+          setFiles((prev) =>
+            prev.map((file) => {
+              if (file.jobId === jobId) {
+                return {
+                  ...file,
+                  status: "failed" as const,
+                  error: "Timeout checking job status",
+                };
+              }
+              return file;
+            })
+          );
+          pendingJobsRef.current.delete(jobId);
+          processedJobsRef.current.add(jobId);
+        }
+      }
+    }
 
-          return updatedFiles;
-        });
-      },
-      [mode, onComplete]
-    ),
-  });
+    // Progress is now updated via useEffect when files state changes
+
+    // No need to manually schedule next check - polling interval will handle it
+  };
 
   const handleFileSelect = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -134,41 +246,55 @@ export const MultiFileUpload: React.FC<MultiFileUploadProps> = ({
   const processFiles = async () => {
     setIsProcessing(true);
     setOverallProgress(0);
+    hasCalledCompleteRef.current = false;
+    processedJobsRef.current.clear();
+    pendingJobsRef.current.clear();
 
     // Upload all files
     const uploadPromises = files.map(async (fileStatus, index) => {
       try {
+        console.log(`Uploading file ${index}: ${fileStatus.file.name}`);
         const response = await apiClient.uploadImageForProcessing(
-          fileStatus.file,
-          modelName
+          fileStatus.file
         );
-
-        setFiles((prev) => {
-          const updated = [...prev];
-          updated[index] = {
-            ...updated[index],
-            jobId: response.task_id,
-            status: "pending",
-          };
-          return updated;
-        });
-
+        console.log(
+          `Upload successful for file ${index}, got task_id: ${response.task_id}`
+        );
         return { success: true, index, jobId: response.task_id };
       } catch (error) {
-        setFiles((prev) => {
-          const updated = [...prev];
-          updated[index] = {
-            ...updated[index],
-            status: "failed",
-            error: error instanceof Error ? error.message : "Upload failed",
-          };
-          return updated;
-        });
-        return { success: false, index };
+        console.error(`Upload failed for file ${index}:`, error);
+        return {
+          success: false,
+          index,
+          error: error instanceof Error ? error.message : "Upload failed",
+        };
       }
     });
 
     const uploadResults = await Promise.all(uploadPromises);
+
+    // Update all files with their results at once
+    setFiles((prev) => {
+      const updated = [...prev];
+      uploadResults.forEach((result) => {
+        if (result.success) {
+          updated[result.index] = {
+            ...updated[result.index],
+            jobId: result.jobId,
+            status: "pending",
+          };
+        } else {
+          updated[result.index] = {
+            ...updated[result.index],
+            status: "failed",
+            error: result.error,
+          };
+        }
+      });
+      console.log("Updated all files with upload results:", updated);
+      return updated;
+    });
+
     const successfulUploads = uploadResults.filter((r) => r.success);
 
     // Subscribe to WebSocket updates for successful uploads
@@ -176,28 +302,68 @@ export const MultiFileUpload: React.FC<MultiFileUploadProps> = ({
       const jobIds = successfulUploads
         .map((r) => r.jobId)
         .filter((id): id is string => !!id);
-      console.log("Subscribing to WebSocket updates for jobs:", jobIds);
+      console.log("Starting to poll for job updates:", jobIds);
 
       // Track pending jobs
       jobIds.forEach((id) => pendingJobsRef.current.add(id));
+      
+      // Set processing state to true to enable polling
+      setIsProcessing(true);
 
-      // Subscribe to WebSocket updates
-      subscribeToJobs(jobIds);
+      // Start polling for status updates with a small delay to ensure state is updated
+      setTimeout(() => {
+        console.log("Starting status polling for jobs:", jobIds);
+        startPolling();
+      }, 100);
     } else {
       setIsProcessing(false);
+      stopPolling();
     }
   };
+
+
+  // Start polling mechanism
+  const startPolling = () => {
+    console.log("Starting polling mechanism");
+    // Clear existing interval
+    if (pollingIntervalRef.current) {
+      clearInterval(pollingIntervalRef.current);
+    }
+
+    // Set up new polling interval
+    pollingIntervalRef.current = setInterval(async () => {
+      // Use refs to get current state values
+      const currentIsProcessing = isProcessingRef.current;
+      const currentPendingJobs = pendingJobsRef.current.size;
+      
+      console.log(`Polling check - isProcessing: ${currentIsProcessing}, pending jobs: ${currentPendingJobs}`);
+      
+      if (currentPendingJobs > 0 && currentIsProcessing) {
+        console.log("Executing job status check...");
+        await checkPendingJobsStatus();
+      } else if (currentPendingJobs === 0) {
+        console.log("No pending jobs, stopping polling");
+        stopPolling();
+      }
+    }, 2000); // Poll every 2 seconds
+  };
+
+  // Stop polling
+  const stopPolling = () => {
+    if (pollingIntervalRef.current) {
+      clearInterval(pollingIntervalRef.current);
+      pollingIntervalRef.current = null;
+    }
+  };
+
 
   // Cleanup on unmount
   useEffect(() => {
     return () => {
-      // Unsubscribe from all jobs
-      const jobIds = Array.from(pendingJobsRef.current);
-      if (jobIds.length > 0) {
-        unsubscribeFromJobs(jobIds);
-      }
+      // Stop polling
+      stopPolling();
     };
-  }, [unsubscribeFromJobs]);
+  }, []);
 
   return (
     <div className={`space-y-4 ${className || ""}`}>
@@ -220,7 +386,7 @@ export const MultiFileUpload: React.FC<MultiFileUploadProps> = ({
             Click to upload multiple images
           </span>
           <span className="text-sm text-gray-500">
-            PNG, JPG, WEBP up to 50MB each (max {maxFiles} files)
+            PNG, JPG, WEBP up to 10MB each (max {maxFiles} files)
           </span>
         </label>
       </div>
@@ -241,10 +407,12 @@ export const MultiFileUpload: React.FC<MultiFileUploadProps> = ({
           {isProcessing && (
             <div className="space-y-2">
               <Progress value={overallProgress} />
-              <p className="text-sm text-gray-500">
-                Completed: {completedCount}/{files.length}
-                {failedCount > 0 && ` (${failedCount} failed)`}
-              </p>
+              <div className="flex items-center justify-between">
+                <p className="text-sm text-gray-500">
+                  Completed: {completedCount}/{files.length}
+                  {failedCount > 0 && ` (${failedCount} failed)`}
+                </p>
+              </div>
             </div>
           )}
 

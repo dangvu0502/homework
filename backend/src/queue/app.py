@@ -23,6 +23,8 @@ celery_app.conf.update(
     task_soft_time_limit=240,  # Soft limit at 4 minutes
     worker_prefetch_multiplier=1,  # Process one task at a time
     worker_max_tasks_per_child=50,  # Restart worker after 50 tasks to prevent memory leaks
+    task_acks_late=True,  # Tasks are acknowledged after they've been executed
+    task_reject_on_worker_lost=True,  # Reject tasks when worker dies
 )
 
 # Auto-scaling configuration

@@ -16,15 +16,6 @@ export interface PredictionResponse {
   processing_time: number;
 }
 
-export interface ModelInfo {
-  id: string;
-  name: string;
-}
-
-export interface ModelsResponse {
-  models: ModelInfo[];
-}
-
 export interface HealthResponse {
   status: string;
 }
@@ -72,7 +63,6 @@ export interface JobResultResponse {
     ui_elements: string[];
     total_elements: number;
   };
-  model_used: string;
   processing_time: number;
   completed_at: string;
 }

@@ -11,7 +11,7 @@ interface PredictButtonProps {
 }
 
 export const PredictButton = ({ disabled = false }: PredictButtonProps) => {
-  const { selectedModel, addPredictions } = useAnnotationStore();
+  const { addPredictions } = useAnnotationStore();
   const { getCurrentImageFile } = useImageStore();
   const { mutate: predict, isPending } = usePredictUIElements();
   
@@ -23,15 +23,10 @@ export const PredictButton = ({ disabled = false }: PredictButtonProps) => {
       return;
     }
 
-    if (!selectedModel) {
-      toast.error('Please select a model first');
-      return;
-    }
-
     toast.info('Analyzing image with AI...');
     
     predict(
-      { imageFile, modelName: selectedModel },
+      { imageFile },
       {
         onSuccess: (data) => {
           // Convert API response to BoundingBox format
@@ -66,7 +61,7 @@ export const PredictButton = ({ disabled = false }: PredictButtonProps) => {
   return (
     <Button
       onClick={handlePredict}
-      disabled={disabled || isPending || !imageFile || !selectedModel}
+      disabled={disabled || isPending || !imageFile}
       className="w-full gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white"
     >
       {isPending ? (

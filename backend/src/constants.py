@@ -23,9 +23,6 @@ QUEUE_SCALE_DOWN_THRESHOLD = 10
 API_VERSION = "0.2.0"
 API_PREFIX = "/api/v1"
 
-# WebSocket
-WS_CHANNEL = "job_updates"
-
 # Default directories for CLI
 DEFAULT_PREDICTIONS_DIR = "dataset/labels/predictions"
 DEFAULT_GROUND_TRUTH_DIR = "dataset/labels/ground_truth"

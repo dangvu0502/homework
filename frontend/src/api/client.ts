@@ -1,6 +1,5 @@
 import type { 
   HealthResponse, 
-  ModelsResponse, 
   PredictionResponse,
   JobResponse,
   JobStatusResponse,
@@ -85,19 +84,12 @@ class ApiClient {
     return this.request('/health');
   }
 
-  // Get available models
-  async getAvailableModels(): Promise<ModelsResponse> {
-    return this.request('/api/v1/models');
-  }
-
   // Predict UI elements (synchronous - original endpoint)
   async predictUIElements(
-    imageFile: File,
-    modelName: string
+    imageFile: File
   ): Promise<PredictionResponse> {
     const formData = new FormData();
     formData.append('file', imageFile);
-    formData.append('model_name', modelName);
 
     return this.request('/api/v1/predict', {
       method: 'POST',
@@ -109,14 +101,10 @@ class ApiClient {
 
   // Upload image for async processing
   async uploadImageForProcessing(
-    imageFile: File,
-    modelName?: string
+    imageFile: File
   ): Promise<JobResponse> {
     const formData = new FormData();
     formData.append('file', imageFile);
-    if (modelName) {
-      formData.append('model_name', modelName);
-    }
 
     return this.request('/api/v1/upload', {
       method: 'POST',

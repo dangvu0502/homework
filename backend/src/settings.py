@@ -2,7 +2,6 @@ import logging
 from pathlib import Path
 from typing import Any
 
-import yaml
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -59,52 +58,16 @@ class Settings(BaseSettings):
         description="API server port"
     )
 
-    # Worker configuration
-    worker_concurrency: int = Field(
-        default=4,
-        description="Number of concurrent Celery workers"
+    # OpenRouter configuration
+    openrouter_api_key: str = Field(
+        ...,
+        description="OpenRouter API key for accessing models"
     )
-    queue_threshold_for_scaling: int = Field(
-        default=100,
-        description="Queue size threshold for auto-scaling workers"
-    )
-
-    # Model configuration
-    model_config_path: str = Field(
-        default="model_config.yaml",
-        description="Path to model configuration YAML file"
+    openrouter_model: str = Field(
+        default="openai/gpt-4o",
+        description="OpenRouter model to use for UI detection"
     )
 
-    # Computed fields
-    models: dict[str, dict[str, Any]] = Field(default_factory=dict)
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self._load_model_config()
-
-    def _load_model_config(self):
-        """Load model configuration from YAML file."""
-        # Try relative to backend directory first
-        config_path = Path(__file__).resolve().parent.parent / self.model_config_path
-
-        # If not found, try current directory
-        if not config_path.exists():
-            config_path = Path(self.model_config_path)
-
-        if config_path.exists():
-            try:
-                with open(config_path) as f:
-                    data = yaml.safe_load(f) or {}
-
-                # Load models section
-                if "models" in data and isinstance(data["models"], dict):
-                    self.models = data["models"]
-                    logger.info(f"Loaded {len(self.models)} models from {config_path}")
-
-            except Exception as e:
-                logger.error(f"Failed to load model config from {config_path}: {e}")
-        else:
-            logger.warning(f"Model config file not found at {config_path}")
 
 
 

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Main CLI entry point for UI annotation tools."""
 
-import asyncio
 import json
 from pathlib import Path
 
@@ -105,21 +104,14 @@ def evaluate(ground_truth_dir: Path, predictions_dir: Path, iou_threshold: float
 @cli.command(name='batch-predict', short_help='Batch predict UI elements for all images in a directory.\nARGS: <image_dir> [output_dir]\nDefault image directory: ' + str(DEFAULT_IMAGE_DIR) + '\nDefault output: ' + str(DEFAULT_PREDICTIONS_DIR))
 @click.argument('image_dir', type=click.Path(exists=True), required=False)
 @click.argument('output_dir', type=click.Path(), required=False)
-@click.option('--model', '-m', help='Model to use for prediction (default: first model in config)')
+@click.option('--model', '-m', help='Model to use for prediction (default: from OPENROUTER_MODEL env)')
 @click.option('--concurrent', '-c', default=5, help='Number of concurrent requests')
 @click.option('--max-images', '-n', default=1000, help='Maximum number of images to process')
 def batch_predict(image_dir: str, output_dir: str, model: str, concurrent: int, max_images: int):
-    # Use first model from config if not specified
+    # Use model from env if not specified
     if not model:
-        if not config.models:
-            raise click.ClickException("No models configured in model_config.yaml")
-        model = next(iter(config.models.keys()))
+        model = config.openrouter_model
         click.echo(f"Using default model: {model}")
-
-    # Validate model exists
-    if model not in config.models:
-        available_models = ", ".join(config.models.keys())
-        raise click.ClickException(f"Model '{model}' not found. Available models: {available_models}")
 
     if image_dir:
         image_path = Path(image_dir)
@@ -139,14 +131,14 @@ def batch_predict(image_dir: str, output_dir: str, model: str, concurrent: int, 
     click.echo(f"Concurrent requests: {concurrent}")
     click.echo(f"Max images: {max_images}")
 
-    # Run async function
-    results = asyncio.run(auto_predict_images(
+    # Run batch prediction
+    results = auto_predict_images(
         image_dir=image_path,
         output_dir=output_path,
         model_name=model,
         max_concurrent=concurrent,
         max_images=max_images
-    ))
+    )
 
     if results:
         completed = sum(1 for r in results if r["status"] == "completed")

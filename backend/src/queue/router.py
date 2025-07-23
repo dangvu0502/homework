@@ -16,7 +16,6 @@ router = APIRouter()
 @router.post("/upload", response_model=JobResponse)
 async def upload_image(
     file: UploadFile = File(...),
-    model_name: str | None = None,
     callback_url: str | None = Header(None, alias="X-Callback-URL"),
     db: Session = Depends(get_db)
 ):
@@ -33,16 +32,6 @@ async def upload_image(
     if file.size and file.size > MAX_UPLOAD_SIZE:
         raise HTTPException(status_code=400, detail="File size exceeds 10MB limit")
 
-    # Use first model from config if not specified
-    if not model_name:
-        if not config.models:
-            raise HTTPException(status_code=500, detail="No models configured")
-        model_name = next(iter(config.models.keys()))
-
-    # Validate model exists
-    if model_name not in config.models:
-        raise HTTPException(status_code=400, detail=f"Model '{model_name}' not found")
-
     try:
         # Read file content
         file_data = await file.read()
@@ -56,7 +45,7 @@ async def upload_image(
 
         # Create job record
         job = Job(
-            model_name=model_name,
+            model_name=config.openrouter_model,
             s3_key=s3_key,
             s3_url=s3_url,
             original_filename=file.filename,
@@ -71,8 +60,7 @@ async def upload_image(
         # Queue the task
         task = process_image_task.delay(
             job_id=str(job.id),
-            s3_key=s3_key,
-            model_name=model_name
+            s3_key=s3_key
         )
 
         # Update job with worker ID
@@ -91,7 +79,7 @@ async def upload_image(
 
 
 @router.get("/status/{job_id}", response_model=JobStatusResponse)
-async def get_job_status(job_id: str, db: Session = Depends(get_db)):
+def get_job_status(job_id: str, db: Session = Depends(get_db)):
     """
     Check the status of a job.
 
@@ -123,7 +111,7 @@ async def get_job_status(job_id: str, db: Session = Depends(get_db)):
 
 
 @router.get("/results/{job_id}")
-async def get_job_results(job_id: str, db: Session = Depends(get_db)):
+def get_job_results(job_id: str, db: Session = Depends(get_db)):
     """
     Get the results of a completed job.
 

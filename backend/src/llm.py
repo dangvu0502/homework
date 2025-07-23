@@ -1,10 +1,11 @@
 import base64
 import json
 import logging
+import time
 from pathlib import Path
 from typing import Any
 
-import litellm
+from openai import OpenAI, RateLimitError, APIError
 from json_repair import repair_json
 
 from src.schemas import (
@@ -34,18 +35,17 @@ USER_PROMPT = (
     "Also determine the image dimensions."
 )
 
-async def detect_ui_elements(
+def detect_ui_elements(
     *,
     image_data: bytes,
     image_type: str,
-    model_name: str,
 ) -> DetectionResult:
-    """Call a multimodal LLM via LiteLLM to detect UI elements."""
+    """Call a multimodal LLM via OpenRouter to detect UI elements."""
 
-    model_config: dict[str, Any] = config.models.get(model_name, {})
-    model: str = model_config.get("model_code", model_name)
-    api_key: str | None = model_config.get("api_key")
-    base_url: str | None = model_config.get("base_url")
+    # Use model from environment variable
+    model: str = config.openrouter_model
+    api_key: str = config.openrouter_api_key
+    base_url: str = "https://openrouter.ai/api/v1"
 
     encoded_image = base64.b64encode(image_data).decode()
     data_uri = f"data:{image_type};base64,{encoded_image}"
@@ -64,14 +64,35 @@ async def detect_ui_elements(
         },
     ]
 
-    response = await litellm.acompletion(
-        model=model,
-        messages=messages,
-        response_format={"type": "json_object"},
+    client = OpenAI(
         base_url=base_url,
         api_key=api_key,
-        temperature=0.1,
     )
+    
+    # Retry logic for rate limits
+    max_retries = 3
+    retry_delay = 1.0
+    
+    for attempt in range(max_retries):
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=messages,
+                response_format={"type": "json_object"},
+                temperature=0.1,
+            )
+            break
+        except RateLimitError as e:
+            if attempt < max_retries - 1:
+                logger.warning(f"Rate limit hit, retrying in {retry_delay}s: {e}")
+                time.sleep(retry_delay)
+                retry_delay *= 2  # Exponential backoff
+            else:
+                logger.error(f"Rate limit exceeded after {max_retries} attempts")
+                raise
+        except APIError as e:
+            logger.error(f"API error: {e}")
+            raise
 
     content = response.choices[0].message.content
     if not content:
@@ -99,7 +120,6 @@ async def detect_ui_elements(
 
 
 if __name__ == "__main__":
-    import asyncio
     import mimetypes
 
     dir = Path(__file__).parent.parent / "dataset" / "test" / "images"
@@ -123,12 +143,9 @@ if __name__ == "__main__":
         if not mime_type:
             mime_type = "image/png"
 
-        result = asyncio.run(
-            detect_ui_elements(
-                image_data=image_data,
-                image_type=mime_type,
-                model_name="gemini-2.5-pro"
-            )
+        result = detect_ui_elements(
+            image_data=image_data,
+            image_type=mime_type,
         )
 
         print(f"Found {len(result.annotations)} UI elements:")

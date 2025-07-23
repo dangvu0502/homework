@@ -6,20 +6,28 @@ import { MultiFileUpload } from '@/components/ui/multi-file-upload';
 import { useImageStore } from '@/stores/use-image-store';
 import { useAnnotationStore } from '@/stores/use-annotation-store';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ModelSelector } from '@/components/annotation/model-selector';
 import { Badge } from '@/components/ui/badge';
 import type { JobResultResponse } from '@/api/types';
 import type { BoundingBox, AnnotationTag } from '@/types/annotation';
 
+interface FailedFile {
+  file: File;
+  error?: string;
+}
+
 const BatchProcess = () => {
   const navigate = useNavigate();
   const { setImageFiles } = useImageStore();
-  const { setAnnotationsPerImage, selectedModel } = useAnnotationStore();
+  const { setAnnotationsPerImage } = useAnnotationStore();
   const [processedResults, setProcessedResults] = useState<JobResultResponse[]>([]);
+  const [failedFiles, setFailedFiles] = useState<FailedFile[]>([]);
   const [showResults, setShowResults] = useState(false);
 
-  const handleBatchComplete = async (results: JobResultResponse[]) => {
+  const handleBatchComplete = async (results: JobResultResponse[], failed?: any[]) => {
     setProcessedResults(results);
+    if (failed) {
+      setFailedFiles(failed.map(f => ({ file: f.file, error: f.error })));
+    }
     setShowResults(true);
   };
 
@@ -27,7 +35,6 @@ const BatchProcess = () => {
     const resultsData = processedResults.map(result => ({
       image: result.image,
       task_id: result.task_id,
-      model: result.model_used,
       processing_time: result.processing_time,
       annotations: result.analysis.annotations
     }));
@@ -82,6 +89,7 @@ const BatchProcess = () => {
 
   const resetBatch = () => {
     setProcessedResults([]);
+    setFailedFiles([]);
     setShowResults(false);
   };
 
@@ -107,46 +115,32 @@ const BatchProcess = () => {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          <Card>
-            <CardHeader>
-              <CardTitle>Select Model</CardTitle>
-              <CardDescription>
-                Choose the AI model for processing your images
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ModelSelector />
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>How it Works</CardTitle>
-              <CardDescription>
-                Scalable processing for large batches
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-2 text-sm">
-              <div className="flex items-start gap-2">
-                <span className="font-semibold text-primary">1.</span>
-                <span>Images are uploaded to cloud storage (S3)</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="font-semibold text-primary">2.</span>
-                <span>Tasks are queued for processing</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="font-semibold text-primary">3.</span>
-                <span>Workers process images in parallel</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="font-semibold text-primary">4.</span>
-                <span>Results are retrieved when ready</span>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle>How it Works</CardTitle>
+            <CardDescription>
+              Scalable processing for large batches
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2 text-sm">
+            <div className="flex items-start gap-2">
+              <span className="font-semibold text-primary">1.</span>
+              <span>Images are uploaded to cloud storage (S3)</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="font-semibold text-primary">2.</span>
+              <span>Tasks are queued for processing</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="font-semibold text-primary">3.</span>
+              <span>Workers process images in parallel</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="font-semibold text-primary">4.</span>
+              <span>Results are retrieved when ready</span>
+            </div>
+          </CardContent>
+        </Card>
 
         {!showResults && (
           <Card className="mt-6">
@@ -159,17 +153,28 @@ const BatchProcess = () => {
             <CardContent>
               <MultiFileUpload
                 onComplete={handleBatchComplete}
-                modelName={selectedModel || undefined}
               />
             </CardContent>
           </Card>
         )}
 
-        {showResults && processedResults.length > 0 && (
+        {showResults && (processedResults.length > 0 || failedFiles.length > 0) && (
           <Card className="mt-6">
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
                 <span>Processing Results</span>
+                <div className="flex gap-2 text-sm">
+                  {processedResults.length > 0 && (
+                    <Badge variant="default" className="bg-green-600">
+                      {processedResults.length} Successful
+                    </Badge>
+                  )}
+                  {failedFiles.length > 0 && (
+                    <Badge variant="destructive">
+                      {failedFiles.length} Failed
+                    </Badge>
+                  )}
+                </div>
                 <div className="flex gap-2">
                   <Button onClick={downloadResults} variant="outline" size="sm">
                     <Download className="h-4 w-4 mr-2" />
@@ -184,12 +189,12 @@ const BatchProcess = () => {
                 </div>
               </CardTitle>
               <CardDescription>
-                Successfully processed {processedResults.length} images
+                Processed {processedResults.length + failedFiles.length} images total
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {processedResults.map((result, index) => {
+                {processedResults.map((result) => {
                   const totalElements = result.analysis.annotations.length;
                   const elementTypes = result.analysis.annotations.reduce((acc, ann) => {
                     const label = ann.label || ann.tag || 'unknown';
@@ -204,9 +209,6 @@ const BatchProcess = () => {
                           <div className="flex items-center gap-2">
                             <FileImage className="h-5 w-5 text-muted-foreground" />
                             <span className="font-medium">{result.image.split('/').pop()}</span>
-                            <Badge variant="outline" className="text-xs">
-                              {result.model_used}
-                            </Badge>
                           </div>
                           
                           <div className="flex flex-wrap gap-2 text-sm">
@@ -233,6 +235,34 @@ const BatchProcess = () => {
                   );
                 })}
               </div>
+              
+              {failedFiles.length > 0 && (
+                <div className="mt-6">
+                  <h4 className="text-sm font-semibold mb-3 text-red-600">Failed Files</h4>
+                  <div className="space-y-2">
+                    {failedFiles.map((failed, index) => (
+                      <Card key={`failed-${index}`} className="p-4 border-red-200 bg-red-50">
+                        <div className="flex items-start justify-between">
+                          <div className="space-y-1">
+                            <div className="flex items-center gap-2">
+                              <FileImage className="h-5 w-5 text-red-600" />
+                              <span className="font-medium text-red-900">
+                                {failed.file.name}
+                              </span>
+                            </div>
+                            {failed.error && (
+                              <p className="text-sm text-red-700">
+                                Error: {failed.error}
+                              </p>
+                            )}
+                          </div>
+                          <X className="h-5 w-5 text-red-600" />
+                        </div>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+              )}
             </CardContent>
           </Card>
         )}
