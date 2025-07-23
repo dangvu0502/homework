@@ -1,7 +1,7 @@
-import asyncio
 import json
 import mimetypes
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -16,71 +16,68 @@ class BatchProcessor:
         self.model_name = model_name
         self.max_concurrent = max_concurrent
         self.results: list[dict[str, Any]] = []
-        self.semaphore = asyncio.Semaphore(max_concurrent)
 
-    async def process_single_image(self, image_path: Path) -> dict[str, Any]:
-        """Process a single image with rate limiting."""
-        async with self.semaphore:
-            start_time = time.time()
-            result = {
-                "image_path": str(image_path),
-                "status": "pending",
-                "error": None,
-                "annotations": [],
-                "processing_time": 0
-            }
+    def process_single_image(self, image_path: Path) -> dict[str, Any]:
+        """Process a single image."""
+        start_time = time.time()
+        result = {
+            "image_path": str(image_path),
+            "status": "pending",
+            "error": None,
+            "annotations": [],
+            "processing_time": 0
+        }
 
-            try:
-                # Read image
-                with open(image_path, "rb") as f:
-                    image_data = f.read()
+        try:
+            # Read image
+            with open(image_path, "rb") as f:
+                image_data = f.read()
 
-                # Get mime type
-                mime_type, _ = mimetypes.guess_type(str(image_path))
-                if not mime_type:
-                    mime_type = "image/png"
+            # Get mime type
+            mime_type, _ = mimetypes.guess_type(str(image_path))
+            if not mime_type:
+                mime_type = "image/png"
 
-                # Detect UI elements
-                detection_result = await detect_ui_elements(
-                    image_data=image_data,
-                    image_type=mime_type,
-                    model_name=self.model_name
-                )
+            # Detect UI elements
+            detection_result = detect_ui_elements(
+                image_data=image_data,
+                image_type=mime_type,
+                model_name=self.model_name
+            )
 
-                result["annotations"] = [ann.model_dump() for ann in detection_result.annotations]
-                result["image_dimensions"] = detection_result.dimensions.model_dump() if detection_result.dimensions else None
-                result["status"] = "completed"
+            result["annotations"] = [ann.model_dump() for ann in detection_result.annotations]
+            result["image_dimensions"] = detection_result.dimensions.model_dump() if detection_result.dimensions else None
+            result["status"] = "completed"
 
-            except Exception as e:
-                result["status"] = "failed"
-                result["error"] = str(e)
-                print(f"Error processing {image_path}: {e}")
+        except Exception as e:
+            result["status"] = "failed"
+            result["error"] = str(e)
+            print(f"Error processing {image_path}: {e}")
 
-            result["processing_time"] = time.time() - start_time
-            return result
+        result["processing_time"] = time.time() - start_time
+        return result
 
-    async def process_batch(self, image_paths: list[Path], progress_callback=None) -> list[dict[str, Any]]:
-        """Process a batch of images concurrently."""
+    def process_batch(self, image_paths: list[Path], progress_callback=None) -> list[dict[str, Any]]:
+        """Process a batch of images concurrently using threads."""
         total = len(image_paths)
         completed = 0
-
-        # Create tasks for all images
-        tasks = []
-        for image_path in image_paths:
-            task = self.process_single_image(image_path)
-            tasks.append(task)
-
-        # Process with progress updates
         results = []
-        for task in asyncio.as_completed(tasks):
-            result = await task
-            results.append(result)
-            completed += 1
 
-            if progress_callback:
-                progress_callback(completed, total)
-            else:
-                print(f"Progress: {completed}/{total} ({completed/total*100:.1f}%)")
+        with ThreadPoolExecutor(max_workers=self.max_concurrent) as executor:
+            # Submit all tasks
+            future_to_path = {executor.submit(self.process_single_image, path): path 
+                            for path in image_paths}
+
+            # Process with progress updates
+            for future in as_completed(future_to_path):
+                result = future.result()
+                results.append(result)
+                completed += 1
+
+                if progress_callback:
+                    progress_callback(completed, total)
+                else:
+                    print(f"Progress: {completed}/{total} ({completed/total*100:.1f}%)")
 
         return results
 
@@ -136,7 +133,7 @@ class BatchProcessor:
             return json.load(f)
 
 
-async def auto_predict_images(
+def auto_predict_images(
     *,
     image_dir: Path,
     output_dir: Path = None,
@@ -171,7 +168,7 @@ async def auto_predict_images(
     processor = BatchProcessor(model_name=model_name, max_concurrent=max_concurrent)
     start_time = time.time()
 
-    results = await processor.process_batch(image_files)
+    results = processor.process_batch(image_files)
 
     total_time = time.time() - start_time
     print(f"\nCompleted in {total_time:.1f} seconds")
@@ -194,8 +191,8 @@ if __name__ == "__main__":
     image_dir = Path(sys.argv[1])
     output_path = Path(sys.argv[2])
 
-    asyncio.run(auto_predict_images(
+    auto_predict_images(
         image_dir=image_dir,
         output_path=output_path,
         max_concurrent=5  # Process 5 images concurrently
-    ))
+    )

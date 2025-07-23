@@ -1,0 +1,50 @@
+# Docker Compose configuration for development services
+# 
+# Environment variables can be set in multiple ways:
+# 1. Export them in your shell: export POSTGRES_USER=myuser
+# 2. Create a .env file in the same directory as docker-compose.yml
+# 3. Use the defaults specified with ${VAR:-default} syntax
+#
+# The following variables are supported:
+# - REDIS_PORT (default: 6379)
+# - POSTGRES_USER (default: postgres)
+# - POSTGRES_PASSWORD (default: postgres)  
+# - POSTGRES_DB (default: ui_annotations)
+# - POSTGRES_PORT (default: 5432)
+
+services:
+  # Redis for Celery broker and result backend
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  # PostgreSQL database
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-ui_annotations}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:

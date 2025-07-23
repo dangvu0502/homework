@@ -3,14 +3,12 @@ import type { AnnotationTag, BoundingBox } from '@/types/annotation';
 
 interface AnnotationState {
   selectedTag: AnnotationTag;
-  selectedModel: string;
   boundingBoxes: BoundingBox[];
   highlightedAnnotationId: string | undefined;
   imageDimensions: { width: number; height: number } | null;
   annotationsPerImage: Record<string, BoundingBox[]>;
   
   setSelectedTag: (tag: AnnotationTag) => void;
-  setSelectedModel: (model: string) => void;
   setBoundingBoxes: (boxes: BoundingBox[]) => void;
   setHighlightedAnnotationId: (id: string | undefined) => void;
   setImageDimensions: (dimensions: { width: number; height: number } | null) => void;
@@ -29,14 +27,12 @@ interface AnnotationState {
 
 export const useAnnotationStore = create<AnnotationState>((set, get) => ({
   selectedTag: 'button',
-  selectedModel: '',
   boundingBoxes: [],
   highlightedAnnotationId: undefined,
   imageDimensions: null,
   annotationsPerImage: {},
   
   setSelectedTag: (tag) => set({ selectedTag: tag }),
-  setSelectedModel: (model) => set({ selectedModel: model }),
   setBoundingBoxes: (boxes) => set({ boundingBoxes: boxes }),
   setHighlightedAnnotationId: (id) => set({ highlightedAnnotationId: id }),
   setImageDimensions: (dimensions) => set({ imageDimensions: dimensions }),

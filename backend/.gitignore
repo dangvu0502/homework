@@ -16,3 +16,8 @@ data/*
 #model config
 model_config.yaml
 
+# Environment files
+.env
+.env.local
+.env.*.local
+

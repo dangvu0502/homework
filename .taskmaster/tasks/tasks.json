@@ -130,7 +130,7 @@
           7,
           9
         ],
-        "status": "pending",
+        "status": "done",
         "subtasks": []
       },
       {
@@ -189,7 +189,7 @@
         "description": "Add support for scaling the annotation tool UI and backend to handle larger images, more concurrent users, and higher annotation throughput. This includes optimizing image processing, frontend rendering, and backend API load capacity.",
         "details": "This task involves a multi-faceted approach to performance. For the frontend, investigate using Web Workers to offload image processing from the main thread, preventing UI freezes when loading large images. Implement canvas virtualization or tiling to only render the visible portion of a large image, improving interaction performance. For the backend, the API endpoint from Task 6 must be hardened. Implement a request queue to manage concurrent calls to the LLM and consider introducing a caching layer (e.g., Redis) to store and retrieve results for previously processed images, reducing latency and cost. The data transfer between client and server should also be optimized by implementing client-side image compression before upload.",
         "testStrategy": "Frontend performance will be verified by profiling the application in browser developer tools while uploading and annotating a very large image (e.g., >10MB, 8K resolution). The UI must remain responsive. Automated tests using a framework like Playwright can be added to measure frame rates during drawing actions. For the backend, use a load testing tool like k6 or JMeter to simulate at least 50 concurrent users making requests to the '/predict' endpoint. The test should measure the average response time, error rate, and requests per second. The P95 latency should remain under a predefined threshold (e.g., 2 seconds).",
-        "status": "pending",
+        "status": "done",
         "dependencies": [
           2,
           3,
@@ -206,7 +206,7 @@
         "description": "Enhance the frontend to support uploading multiple images simultaneously. Implement a gallery view for easy navigation and ensure the existing annotation tools work seamlessly across a batch of images.",
         "details": "Update the image upload component from Task 2 to accept multiple files by adding the 'multiple' attribute to the file input element. Create a new UI component, such as a scrollable thumbnail gallery or list, to display all uploaded images. Implement state management to hold an array of image objects, where each object contains the image data and its corresponding annotations. Clicking a thumbnail in the gallery should set it as the active image in the main annotation canvas, loading its specific annotations. When switching images, the state of the previous image's annotations must be preserved. The 'Save' functionality from Task 5 needs to be adapted to export all annotations for all images in the batch, likely into a single structured JSON file that contains an array of objects, one for each annotated image.",
         "testStrategy": "Manually test by selecting 5+ images in the file dialog and confirming they all appear in the gallery view. Annotate image 1, switch to image 3, and add an annotation there. Switch back to image 1 and verify its annotations are still present. Finally, use the 'Save' button and inspect the downloaded JSON to ensure it contains the correct, separate annotation data for both image 1 and image 3. Extend the automated tests from Task 11 to cover the multi-upload scenario, including simulating the selection of multiple files and verifying the application state updates correctly. Add component tests for the new image gallery to check rendering and selection logic.",
-        "status": "pending",
+        "status": "done",
         "dependencies": [
           2,
           5,
@@ -221,7 +221,7 @@
             "description": "Modify the existing file upload component to accept multiple image files simultaneously. Refactor the application's state management to handle an array of image objects, where each object will store the image data, a unique ID, and an empty array for its future annotations.",
             "dependencies": [],
             "details": "Locate the file input element from Task 2 and add the `multiple` attribute. Update the file handling logic to process a `FileList` object instead of a single file. Iterate through the `FileList`, creating a new object for each image containing properties like `id` (e.g., using a simple counter or UUID), `imageData` (e.g., a data URL from FileReader), and `annotations` (initialized as an empty array). Store this array of image objects in the main application state (e.g., using React's useState, Redux, or a similar state management library). The first image in the list should be set as the default active image.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "Open the file dialog and verify that you can select multiple image files (e.g., 3-5 images). After selection, use browser developer tools to inspect the application's state and confirm it contains an array of objects, with each object corresponding to an uploaded image and having the correct structure."
           },
           {
@@ -232,7 +232,7 @@
               "13.1"
             ],
             "details": "Create a new component (e.g., `ImageGallery.js`). This component will receive the array of image objects from the application state as a prop. It should map over this array and render a thumbnail for each image. Use CSS to style this into a horizontal, scrollable list, possibly located below or to the side of the main canvas. Each thumbnail can be a simple `<img>` tag with its `src` set to the `imageData` URL. For performance, consider rendering thumbnails at a fixed, smaller size (e.g., 100x100 pixels) to avoid using full-resolution images.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "After uploading multiple images, verify that the new gallery component appears and correctly displays a thumbnail for every uploaded image. Test the scrolling behavior if the number of images exceeds the visible area of the gallery."
           },
           {
@@ -244,7 +244,7 @@
               "13.2"
             ],
             "details": "Introduce a new piece of state, `activeImageId`, to store the ID of the currently selected image. Add an `onClick` handler to each thumbnail in the gallery component. When a thumbnail is clicked, this handler should update the `activeImageId` in the global state. The main annotation canvas component should be modified to read this `activeImageId`, find the corresponding image object in the state array, and render its `imageData`. Apply a distinct style (e.g., a colored border or different opacity) to the thumbnail in the gallery whose ID matches the `activeImageId`.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "Upload a set of images. Click on the third thumbnail in the gallery. Verify that the main canvas updates to show the third image and that the third thumbnail is now visually highlighted. Click on another thumbnail and confirm the canvas and highlight update accordingly."
           },
           {
@@ -255,7 +255,7 @@
               "13.3"
             ],
             "details": "Modify the annotation logic (from Tasks 3 & 4) to read from and write to the `annotations` array of the active image object. When the `activeImageId` changes, the annotation canvas should clear any existing drawings and render the annotations from the newly selected image's `annotations` array. Any new annotations (drawing boxes, assigning tags) should be pushed into this specific array. The state of annotations for non-active images must be preserved untouched within their respective objects in the main state array.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "Upload three images. Select Image 1 and draw two bounding boxes. Select Image 3 and draw one bounding box. Switch back to Image 1 and verify that the original two boxes are still present. Switch to Image 2 (which has not been annotated) and confirm the canvas is empty. Finally, switch back to Image 3 and verify its single box is displayed correctly."
           },
           {
@@ -266,15 +266,134 @@
               "13.4"
             ],
             "details": "Modify the `onClick` handler for the 'Save' button. Instead of just exporting the annotations for the active image, the new logic should process the entire array of image objects from the state. The output JSON file should have a root key (e.g., `projectAnnotations`) containing an array. Each element in this array will be an object representing one image, containing its name or ID and its corresponding `annotations` array. This creates a complete ground truth file for the entire batch.",
-            "status": "pending",
+            "status": "done",
             "testStrategy": "Annotate several images in a batch. Click the 'Save' button. Inspect the downloaded JSON file. Verify that it contains a top-level array with an entry for each image that was annotated. Check that the annotations within each entry are correct and match what was drawn on the canvas for that specific image."
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "title": "Implement Scalable Image Analysis Backend",
+        "description": "Implement a scalable backend system for image analysis, featuring API endpoints for job management, a task queue for asynchronous processing, and integration with object storage and a database for results.",
+        "details": "Build a robust, scalable backend service to handle asynchronous image analysis. 1. **Web Server**: Use a framework like FastAPI or Express.js to create three core endpoints: `POST /upload` which accepts an image, stores it, queues a job, and returns a `job_id`; `GET /status/{job_id}` to check the job status (e.g., pending, processing, completed, failed); and `GET /results/{job_id}` to retrieve the analysis results. 2. **Image Storage**: Integrate with an S3-compatible object storage service like AWS S3 or MinIO. The `/upload` endpoint will be responsible for uploading the raw image file to a designated bucket. 3. **Task Queue**: Implement a message queue (e.g., RabbitMQ, Redis with Celery/BullMQ) to manage analysis jobs. Each message should contain the `job_id` and the identifier/URL of the image in object storage. 4. **Worker Process**: Create a separate, scalable worker service that polls the task queue. For each job, the worker will download the image from S3, send it to the designated AI/LLM API for analysis, receive the predicted bounding boxes/tags, and store the results in the database. 5. **Database**: Set up a database (e.g., PostgreSQL, MongoDB) to store job metadata and results. The schema should link the `job_id` to its status and the final JSON output. 6. **Result Delivery**: Initially support client-side polling on the status endpoint. The architecture should also accommodate future implementations of WebSocket or webhook callbacks for real-time result delivery. 7. **API Documentation**: Generate API documentation using OpenAPI/Swagger.",
+        "testStrategy": "Verify the system end-to-end. 1. Use a client like `curl` or Postman to send a POST request with an image to the `/upload` endpoint. 2. Confirm a `job_id` is returned and the image appears in the S3/MinIO bucket. 3. Check the task queue to ensure a new message corresponding to the job has been enqueued. 4. Monitor the worker logs to confirm it dequeues the message and processes the image. 5. Poll the `GET /status/{job_id}` endpoint, verifying the status transitions from `pending` to `processing` and finally to `completed`. 6. Once complete, call `GET /results/{job_id}` and validate that the returned JSON payload is correctly formatted and contains the expected analysis data. 7. Directly query the database to ensure the job status and results are persisted accurately.",
+        "status": "done",
+        "dependencies": [
+          2,
+          5
+        ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 15,
+        "title": "Comprehensive Codebase Refactoring and Organization",
+        "description": "Refactor the entire frontend and backend codebase to improve code quality, enforce consistent styling, enhance maintainability, and establish a clear project structure.",
+        "details": "This task involves a full-stack effort to clean up technical debt and standardize the codebase. Key activities include: 1. **Tooling & Standards:** Integrate and configure Prettier/ESLint for the frontend and Black/Flake8 for the backend to enforce a single coding style. Add a pre-commit hook to automate formatting. 2. **Backend Refactoring:** Unify the project structure from Task 14 into logical modules (e.g., `api`, `workers`, `storage`, `database`). Consolidate configuration management to use environment variables consistently. Refactor services to improve separation of concerns and add comprehensive docstrings. 3. **Frontend Refactoring:** Reorganize the `src` directory into a feature-based structure (e.g., `features/annotation`, `components/common`, `hooks`). Break down large components from Task 13 into smaller, single-purpose components. Review and refactor state management for clarity. 4. **General Cleanup:** Audit and remove all unused dependencies and dead code across the project.",
+        "testStrategy": "The primary goal is to ensure no regressions are introduced. 1. **Automated Tests:** All existing automated tests must pass, including the frontend component tests from Task 11 and any backend unit/integration tests. 2. **Manual Regression Testing:** Perform a thorough manual test of all critical user flows: single and multi-image upload, annotation drawing/editing, using the LLM prediction feature, checking job status via the API, and exporting annotations. 3. **CLI Verification:** Run the CLI tool from Task 10 to ensure it functions correctly. 4. **Code Review:** A senior developer must review the changes to confirm that they improve readability, maintainability, and adhere to the newly established standards.",
+        "status": "pending",
+        "dependencies": [
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Integrate and Configure Code Formatting and Linting Tools",
+            "description": "Set up and configure linters and formatters for both frontend and backend codebases. Implement a pre-commit hook to automate code styling enforcement before any code is committed.",
+            "dependencies": [],
+            "details": "For the frontend (React/TS), install and configure ESLint and Prettier. Create `.eslintrc.json` and `.prettierrc.json` files with agreed-upon rules. For the backend (Python), install and configure Black and Flake8. Add configuration to `pyproject.toml`. Use `husky` and `lint-staged` to set up a pre-commit hook that runs Prettier on staged frontend files and Black on staged backend files.",
+            "status": "pending",
+            "testStrategy": "Verify that the pre-commit hook triggers on `git commit`. Manually introduce a style error in a frontend file and a backend file, then attempt to commit. The commit should fail, and the tools should automatically fix the style issues. After fixing, the commit should succeed."
+          },
+          {
+            "id": 2,
+            "title": "Reorganize Backend Project Structure into Logical Modules",
+            "description": "Restructure the backend codebase from the flat structure of Task 14 into a modular architecture to improve navigability and separation of concerns.",
+            "dependencies": [
+              "15.1"
+            ],
+            "details": "Create top-level directories for distinct functional areas. Based on Task 14, create the following modules: `api` (for FastAPI endpoints and schemas), `workers` (for the asynchronous processing logic), `storage` (for S3/object storage interactions), and `database` (for result storage logic). Move existing files into these new directories and update all relative imports to reflect the new structure. Ensure the application entry point (`main.py`) correctly initializes all modules.",
+            "status": "pending",
+            "testStrategy": "After restructuring, run all existing backend unit and integration tests to ensure they pass. Start the backend server and perform a manual end-to-end test using the flow from Task 14 (upload, check status, get results) to confirm all parts are correctly wired together."
+          },
+          {
+            "id": 3,
+            "title": "Consolidate Backend Configuration Management",
+            "description": "Unify all backend configuration settings to be managed exclusively through environment variables, removing any hardcoded values.",
+            "dependencies": [
+              "15.2"
+            ],
+            "details": "Create a central configuration module (e.g., `config.py`) that reads all required settings (database URL, S3 credentials, queue connection string, LLM API key) from environment variables using a library like Pydantic's `BaseSettings`. Refactor all modules (`api`, `workers`, `storage`, etc.) to import their configuration from this central module instead of reading environment variables directly or using hardcoded strings. Create a `.env.example` file to document all required variables.",
+            "status": "pending",
+            "testStrategy": "Run the application using a local `.env` file and verify it works. Then, run the application without the `.env` file but with the environment variables set directly in the shell to confirm both methods work. Intentionally omit a required variable to ensure the application fails on startup with a clear error message."
+          },
+          {
+            "id": 4,
+            "title": "Refactor Backend Services and Add Docstrings",
+            "description": "Improve the internal quality of backend services by refactoring for better separation of concerns and adding comprehensive docstrings to all public modules and functions.",
+            "dependencies": [
+              "15.3"
+            ],
+            "details": "Review the services within the `api`, `workers`, `storage`, and `database` modules. Identify any functions doing too much and break them down. For example, ensure the `/upload` endpoint logic in the `api` module only handles the HTTP request/response and delegates business logic to service functions. Add Google-style docstrings to all functions and classes, explaining their purpose, arguments, and return values. This includes the LLM service from Task 6.",
+            "status": "pending",
+            "testStrategy": "All existing automated tests must continue to pass. Manually review the refactored code for improved clarity and separation. Use a tool like `pydoc` or Sphinx to generate documentation from the docstrings and verify it is complete and well-formatted."
+          },
+          {
+            "id": 5,
+            "title": "Reorganize Frontend `src` Directory into a Feature-Based Structure",
+            "description": "Restructure the frontend `src` directory from a type-based structure (e.g., `components`, `pages`) to a feature-based structure to improve code co-location and scalability.",
+            "dependencies": [
+              "15.1"
+            ],
+            "details": "Create a `features` directory. Inside, create subdirectories for major application features like `annotation`, `imageUpload`, and `resultsDisplay`. Move related components, hooks, and state logic into their respective feature folders. Create a `components/common` directory for genuinely reusable, generic components (e.g., Button, Modal). Create a `hooks` directory for globally shared hooks. Update all imports across the application to reflect the new file paths.",
+            "status": "pending",
+            "testStrategy": "After restructuring, run the development server and ensure the application compiles without errors. Run all existing component tests from Task 11 and ensure they pass after updating import paths. Manually click through the entire application to confirm no functionality is broken."
+          },
+          {
+            "id": 6,
+            "title": "Decompose Large Frontend Components into Smaller, Single-Purpose Components",
+            "description": "Break down monolithic components, particularly those from Task 13, into smaller, more focused, and reusable child components.",
+            "dependencies": [
+              "15.5"
+            ],
+            "details": "Identify large components within the new feature-based structure (e.g., the main annotation view from Task 13). Decompose them into smaller parts. For example, the annotation view could be broken down into `AnnotationCanvas`, `Toolbar`, `LabelSelector`, and `AnnotationList`. Each new component should have a single responsibility. Place these new components within their respective feature folders.",
+            "status": "pending",
+            "testStrategy": "Update the component tests from Task 11 to target the new, smaller components where appropriate. Ensure the overall functionality of the parent feature remains unchanged through manual testing. Verify that props are passed correctly and state is managed appropriately between the new parent and child components."
+          },
+          {
+            "id": 7,
+            "title": "Review and Refactor Frontend State Management",
+            "description": "Audit the existing frontend state management (e.g., Zustand, Context API) for clarity, efficiency, and correctness, and refactor where necessary.",
+            "dependencies": [
+              "15.6"
+            ],
+            "details": "Analyze the global and local state usage across the application. Ensure global state is only used for data that is truly global (e.g., user session, annotations data). Consolidate related state into logical stores/slices. Refactor components to select the most specific state possible to avoid unnecessary re-renders. Ensure state logic is well-separated from UI components, either in custom hooks or state management stores.",
+            "status": "pending",
+            "testStrategy": "Use React DevTools to inspect component re-renders during typical user flows (e.g., drawing a box, changing a tag). Verify that only the necessary components re-render. All component tests and manual regression tests must pass, confirming that state transitions still behave as expected."
+          },
+          {
+            "id": 8,
+            "title": "Audit and Remove Unused Dependencies and Dead Code",
+            "description": "Perform a final cleanup pass on the entire codebase to remove unused packages, files, components, functions, and commented-out code.",
+            "dependencies": [
+              "15.4",
+              "15.7"
+            ],
+            "details": "For the frontend, use a tool like `depcheck` to identify unused npm packages and remove them from `package.json`. Manually search for and delete any unused components, hooks, or utility files. For the backend, use `pip-autoremove` or a similar tool to find and remove unused Python packages from `requirements.txt` or `pyproject.toml`. Globally search the project for commented-out code blocks and remove them. This is the final step to ensure the codebase is clean.",
+            "status": "pending",
+            "testStrategy": "After cleanup, run the full test suite for both frontend and backend. Start both services and perform a full manual regression test of all critical user paths to ensure that nothing essential was removed. The application bundle size (for the frontend) can be checked to see if it has been reduced."
           }
         ]
       }
     ],
     "metadata": {
       "created": "2025-07-17T02:10:01.354Z",
-      "updated": "2025-07-21T04:43:47.779Z",
+      "updated": "2025-07-23T10:23:38.368Z",
       "description": "Tasks for master context"
     }
   }

@@ -57,6 +57,7 @@ export const UploadSection = () => {
         onFilesSelect={handleFilesSelect}
         maxFiles={100}
         className="max-w-2xl mx-auto"
+        mode="select"
       />
 
       {/* Multi-Image Workflow Info */}

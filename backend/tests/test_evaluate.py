@@ -1,9 +1,12 @@
 """Test the evaluation script with sample data."""
 
 import pytest
-from src.evaluate.models import BoundingBox
-from src.evaluate.calculate_iou import calculate_iou
-from src.evaluate.match_predictions_to_ground_truth import match_predictions_to_ground_truth
+
+from src.cli.evaluate.calculate_iou import calculate_iou
+from src.cli.evaluate.match_predictions_to_ground_truth import (
+    match_predictions_to_ground_truth,
+)
+from src.cli.evaluate.models import BoundingBox
 
 
 def test_iou_perfect_overlap():
@@ -35,7 +38,7 @@ def test_iou_with_real_data():
     # From our test data
     gt_button = BoundingBox(x=100, y=100, width=200, height=50, tag='button', source='user', id='gt-1')
     pred_button = BoundingBox(x=105, y=102, width=190, height=48, tag='button', source='prediction', id='pred-1')
-    
+
     iou = calculate_iou(gt_button, pred_button)
     # Should have high IoU (>0.9)
     assert iou > 0.9
@@ -65,14 +68,14 @@ def sample_predictions():
 def test_match_predictions_to_ground_truth(sample_ground_truth, sample_predictions):
     """Test the matching algorithm."""
     result = match_predictions_to_ground_truth(sample_ground_truth, sample_predictions)
-    
+
     # Should have 2 true positives (button and dropdown)
     assert len(result.true_positives) == 2
-    
+
     # Should have 1 false positive (extra button)
     assert len(result.false_positives) == 1
     assert result.false_positives[0].tag == 'button'
-    
+
     # Should have 1 false negative (missing input)
     assert len(result.false_negatives) == 1
     assert result.false_negatives[0].tag == 'input'
@@ -86,9 +89,9 @@ def test_match_with_different_tags():
     pred_boxes = [
         BoundingBox(x=100, y=100, width=100, height=100, tag='input', source='prediction', id='pred-1')
     ]
-    
+
     result = match_predictions_to_ground_truth(gt_boxes, pred_boxes)
-    
+
     # Despite perfect overlap, different tags mean no match
     assert len(result.true_positives) == 0
     assert len(result.false_positives) == 1
@@ -103,14 +106,14 @@ def test_match_with_low_iou():
     pred_boxes = [
         BoundingBox(x=80, y=80, width=100, height=100, tag='button', source='prediction', id='pred-1')
     ]
-    
+
     # With default threshold 0.5, these shouldn't match
     result = match_predictions_to_ground_truth(gt_boxes, pred_boxes, iou_threshold=0.5)
-    
+
     # IoU should be below threshold
     iou = calculate_iou(gt_boxes[0], pred_boxes[0])
     assert iou < 0.5
-    
+
     # No matches
     assert len(result.true_positives) == 0
     assert len(result.false_positives) == 1

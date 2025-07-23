@@ -1,4 +1,10 @@
-import type { HealthResponse, ModelsResponse, PredictionResponse } from './types';
+import type { 
+  HealthResponse, 
+  PredictionResponse,
+  JobResponse,
+  JobStatusResponse,
+  JobResultResponse 
+} from './types';
 import { ApiError } from './types';
 
 // API Configuration
@@ -78,19 +84,12 @@ class ApiClient {
     return this.request('/health');
   }
 
-  // Get available models
-  async getAvailableModels(): Promise<ModelsResponse> {
-    return this.request('/api/v1/models');
-  }
-
-  // Predict UI elements
+  // Predict UI elements (synchronous - original endpoint)
   async predictUIElements(
-    imageFile: File,
-    modelName: string
+    imageFile: File
   ): Promise<PredictionResponse> {
     const formData = new FormData();
     formData.append('file', imageFile);
-    formData.append('model_name', modelName);
 
     return this.request('/api/v1/predict', {
       method: 'POST',
@@ -98,6 +97,30 @@ class ApiClient {
       // Don't set Content-Type header - let browser set it with boundary for multipart
       headers: {},
     });
+  }
+
+  // Upload image for async processing
+  async uploadImageForProcessing(
+    imageFile: File
+  ): Promise<JobResponse> {
+    const formData = new FormData();
+    formData.append('file', imageFile);
+
+    return this.request('/api/v1/upload', {
+      method: 'POST',
+      body: formData,
+      headers: {},
+    });
+  }
+
+  // Check job status
+  async checkJobStatus(jobId: string): Promise<JobStatusResponse> {
+    return this.request(`/api/v1/status/${jobId}`);
+  }
+
+  // Get job results
+  async getJobResults(jobId: string): Promise<JobResultResponse> {
+    return this.request(`/api/v1/results/${jobId}`);
   }
 }
 
