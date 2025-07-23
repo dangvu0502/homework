@@ -11,14 +11,18 @@ Before you begin, ensure you have the following installed:
 - **Node.js 22+** - [Download Node.js](https://nodejs.org/)
 - **Make** - Usually pre-installed on macOS/Linux. For Windows, use [WSL](https://docs.microsoft.com/en-us/windows/wsl/install)
 - **uv** (Python package manager) - [Download uv](https://docs.astral.sh/uv/)
+- **Docker & Docker Compose** - For running Redis, PostgreSQL
+- **Redis** - Required for Celery task queue (can be run via Docker)
+- **PostgreSQL** - Required for storing job data (can be run via Docker)
 
 ---
 
 ## Features
 - **Web UI** for image upload, bounding box annotation, and tag assignment
 - **AI-powered detection** of UI elements (button, input, radio, dropdown, etc.)
+- **Batch processing** with async job queue for processing multiple images
 - **Export annotations** as JSON for ML training
-- **Backend API** for LLM-based prediction
+- **Backend API** with synchronous and asynchronous endpoints
 - **CLI tool** for evaluating model predictions vs. ground truth
 
 ---
@@ -51,14 +55,30 @@ cd frontend
 npm install
 ```
 
-### 3. Configure backend models
+### 3. Configure backend environment
 ```bash
 cd backend
-cp model_config.yaml.example model_config.yaml
-# Edit model_config.yaml to add your API keys, I have tested with OpenAI and Gemini.
+cp .env.example .env
+# Edit .env to add your configuration:
+# - OpenRouter API key (required for LLM)
+# - AWS S3 credentials (for image storage)
+# - Database URL (PostgreSQL)
+# - Redis URL (for Celery)
 ```
 
-### 4. Run in development mode
+### 4. Start backend services (Redis, PostgreSQL)
+```bash
+cd backend
+docker-compose up -d
+```
+
+### 5. Start Celery worker (in a separate terminal)
+```bash
+cd backend
+make worker
+```
+
+### 6. Run in development mode
 ```bash
 make dev
 ```
@@ -80,18 +100,32 @@ make dev
 
 ---
 
-## Backend (FastAPI + CLI)
+## Backend (FastAPI + Celery + CLI)
 
 - Located in `backend/`
-- FastAPI server for UI element detection
-- CLI tool for evaluation
-- Model config via `model_config.yaml`
+- FastAPI server with async job processing
+- Celery workers for scalable image processing
+- S3 storage for images 
+- PostgreSQL for job tracking
+- Redis for task queue
+- CLI tool for dataset evaluation
 
 ### CLI Usage
 
 ```bash
 cd backend
-uv run cli --help  # Show all available commands
+uv run python -m src.cli --help  # Show all available commands
+
+# Evaluate predictions against ground truth
+uv run python -m src.cli evaluate \
+  --predictions dataset/labels/predictions \
+  --ground-truth dataset/labels/ground_truth \
+  --images dataset/images
+
+# Batch predict on multiple images
+uv run python -m src.cli batch-predict \
+  --images dataset/images \
+  --output dataset/labels/predictions
 ```
 
 A sample dataset is provided in `/backend/dataset` with ground truth and predictions for testing.
@@ -123,5 +157,51 @@ A prediction is considered a:
 *[View and edit the original diagram on Excalidraw](https://excalidraw.com/#json=ZWAoeEYx49lGyNc50WU8y,SgvhZvSwEJIr6LCT3F_nUA)*
 
 ---
+## License
+## Environment Variables
+
+### Backend (.env)
+```bash
+# Redis Configuration
+REDIS_URL=redis://localhost:6379/0
+
+# AWS S3 Configuration
+S3_ACCESS_KEY=your-access-key
+S3_SECRET_KEY=your-secret-key
+S3_BUCKET_NAME=your-bucket-name
+S3_REGION=us-east-1
+
+# Database Configuration
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/ui_annotations
+
+# API Server Configuration
+API_HOST=0.0.0.0
+API_PORT=8000
+
+# OpenRouter Configuration
+OPENROUTER_API_KEY=your-openrouter-api-key
+OPENROUTER_MODEL=openai/gpt-4o  # or other supported models
+```
+
+### Frontend (.env)
+```bash
+VITE_API_URL=http://localhost:8000
+VITE_WS_URL=ws://localhost:8000
+```
+
+---
+
+## API Endpoints
+
+### Synchronous Processing
+- `POST /api/v1/predict` - Process single image synchronously
+
+### Asynchronous Processing
+- `POST /api/v1/upload` - Upload image for async processing
+- `GET /api/v1/status/{job_id}` - Check job status
+- `GET /api/v1/results/{job_id}` - Get job results
+
+---
+
 ## License
 MIT
