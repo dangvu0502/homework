@@ -2,8 +2,9 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { useAnnotationStore } from '@/stores/use-annotation-store';
 import { useImageStore } from '@/stores/use-image-store';
-import { RotateCcw, Sparkles, Target, FileImage } from 'lucide-react';
+import { RotateCcw, Sparkles, Target, FileImage, Zap } from 'lucide-react';
 import { toast } from 'sonner';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const { imageFiles, completedImages, reset: resetImages } = useImageStore();
@@ -30,6 +31,12 @@ export const Header = () => {
           </div>
           
           <div className="flex items-center gap-3">
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/batch" className="gap-2">
+                <Zap className="h-4 w-4" />
+                Batch Process
+              </Link>
+            </Button>
             {completedImages > 0 && (
               <Badge variant="outline" className="gap-2">
                 <FileImage className="h-3 w-3" />

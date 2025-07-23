@@ -13,6 +13,16 @@ export type AnnotationTag =
   | 'input'
   | 'radio'
   | 'dropdown'
+  | 'text'
+  | 'image'
+  | 'link'
+  | 'checkbox'
+  | 'label'
+  | 'icon'
+  | 'card'
+  | 'navbar'
+  | 'footer'
+  | 'sidebar'
 
 export interface AnnotationProject {
   id: string;

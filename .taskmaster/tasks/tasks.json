@@ -270,11 +270,25 @@
             "testStrategy": "Annotate several images in a batch. Click the 'Save' button. Inspect the downloaded JSON file. Verify that it contains a top-level array with an entry for each image that was annotated. Check that the annotations within each entry are correct and match what was drawn on the canvas for that specific image."
           }
         ]
+      },
+      {
+        "id": 14,
+        "title": "Implement Scalable Image Analysis Backend",
+        "description": "Implement a scalable backend system for image analysis, featuring API endpoints for job management, a task queue for asynchronous processing, and integration with object storage and a database for results.",
+        "details": "Build a robust, scalable backend service to handle asynchronous image analysis. 1. **Web Server**: Use a framework like FastAPI or Express.js to create three core endpoints: `POST /upload` which accepts an image, stores it, queues a job, and returns a `job_id`; `GET /status/{job_id}` to check the job status (e.g., pending, processing, completed, failed); and `GET /results/{job_id}` to retrieve the analysis results. 2. **Image Storage**: Integrate with an S3-compatible object storage service like AWS S3 or MinIO. The `/upload` endpoint will be responsible for uploading the raw image file to a designated bucket. 3. **Task Queue**: Implement a message queue (e.g., RabbitMQ, Redis with Celery/BullMQ) to manage analysis jobs. Each message should contain the `job_id` and the identifier/URL of the image in object storage. 4. **Worker Process**: Create a separate, scalable worker service that polls the task queue. For each job, the worker will download the image from S3, send it to the designated AI/LLM API for analysis, receive the predicted bounding boxes/tags, and store the results in the database. 5. **Database**: Set up a database (e.g., PostgreSQL, MongoDB) to store job metadata and results. The schema should link the `job_id` to its status and the final JSON output. 6. **Result Delivery**: Initially support client-side polling on the status endpoint. The architecture should also accommodate future implementations of WebSocket or webhook callbacks for real-time result delivery. 7. **API Documentation**: Generate API documentation using OpenAPI/Swagger.",
+        "testStrategy": "Verify the system end-to-end. 1. Use a client like `curl` or Postman to send a POST request with an image to the `/upload` endpoint. 2. Confirm a `job_id` is returned and the image appears in the S3/MinIO bucket. 3. Check the task queue to ensure a new message corresponding to the job has been enqueued. 4. Monitor the worker logs to confirm it dequeues the message and processes the image. 5. Poll the `GET /status/{job_id}` endpoint, verifying the status transitions from `pending` to `processing` and finally to `completed`. 6. Once complete, call `GET /results/{job_id}` and validate that the returned JSON payload is correctly formatted and contains the expected analysis data. 7. Directly query the database to ensure the job status and results are persisted accurately.",
+        "status": "pending",
+        "dependencies": [
+          2,
+          5
+        ],
+        "priority": "medium",
+        "subtasks": []
       }
     ],
     "metadata": {
       "created": "2025-07-17T02:10:01.354Z",
-      "updated": "2025-07-21T04:43:47.779Z",
+      "updated": "2025-07-23T03:34:58.759Z",
       "description": "Tasks for master context"
     }
   }

@@ -29,6 +29,54 @@ export interface HealthResponse {
   status: string;
 }
 
+// Job-related types for async processing
+export interface JobResponse {
+  task_id: string;
+  status: string;
+  message: string;
+  created_at: string;
+}
+
+export type JobStatus = 'pending' | 'processing' | 'completed' | 'failed';
+
+export interface JobStatusResponse {
+  task_id: string;
+  status: JobStatus;
+  progress?: string;
+  message?: string;
+  error?: string;
+  created_at: string;
+  started_at?: string;
+  completed_at?: string;
+  processing_time?: number;
+}
+
+export interface JobResultResponse {
+  task_id: string;
+  image: string;
+  analysis: {
+    annotations: Array<{
+      x: number;
+      y: number;
+      width: number;
+      height: number;
+      label: string;
+      tag?: AnnotationTag;
+      confidence?: number;
+      text?: string;
+    }>;
+    image_dimensions?: {
+      width: number;
+      height: number;
+    };
+    ui_elements: string[];
+    total_elements: number;
+  };
+  model_used: string;
+  processing_time: number;
+  completed_at: string;
+}
+
 // API Error Type
 export class ApiError extends Error {
   status?: number;

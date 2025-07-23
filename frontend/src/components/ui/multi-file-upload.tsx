@@ -1,190 +1,313 @@
-import { useState, useRef } from 'react';
-import { Upload, Image as ImageIcon, X, FileImage } from 'lucide-react';
-import { Button } from './button';
-import { Card } from './card';
-import { Badge } from './badge';
-import { cn } from '@/lib/utils';
+import { apiClient } from "@/api/client";
+import type { JobResultResponse, JobStatus } from "@/api/types";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { useWebSocket } from "@/hooks/use-web-socket";
+import { AlertCircle, FileImage, Upload, X } from "lucide-react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
-interface MultiFileUploadProps {
-  onFilesSelect: (files: File[]) => void;
-  accept?: string;
-  maxSize?: number;
-  maxFiles?: number;
-  className?: string;
+interface FileUploadStatus {
+  file: File;
+  jobId?: string;
+  status: JobStatus | "idle";
+  progress?: string;
+  error?: string;
+  result?: any;
 }
 
-export const MultiFileUpload = ({
-  onFilesSelect,
-  accept = 'image/*',
-  maxSize = 10 * 1024 * 1024, // 10MB per file
-  maxFiles = 100,
-  className
-}: MultiFileUploadProps) => {
-  const [isDragOver, setIsDragOver] = useState(false);
-  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+interface MultiFileUploadProps {
+  onComplete?: (results: any[]) => void;
+  onFilesSelect?: (files: File[]) => void;
+  modelName?: string;
+  maxFiles?: number;
+  className?: string;
+  mode?: "process" | "select";
+}
 
-  const handleFilesSelect = (files: File[]) => {
-    // Filter valid image files and check size
-    const validFiles = files.filter(file => {
-      if (!file.type.startsWith('image/')) {
-        console.warn(`Skipping non-image file: ${file.name}`);
-        return false;
+export const MultiFileUpload: React.FC<MultiFileUploadProps> = ({
+  onComplete,
+  onFilesSelect,
+  modelName,
+  maxFiles = 50,
+  className,
+  mode = "process",
+}) => {
+  const [files, setFiles] = useState<FileUploadStatus[]>([]);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [overallProgress, setOverallProgress] = useState(0);
+  const pendingJobsRef = useRef<Set<string>>(new Set());
+  const completedCount = files.filter((f) => f.status === "completed").length;
+  const failedCount = files.filter((f) => f.status === "failed").length;
+
+  // WebSocket hook for real-time updates
+  const { subscribeToJobs, unsubscribeFromJobs } = useWebSocket({
+    onJobUpdate: useCallback(
+      (jobId: string, data: any) => {
+        console.log(`WebSocket update for job ${jobId}:`, data);
+
+        // Update file status based on WebSocket data
+        setFiles((prevFiles) => {
+          const updatedFiles = prevFiles.map((file, index) => {
+            if (file.jobId === jobId) {
+              const updatedFile = { ...file };
+
+              if (data.status === "processing") {
+                updatedFile.status = "processing";
+                updatedFile.progress = data.message;
+              } else if (data.status === "completed") {
+                updatedFile.status = "completed";
+                updatedFile.result = data.results;
+                pendingJobsRef.current.delete(jobId);
+              } else if (data.status === "failed") {
+                updatedFile.status = "failed";
+                updatedFile.error = data.error;
+                pendingJobsRef.current.delete(jobId);
+              }
+
+              return updatedFile;
+            }
+            return file;
+          });
+
+          // Update progress
+          const completed = updatedFiles.filter(
+            (f) => f.status === "completed" || f.status === "failed"
+          ).length;
+          setOverallProgress((completed / updatedFiles.length) * 100);
+
+          // Check if all jobs are done
+          if (pendingJobsRef.current.size === 0 && mode === "process") {
+            setIsProcessing(false);
+
+            // Collect successful results
+            const successfulResults = updatedFiles
+              .filter((f) => f.status === "completed" && f.result)
+              .map((f) => f.result as JobResultResponse);
+
+            if (onComplete && successfulResults.length > 0) {
+              setTimeout(() => onComplete(successfulResults), 100);
+            }
+          }
+
+          return updatedFiles;
+        });
+      },
+      [mode, onComplete]
+    ),
+  });
+
+  const handleFileSelect = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const selectedFiles = Array.from(e.target.files || []).slice(0, maxFiles);
+      const newFiles = selectedFiles.map((file) => ({
+        file,
+        status: "idle" as const,
+      }));
+      setFiles((prev) => [...prev, ...newFiles].slice(0, maxFiles));
+
+      // In select mode, immediately call onFilesSelect
+      if (mode === "select" && onFilesSelect) {
+        const allFiles = [...files, ...newFiles]
+          .slice(0, maxFiles)
+          .map((f) => f.file);
+        onFilesSelect(allFiles);
       }
-      if (file.size > maxSize) {
-        console.warn(`Skipping large file: ${file.name} (${(file.size / (1024 * 1024)).toFixed(1)}MB)`);
-        return false;
+    },
+    [maxFiles, mode, onFilesSelect, files]
+  );
+
+  const removeFile = useCallback(
+    (index: number) => {
+      setFiles((prev) => {
+        const updated = prev.filter((_, i) => i !== index);
+        // In select mode, update onFilesSelect
+        if (mode === "select" && onFilesSelect) {
+          onFilesSelect(updated.map((f) => f.file));
+        }
+        return updated;
+      });
+    },
+    [mode, onFilesSelect]
+  );
+
+  const processFiles = async () => {
+    setIsProcessing(true);
+    setOverallProgress(0);
+
+    // Upload all files
+    const uploadPromises = files.map(async (fileStatus, index) => {
+      try {
+        const response = await apiClient.uploadImageForProcessing(
+          fileStatus.file,
+          modelName
+        );
+
+        setFiles((prev) => {
+          const updated = [...prev];
+          updated[index] = {
+            ...updated[index],
+            jobId: response.task_id,
+            status: "pending",
+          };
+          return updated;
+        });
+
+        return { success: true, index, jobId: response.task_id };
+      } catch (error) {
+        setFiles((prev) => {
+          const updated = [...prev];
+          updated[index] = {
+            ...updated[index],
+            status: "failed",
+            error: error instanceof Error ? error.message : "Upload failed",
+          };
+          return updated;
+        });
+        return { success: false, index };
       }
-      return true;
     });
 
-    // Limit number of files
-    const filesToAdd = validFiles.slice(0, maxFiles - selectedFiles.length);
-    
-    if (filesToAdd.length > 0) {
-      const newFiles = [...selectedFiles, ...filesToAdd];
-      setSelectedFiles(newFiles);
-      onFilesSelect(newFiles);
-    }
+    const uploadResults = await Promise.all(uploadPromises);
+    const successfulUploads = uploadResults.filter((r) => r.success);
 
-    if (validFiles.length > filesToAdd.length) {
-      alert(`Maximum ${maxFiles} files allowed. Some files were not added.`);
-    }
-  };
+    // Subscribe to WebSocket updates for successful uploads
+    if (successfulUploads.length > 0) {
+      const jobIds = successfulUploads
+        .map((r) => r.jobId)
+        .filter((id): id is string => !!id);
+      console.log("Subscribing to WebSocket updates for jobs:", jobIds);
 
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragOver(false);
+      // Track pending jobs
+      jobIds.forEach((id) => pendingJobsRef.current.add(id));
 
-    const files = Array.from(e.dataTransfer.files);
-    handleFilesSelect(files);
-  };
-
-  const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files || []);
-    handleFilesSelect(files);
-  };
-
-  const removeFile = (index: number) => {
-    const newFiles = selectedFiles.filter((_, i) => i !== index);
-    setSelectedFiles(newFiles);
-    onFilesSelect(newFiles);
-  };
-
-  const clearAll = () => {
-    setSelectedFiles([]);
-    onFilesSelect([]);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
+      // Subscribe to WebSocket updates
+      subscribeToJobs(jobIds);
+    } else {
+      setIsProcessing(false);
     }
   };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      // Unsubscribe from all jobs
+      const jobIds = Array.from(pendingJobsRef.current);
+      if (jobIds.length > 0) {
+        unsubscribeFromJobs(jobIds);
+      }
+    };
+  }, [unsubscribeFromJobs]);
 
   return (
-    <Card className={cn("relative", className)}>
-      {selectedFiles.length > 0 ? (
-        <div className="space-y-4 p-4">
+    <div className={`space-y-4 ${className || ""}`}>
+      <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+        <input
+          type="file"
+          multiple
+          accept="image/*"
+          onChange={handleFileSelect}
+          className="hidden"
+          id="multi-file-upload"
+          disabled={isProcessing}
+        />
+        <label
+          htmlFor="multi-file-upload"
+          className="cursor-pointer flex flex-col items-center space-y-2"
+        >
+          <Upload className="h-12 w-12 text-gray-400" />
+          <span className="text-lg font-medium">
+            Click to upload multiple images
+          </span>
+          <span className="text-sm text-gray-500">
+            PNG, JPG, WEBP up to 50MB each (max {maxFiles} files)
+          </span>
+        </label>
+      </div>
+
+      {files.length > 0 && (
+        <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <FileImage className="h-5 w-5 text-primary" />
-              <h3 className="font-semibold">{selectedFiles.length} Images Selected</h3>
-            </div>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={clearAll}
-              className="gap-2"
-            >
-              <X className="h-4 w-4" />
-              Clear All
-            </Button>
+            <h3 className="text-lg font-semibold">
+              Selected Files ({files.length})
+            </h3>
+            {!isProcessing && mode === "process" && (
+              <Button onClick={processFiles} disabled={files.length === 0}>
+                Process All Images
+              </Button>
+            )}
           </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-64 overflow-y-auto">
-            {selectedFiles.map((file, index) => (
-              <div key={index} className="relative group">
-                <div className="aspect-square bg-muted rounded-lg overflow-hidden">
-                  <img
-                    src={URL.createObjectURL(file)}
-                    alt={file.name}
-                    className="w-full h-full object-cover"
-                    onLoad={(e) => URL.revokeObjectURL(e.currentTarget.src)}
-                  />
+
+          {isProcessing && (
+            <div className="space-y-2">
+              <Progress value={overallProgress} />
+              <p className="text-sm text-gray-500">
+                Completed: {completedCount}/{files.length}
+                {failedCount > 0 && ` (${failedCount} failed)`}
+              </p>
+            </div>
+          )}
+
+          <div className="space-y-2 max-h-96 overflow-y-auto">
+            {files.map((fileStatus, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+              >
+                <div className="flex items-center space-x-3">
+                  <FileImage className="h-8 w-8 text-gray-400" />
+                  <div>
+                    <p className="font-medium text-sm">
+                      {fileStatus.file.name}
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      {(fileStatus.file.size / 1024 / 1024).toFixed(2)} MB
+                    </p>
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    onClick={() => removeFile(index)}
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
+
+                <div className="flex items-center space-x-2">
+                  {fileStatus.status !== "idle" && (
+                    <span
+                      className={`text-xs px-2 py-1 rounded-full ${
+                        fileStatus.status === "completed"
+                          ? "bg-green-100 text-green-700"
+                          : fileStatus.status === "failed"
+                          ? "bg-red-100 text-red-700"
+                          : fileStatus.status === "processing"
+                          ? "bg-blue-100 text-blue-700"
+                          : "bg-gray-100 text-gray-700"
+                      }`}
+                    >
+                      {fileStatus.status}
+                    </span>
+                  )}
+
+                  {!isProcessing && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => removeFile(index)}
+                    >
+                      <X className="h-4 w-4" />
+                    </Button>
+                  )}
                 </div>
-                <Badge variant="secondary" className="absolute bottom-1 left-1 text-xs max-w-[90%] truncate">
-                  {file.name}
-                </Badge>
               </div>
             ))}
           </div>
 
-          <Button
-            variant="outline"
-            onClick={() => fileInputRef.current?.click()}
-            className="w-full gap-2"
-            disabled={selectedFiles.length >= maxFiles}
-          >
-            <Upload className="h-4 w-4" />
-            Add More Images
-          </Button>
-        </div>
-      ) : (
-        <div
-          className={cn(
-            "border-2 border-dashed rounded-lg p-8 text-center transition-colors",
-            "hover:border-primary hover:bg-accent/50",
-            isDragOver && "border-primary bg-accent/50"
+          {failedCount > 0 && (
+            <Alert variant="destructive">
+              <AlertCircle className="h-4 w-4" />
+              <AlertDescription>
+                {failedCount} file(s) failed to process. Check your connection
+                and try again.
+              </AlertDescription>
+            </Alert>
           )}
-          onDrop={handleDrop}
-          onDragOver={(e) => {
-            e.preventDefault();
-            setIsDragOver(true);
-          }}
-          onDragLeave={() => setIsDragOver(false)}
-        >
-          <div className="space-y-4">
-            <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-              <Upload className="h-6 w-6 text-primary" />
-            </div>
-            
-            <div className="space-y-2">
-              <h3 className="font-semibold">Upload Images</h3>
-              <p className="text-sm text-muted-foreground">
-                Drag and drop UI screenshots or design files here
-              </p>
-              <p className="text-xs text-muted-foreground">
-                Upload 1 to {maxFiles} images, {maxSize / (1024 * 1024)}MB each
-              </p>
-            </div>
-
-            <Button
-              variant="outline"
-              onClick={() => fileInputRef.current?.click()}
-              className="gap-2"
-            >
-              <ImageIcon className="h-4 w-4" />
-              Choose Image(s)
-            </Button>
-          </div>
         </div>
       )}
-
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept={accept}
-        multiple
-        onChange={handleFileInput}
-        className="hidden"
-      />
-    </Card>
+    </div>
   );
 };
