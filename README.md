@@ -11,7 +11,7 @@ Before you begin, ensure you have the following installed:
 - **Node.js 22+** - [Download Node.js](https://nodejs.org/)
 - **Make** - Usually pre-installed on macOS/Linux. For Windows, use [WSL](https://docs.microsoft.com/en-us/windows/wsl/install)
 - **uv** (Python package manager) - [Download uv](https://docs.astral.sh/uv/)
-- **Docker & Docker Compose** - For running Redis, PostgreSQL
+- **Docker** - [Download Docker Desktop](https://www.docker.com/products/docker-desktop/) - For running Redis, PostgreSQL
 - **Redis** - Required for Celery task queue (can be run via Docker)
 - **PostgreSQL** - Required for storing job data (can be run via Docker)
 
