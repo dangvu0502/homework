@@ -26,7 +26,7 @@ worker:
 
 # Run both frontend and backend in dev mode
 dev:
-	@echo "Starting frontend, backend, and worker..."
+	@echo "Starting frontend, backend"
 	@make dev-frontend & make dev-backend
 
 # Install dependencies
