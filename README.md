@@ -71,14 +71,7 @@ At backend directory, run:
 ```bash
 docker-compose up -d
 ```
-
-### 5. Start Celery worker (in a separate terminal)
-At root directory, run:
-```bash
-make worker
-```
-
-### 6. Run in development mode
+### 5. Run in development mode
 At root directory, run:
 ```bash
 make dev
@@ -86,6 +79,11 @@ make dev
 - Frontend: http://localhost:8080
 - Backend API: http://localhost:8000
 
+### 6. Start Celery worker (in a separate terminal)
+At root directory, run:
+```bash
+make worker
+```
 ---
 
 ## Frontend (React + Vite + Tailwind)
@@ -121,7 +119,6 @@ uv run python -m src.cli --help  # Show all available commands
 uv run python -m src.cli evaluate \
   --predictions dataset/labels/predictions \
   --ground-truth dataset/labels/ground_truth \
-  --images dataset/images
 ```
 
 A sample dataset is provided in `/backend/dataset` with ground truth and predictions for testing.
@@ -151,51 +148,6 @@ A prediction is considered a:
 ![Hundred Images Design](./hundred-images-design.png)
 
 *[View and edit the original diagram on Excalidraw](https://excalidraw.com/#json=ZWAoeEYx49lGyNc50WU8y,SgvhZvSwEJIr6LCT3F_nUA)*
-
----
-## License
-## Environment Variables
-
-### Backend (.env)
-```bash
-# Redis Configuration
-REDIS_URL=redis://localhost:6379/0
-
-# AWS S3 Configuration
-S3_ACCESS_KEY=your-access-key
-S3_SECRET_KEY=your-secret-key
-S3_BUCKET_NAME=your-bucket-name
-S3_REGION=us-east-1
-
-# Database Configuration
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/ui_annotations
-
-# API Server Configuration
-API_HOST=0.0.0.0
-API_PORT=8000
-
-# OpenRouter Configuration
-OPENROUTER_API_KEY=your-openrouter-api-key
-OPENROUTER_MODEL=openai/gpt-4o  # or other supported models
-```
-
-### Frontend (.env)
-```bash
-VITE_API_URL=http://localhost:8000
-VITE_WS_URL=ws://localhost:8000
-```
-
----
-
-## API Endpoints
-
-### Synchronous Processing
-- `POST /api/v1/predict` - Process single image synchronously
-
-### Asynchronous Processing
-- `POST /api/v1/upload` - Upload image for async processing
-- `GET /api/v1/status/{job_id}` - Check job status
-- `GET /api/v1/results/{job_id}` - Get job results
 
 ---
 
