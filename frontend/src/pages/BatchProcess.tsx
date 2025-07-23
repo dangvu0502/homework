@@ -1,14 +1,12 @@
+import type { JobResultResponse } from '@/api/types';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { MultiFileUpload } from '@/components/ui/multi-file-upload';
+import { BlobWriter, ZipWriter } from '@zip.js/zip.js';
+import { ArrowLeft, Check, Download, FileImage, X, Zap } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Zap, Download, FileImage, Check, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { MultiFileUpload } from '@/components/ui/multi-file-upload';
-import { useImageStore } from '@/stores/use-image-store';
-import { useAnnotationStore } from '@/stores/use-annotation-store';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import type { JobResultResponse } from '@/api/types';
-import type { BoundingBox, AnnotationTag } from '@/types/annotation';
 
 interface FailedFile {
   file: File;
@@ -17,8 +15,6 @@ interface FailedFile {
 
 const BatchProcess = () => {
   const navigate = useNavigate();
-  const { setImageFiles } = useImageStore();
-  const { setAnnotationsPerImage } = useAnnotationStore();
   const [processedResults, setProcessedResults] = useState<JobResultResponse[]>([]);
   const [failedFiles, setFailedFiles] = useState<FailedFile[]>([]);
   const [showResults, setShowResults] = useState(false);
@@ -31,60 +27,52 @@ const BatchProcess = () => {
     setShowResults(true);
   };
 
-  const downloadResults = () => {
-    const resultsData = processedResults.map(result => ({
-      image: result.image,
-      task_id: result.task_id,
-      processing_time: result.processing_time,
-      annotations: result.analysis.annotations
-    }));
-
-    const blob = new Blob([JSON.stringify(resultsData, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
+  const downloadResults = async () => {
+    // Create a blob writer for the zip file
+    const blobWriter = new BlobWriter();
+    const zipWriter = new ZipWriter(blobWriter);
+    
+    // Create individual files for each image result
+    for (const result of processedResults) {
+      const imageName = result.image.split('/').pop() || `${result.task_id}.png`;
+      const fileNameWithoutExt = imageName.replace(/\.[^/.]+$/, '');
+      
+      // Transform annotations to match the expected format
+      const transformedAnnotations = result.analysis.annotations.map((ann, index) => ({
+        id: `prediction-${Date.now()}-${index}`,
+        x: ann.x,
+        y: ann.y,
+        width: ann.width,
+        height: ann.height,
+        tag: ann.tag || ann.label,
+        source: "prediction" as const
+      }));
+      
+      const resultData = {
+        imageName: imageName,
+        imageDimensions: result.analysis.image_dimensions || { width: 0, height: 0 },
+        annotations: transformedAnnotations,
+        metadata: {
+          totalAnnotations: transformedAnnotations.length,
+          exportedAt: new Date().toISOString()
+        }
+      };
+      
+      const resultBlob = new Blob([JSON.stringify(resultData, null, 2)], { type: 'application/json' });
+      await zipWriter.add(`${fileNameWithoutExt}_annotations.json`, resultBlob.stream());
+    }
+    
+    // Close the zip writer and get the blob
+    await zipWriter.close();
+    const zipBlob = await blobWriter.getData();
+    
+    // Download the zip file
+    const url = URL.createObjectURL(zipBlob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `batch_results_${new Date().toISOString()}.json`;
+    a.download = `batch_results_${new Date().toISOString().replace(/[:.]/g, '-')}.zip`;
     a.click();
     URL.revokeObjectURL(url);
-  };
-
-  const viewInAnnotationTool = async () => {
-    // Convert results to the format expected by the annotation system
-    const imagePromises = processedResults.map(async (result) => {
-      // Create a blob from the result (you might need to fetch the image from S3)
-      // For now, we'll create a placeholder
-      const imageFile = new File([new Blob()], result.image, { type: 'image/png' });
-      
-      return {
-        file: imageFile,
-        fileName: result.image,
-        annotations: result.analysis.annotations.map((ann, idx) => ({
-          id: `${result.task_id}-${idx}`,
-          x: ann.x,
-          y: ann.y,
-          width: ann.width,
-          height: ann.height,
-          tag: (ann.tag || ann.label) as AnnotationTag,
-          source: 'prediction' as const,
-        })),
-      };
-    });
-
-    const processedImages = await Promise.all(imagePromises);
-    
-    // Add images to the store
-    const imageFiles = processedImages.map(img => img.file);
-    setImageFiles(imageFiles);
-
-    // Create annotations object for all images
-    const annotationsMap: Record<string, BoundingBox[]> = {};
-    processedImages.forEach((img) => {
-      annotationsMap[img.fileName] = img.annotations;
-    });
-    setAnnotationsPerImage(annotationsMap);
-
-    // Navigate to annotation tool
-    navigate('/');
   };
 
   const resetBatch = () => {
@@ -178,10 +166,7 @@ const BatchProcess = () => {
                 <div className="flex gap-2">
                   <Button onClick={downloadResults} variant="outline" size="sm">
                     <Download className="h-4 w-4 mr-2" />
-                    Download JSON
-                  </Button>
-                  <Button onClick={viewInAnnotationTool} size="sm">
-                    View in Annotation Tool
+                    Download ZIP
                   </Button>
                   <Button onClick={resetBatch} variant="outline" size="sm">
                     Process New Batch
