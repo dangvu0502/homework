@@ -113,15 +113,17 @@ make worker
 
 ```bash
 cd backend
-uv run python -m src.cli --help  # Show all available commands
+uv run cli  # Show all available commands
 
 # Evaluate predictions against ground truth
-uv run python -m src.cli evaluate \
-  --predictions dataset/labels/predictions \
-  --ground-truth dataset/labels/ground_truth \
+uv run cli evaluate 
 ```
 
 A sample dataset is provided in `/backend/dataset` with ground truth and predictions for testing.
+
+Evaluation result of gemini-2.5-flash on dataset:
+
+![Evaluation result of gemini-2.5-flash on dataset](./evaluation-result-gemini-2.5-flash.png)
 
 **Evaluation Metrics**
 
