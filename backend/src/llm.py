@@ -11,28 +11,25 @@ from json_repair import repair_json
 from src.schemas import (
     AnnotationSchema,
     DetectionResult,
-    ImageDimensions,
 )
 from src.settings import config
-from src.constants import UI_ELEMENT_TYPES_LOWER
+from src.constants import UI_ELEMENT_TYPES
 
 logger = logging.getLogger(__name__)
 
 SYSTEM_PROMPT = (
     "You are a multimodal assistant that identifies user-interface elements in an image. "
-    "Given an image of a web or mobile UI, detect up to 20 elements of the following types: "
-    f"{', '.join(UI_ELEMENT_TYPES_LOWER)}. For every detected element, output a JSON object with the "
-    "keys: x, y, width, height, tag. The (x, y) represent the top-left corner in pixels, "
-    f"width and height are in pixels, tag is one of: {', '.join(UI_ELEMENT_TYPES_LOWER)}. "
-    "Also include the image dimensions. "
-    "Return your response as a JSON object with 'annotations' array and 'image_dimensions' object. "
-    "Example: {\"annotations\": [{\"x\": 100, \"y\": 200, \"width\": 100, \"height\": 50, \"tag\": \"button\"}], "
-    "\"image_dimensions\": {\"width\": 1920, \"height\": 1080}}"
+    "Given an image of a web or mobile UI, detect all of the prominent items in the image. "
+    f"Focus on these element types: {', '.join(UI_ELEMENT_TYPES)}. "
+    "For every detected element, output a JSON object with the keys: box_2d, tag. "
+    "The box_2d should be [ymin, xmin, ymax, xmax] normalized to 0-1000. "
+    f"The tag is one of: {', '.join(UI_ELEMENT_TYPES)}. "
+    "Return your response as a JSON object with 'annotations' array. "
+    "Example: {\"annotations\": [{\"box_2d\": [100, 200, 150, 300], \"tag\": \"button\"}]}"
 )
 
 USER_PROMPT = (
-    "Please analyze this UI image and detect all interactive elements (buttons, inputs, radio buttons, dropdowns). "
-    "Also determine the image dimensions."
+    "Detect all of the prominent items in the image. The box_2d should be [ymin, xmin, ymax, xmax] normalized to 0-1000."
 )
 
 def detect_ui_elements(
@@ -105,18 +102,33 @@ def detect_ui_elements(
     if not isinstance(annotations, list):
         raise ValueError("Annotations must be a list")
 
-    dimensions = None
-    image_dimensions = data.get("image_dimensions", {})
-    if image_dimensions:
-        width = image_dimensions.get("width")
-        height = image_dimensions.get("height")
-        if width and height and width > 0 and height > 0:
-            dimensions = ImageDimensions(width=width, height=height)
-            logger.info(f"LLM detected image dimensions: {width}x{height}")
+    # Convert Gemini-style box_2d format to our x, y, width, height format
+    annotations_list = []
+    for ann in annotations:
+        if "box_2d" in ann and isinstance(ann["box_2d"], list) and len(ann["box_2d"]) == 4:
+            # box_2d is [ymin, xmin, ymax, xmax] normalized to 0-1000
+            ymin, xmin, ymax, xmax = ann["box_2d"]
+            
+            # Keep coordinates in normalized form (0-1000)
+            # The frontend will need to scale these based on actual image size
+            x = xmin
+            y = ymin
+            width = xmax - xmin
+            height = ymax - ymin
+            
+            annotation = AnnotationSchema(
+                x=x,
+                y=y,
+                width=width,
+                height=height,
+                tag=ann.get("tag", "button")
+            )
+            annotations_list.append(annotation)
+        else:
+            # Fallback to old format if box_2d is not present
+            annotations_list.append(AnnotationSchema(**ann))
 
-    annotations_list = [AnnotationSchema(**ann) for ann in annotations]
-
-    return DetectionResult(annotations=annotations_list, dimensions=dimensions)
+    return DetectionResult(annotations=annotations_list)
 
 
 if __name__ == "__main__":
@@ -149,8 +161,6 @@ if __name__ == "__main__":
         )
 
         print(f"Found {len(result.annotations)} UI elements:")
-        if result.dimensions:
-            print(f"Image dimensions: {result.dimensions.width}x{result.dimensions.height}")
 
         for i, ann in enumerate(result.annotations, 1):
             print(f"{i}. {ann.tag} at ({ann.x}, {ann.y}) - {ann.width}x{ann.height}")

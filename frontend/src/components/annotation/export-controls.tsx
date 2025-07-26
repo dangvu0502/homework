@@ -42,10 +42,6 @@ export const ExportControls = () => {
   const generateExportData = (): AnnotationExport => {
     return {
       imageName,
-      imageDimensions: {
-        width: imageDimensions?.width || 0,
-        height: imageDimensions?.height || 0,
-      },
       annotations: boundingBoxes.map((box) => ({
         id: box.id,
         x: Math.round(box.x),
@@ -119,10 +115,6 @@ export const ExportControls = () => {
 
         const exportData: AnnotationExport = {
           imageName: imageFile.name,
-          imageDimensions: {
-            width: 0, // These would need to be stored per image
-            height: 0,
-          },
           annotations: annotations.map((box) => ({
             id: box.id,
             x: Math.round(box.x),

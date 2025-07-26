@@ -13,16 +13,6 @@ export type AnnotationTag =
   | 'input'
   | 'radio'
   | 'dropdown'
-  | 'text'
-  | 'image'
-  | 'link'
-  | 'checkbox'
-  | 'label'
-  | 'icon'
-  | 'card'
-  | 'navbar'
-  | 'footer'
-  | 'sidebar'
 
 export interface AnnotationProject {
   id: string;
@@ -36,10 +26,6 @@ export interface AnnotationProject {
 
 export interface AnnotationExport {
   imageName: string;
-  imageDimensions: {
-    width: number;
-    height: number;
-  };
   annotations: Array<{
     id: string;
     x: number;

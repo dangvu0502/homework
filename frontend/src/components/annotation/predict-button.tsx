@@ -11,7 +11,7 @@ interface PredictButtonProps {
 }
 
 export const PredictButton = ({ disabled = false }: PredictButtonProps) => {
-  const { addPredictions } = useAnnotationStore();
+  const { addPredictions, imageDimensions } = useAnnotationStore();
   const { getCurrentImageFile } = useImageStore();
   const { mutate: predict, isPending } = usePredictUIElements();
   
@@ -30,15 +30,31 @@ export const PredictButton = ({ disabled = false }: PredictButtonProps) => {
       {
         onSuccess: (data) => {
           // Convert API response to BoundingBox format
-          const predictions: BoundingBox[] = data.annotations.map((annotation, index) => ({
-            id: `prediction-${Date.now()}-${index}`,
-            x: annotation.x,
-            y: annotation.y,
-            width: annotation.width,
-            height: annotation.height,
-            tag: annotation.tag,
-            source: 'prediction' as const,
-          }));
+          // API returns normalized coordinates (0-1000), convert to pixel coordinates
+          const predictions: BoundingBox[] = data.annotations.map((annotation, index) => {
+            let x = annotation.x;
+            let y = annotation.y;
+            let width = annotation.width;
+            let height = annotation.height;
+            
+            // Convert from normalized (0-1000) to pixel coordinates if we have dimensions
+            if (imageDimensions) {
+              x = (annotation.x / 1000) * imageDimensions.width;
+              y = (annotation.y / 1000) * imageDimensions.height;
+              width = (annotation.width / 1000) * imageDimensions.width;
+              height = (annotation.height / 1000) * imageDimensions.height;
+            }
+            
+            return {
+              id: `prediction-${Date.now()}-${index}`,
+              x,
+              y,
+              width,
+              height,
+              tag: annotation.tag,
+              source: 'prediction' as const,
+            };
+          });
 
           addPredictions(predictions);
           

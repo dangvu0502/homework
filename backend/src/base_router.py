@@ -39,7 +39,6 @@ async def predict_ui_elements(file: UploadFile = File(...)):
 
         return PredictionResponse(
             annotations=detection_result.annotations,
-            image_dimensions=detection_result.dimensions,
             processing_time=processing_time
         )
 

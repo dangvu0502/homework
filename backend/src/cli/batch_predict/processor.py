@@ -42,11 +42,9 @@ class BatchProcessor:
             detection_result = detect_ui_elements(
                 image_data=image_data,
                 image_type=mime_type,
-                model_name=self.model_name
             )
 
             result["annotations"] = [ann.model_dump() for ann in detection_result.annotations]
-            result["image_dimensions"] = detection_result.dimensions.model_dump() if detection_result.dimensions else None
             result["status"] = "completed"
 
         except Exception as e:

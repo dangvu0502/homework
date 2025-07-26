@@ -50,7 +50,6 @@ const BatchProcess = () => {
       
       const resultData = {
         imageName: imageName,
-        imageDimensions: result.analysis.image_dimensions || { width: 0, height: 0 },
         annotations: transformedAnnotations,
         metadata: {
           totalAnnotations: transformedAnnotations.length,

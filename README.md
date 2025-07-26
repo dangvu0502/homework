@@ -121,10 +121,6 @@ uv run cli evaluate
 
 A sample dataset is provided in `/backend/dataset` with ground truth and predictions for testing.
 
-Evaluation result of gemini-2.5-flash on dataset:
-
-![Evaluation result of gemini-2.5-flash on dataset](./evaluation-result-gemini-2.5-flash.png)
-
 **Evaluation Metrics**
 
 The evaluation calculates three key metrics for each UI element type:
