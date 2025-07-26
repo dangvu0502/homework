@@ -66,7 +66,6 @@ def process_image_task(self, job_id: str, s3_key: str) -> dict[str, Any]:
             "image": s3_key,
             "analysis": {
                 "annotations": [ann.model_dump() for ann in detection_result.annotations],
-                "image_dimensions": detection_result.dimensions.model_dump() if detection_result.dimensions else None,
                 "ui_elements": [ann.tag for ann in detection_result.annotations],
                 "total_elements": len(detection_result.annotations)
             },

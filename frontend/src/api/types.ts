@@ -9,10 +9,6 @@ export interface PredictionResponse {
     height: number;
     tag: AnnotationTag;
   }>;
-  image_dimensions: {
-    width: number;
-    height: number;
-  };
   processing_time: number;
 }
 
@@ -56,10 +52,6 @@ export interface JobResultResponse {
       confidence?: number;
       text?: string;
     }>;
-    image_dimensions?: {
-      width: number;
-      height: number;
-    };
     ui_elements: string[];
     total_elements: number;
   };

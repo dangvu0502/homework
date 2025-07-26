@@ -7,8 +7,7 @@ MAX_UPLOAD_SIZE = 10 * 1024 * 1024  # 10MB limit
 SUPPORTED_IMAGE_TYPES = ('image/',)
 
 # UI element types
-UI_ELEMENT_TYPES = ["Button", "Input", "Radio", "Dropdown", "Text"]
-UI_ELEMENT_TYPES_LOWER = ["button", "input", "radio", "dropdown"]  # Used in LLM prompts
+UI_ELEMENT_TYPES = ["button", "input", "radio", "dropdown"]  # Used in LLM prompts
 
 # Job cleanup
 JOB_RETENTION_DAYS = 7  # Keep jobs for 7 days
